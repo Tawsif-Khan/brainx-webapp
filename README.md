@@ -1,5 +1,5 @@
 
-# Laravel Multi Auth
+# BrainX Web App
 
 The Laravel Framework project boilerplate with Inertia setup in vue. It has separate model and guards for both user and admin.
 
