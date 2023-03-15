@@ -3,7 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-
+use App\Http\Controllers\LinkedinController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,13 +16,16 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return view('pages.index');
 });
+Route::get('/business', function () {
+    return view('pages.business');
+});
+Route::get('/pending', function () {
+    return view('pages.talent.pending');
+});
+
+Route::get('/build-profile', 'App\http\controllers\TalentProfileController@index')->name('build.profile');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -33,4 +36,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verified'])->
         return Inertia::render('Admin/Dashboard');
     })->name('dashboard');
 });
+
+Route::get('auth/linkedin', [LinkedinController::class, 'linkedinRedirect']);
+Route::get('auth/linkedin/callback', [LinkedinController::class, 'linkedinCallback']);
 require __DIR__ . '/auth.php';
