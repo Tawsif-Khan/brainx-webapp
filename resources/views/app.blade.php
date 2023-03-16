@@ -7,10 +7,10 @@
         <title inertia>{{ config('app.name', 'BrainX') }}</title>
 
         <!-- Favicon -->
-		<link rel="shortcut icon" href="assets/img/BrainX_logo.png" type="image/x-icon">
+		<link rel="shortcut icon" href="/assets/img/BrainX_logo.png" type="image/x-icon">
 		
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
 				
 		<!-- Fontawesome CSS -->
 		<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">

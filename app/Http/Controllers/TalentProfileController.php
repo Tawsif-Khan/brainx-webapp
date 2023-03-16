@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Category;
+use App\Models\Talent;
+use App\Models\TalentSkill;
 
 class TalentProfileController extends Controller
 {
@@ -18,7 +21,9 @@ class TalentProfileController extends Controller
         // dd(Auth::guard()->user()->id);
         if(Auth::guard()->user() != null){
             $user = User::find(Auth::guard()->user()->id);
-            return view('pages.talent.build-profile')->with('user', $user);
+            $categories = Category::with('skills')->get();
+            // dd($categories);
+            return view('pages.talent.build-profile')->with('user', $user)->with('categories', $categories);
         }
         return redirect('/');
     }
@@ -41,7 +46,46 @@ class TalentProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user_id = Auth::guard()->user()->id;
+        
+        $talent = Talent::where('user_id', $user_id)->with('skill')->first();
+        
+        $talent->name = $request->name;
+        $talent->country = $request->country;
+        $talent->standout_job_title = $request->standout_job_title;
+        $talent->experience = $request->experience;
+        $talent->brief_summary = $request->bio;
+        $talent->hours_per_week = $request->hours_per_week;
+        $talent->hourly_rate = $request->hourly_rate;
+        $talent->user_id = $user_id;
+        $talent->save();
+
+        $data = [];
+        foreach($request->skills as $skill){
+
+            if(!$this->isSkillExists($talent->skill, $skill)){
+                array_push($data,
+                    array(
+                        'talent_id' => $talent->talent_id,
+                        'skill_id' => $skill
+                    )
+                );
+            }
+        }
+        
+        $skills = TalentSkill::insert($data);
+
+        return redirect()->route('talent.pending');
+    }
+
+    function isSkillExists($existingSkills, $skill){
+        foreach($existingSkills as $existingSkill){
+            if($existingSkill->skill_id == $skill){
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -50,9 +94,11 @@ class TalentProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function show()
+    {   
+        $user = User::with('talent')->find(Auth::guard()->user()->id);
+        // dd($user->talent);
+        return view('pages.talent.profile')->with('user', $user);
     }
 
     /**

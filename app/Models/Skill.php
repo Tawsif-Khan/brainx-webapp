@@ -9,4 +9,6 @@ class Skill extends Model
 {
     use HasFactory;
     protected $primaryKey = 'skill_id';
+
+    
 }

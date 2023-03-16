@@ -23,9 +23,12 @@ Route::get('/business', function () {
 });
 Route::get('/pending', function () {
     return view('pages.talent.pending');
-});
+})->name('talent.pending');
 
+
+Route::get('/view-profile', 'App\http\controllers\TalentProfileController@show')->name('show.profile');
 Route::get('/build-profile', 'App\http\controllers\TalentProfileController@index')->name('build.profile');
+Route::post('/submit-profile','App\http\controllers\TalentProfileController@store')->name('submit.profile');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

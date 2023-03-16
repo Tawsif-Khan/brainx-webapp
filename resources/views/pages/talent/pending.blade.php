@@ -2,9 +2,15 @@
 
 @section('content')
 
-
+<style>
+    .footer{
+        position: absolute;
+	bottom: 0px;
+	width: 100%;
+    }
+</style>
 <!-- Content -->
-<div class="content p-5 m-5">
+<div class="content ">
     <div class="container-fluid">
         <div class="row">
             

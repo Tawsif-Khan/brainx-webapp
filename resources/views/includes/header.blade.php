@@ -28,7 +28,7 @@
                 </li> --}}
             </ul>
         </div>		 
-        <ul class="nav header-navbar-rht reg-head">												
+        <ul class="nav header-navbar-rht reg-head pe-5">												
             {{-- <li><a href="register.html" class="reg-btn"><img src="assets/img/icon/reg-icon.svg" class="me-1" alt="icon"> Register</a></li> --}}
             @if (Auth::guard()->user() == null)
             <li><a href="login.html" class="log-btn"><img src="assets/img/icon/lock-icon.svg" class="me-1" alt="icon"> Login</a></li>
