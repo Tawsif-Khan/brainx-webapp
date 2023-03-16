@@ -21,6 +21,8 @@ ul li{
     padding: 10px 0px;
 }
 </style>
+<form action="{{ route('submit.profile') }}" method="POST">
+    @csrf
 <!-- Content -->
 <div class="content ">
     <div class="container-fluid">
@@ -157,7 +159,7 @@ ul li{
                                             <label for="">
                                                 What is your legal full name?
                                             </label>
-                                            <input type="text" name="fullName" class="form-control" value="{{ $user->name}}"/>
+                                            <input type="text" name="name" class="form-control" onkeyup="setValuetoProfile('name', this.value)" value="{{ $user->name}}"/>
                                         </div>
                                         <div class="form-group">
                                             <label for="">
@@ -169,13 +171,13 @@ ul li{
                                             <label for="">
                                                 What is your standout job title? (ex: AI engineer...)
                                             </label>
-                                            <input type="text" name="fullName" class="form-control"/>
+                                            <input type="text" name="standout_job_title" class="form-control" onkeyup="setValuetoProfile('position', this.value)"/>
                                         </div>
                                         <div class="form-group">
                                             <label for="">
                                                 How many years of AI experience do you have?
                                             </label>
-                                            <input type="number" name="fullName" class="form-control"/>
+                                            <input type="number" name="experience" class="form-control" onkeyup="setValuetoProfile('experience', this.value)"/>
                                         </div>
                                     </div>
                                 
@@ -209,15 +211,21 @@ ul li{
                                 
                                     <div class="card-body text-start">
                                         <div class="form-group">
-                                            <textarea name="bio" id="bio" cols="80" rows="5"></textarea>
+                                            <textarea name="bio"  cols="80" rows="5" onkeyup="setValuetoProfile('bio', this.value)"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="">
                                                 Your availability to work on BrainX
                                             </label>
-                                            <select name="availability" id="" class="form-control">
-                                                <option value="1">Available</option>
-                                                <option value="0">Unavailable</option>
+                                            <select name="hours_per_week" id="" class="form-control" onchange="setValuetoProfile('hours_of_week', this.value)">
+                                                <option value="0">Not available for now</option>
+                                                <option value="10">10 hours/week</option>
+                                                <option value="15">15 hours/week</option>
+                                                <option value="20">20 hours/week</option>
+                                                <option value="25">25 hours/week</option>
+                                                <option value="30">30 hours/week</option>
+                                                <option value="35">35 hours/week</option>
+                                                <option value="40">40 hours/week</option>
                                             </select>
                                         </div>
                                     </div>
@@ -263,7 +271,7 @@ ul li{
                                 </div>
                             </div>
                         </div>
-                        <div class="section-5 d-none">
+                        <div class="section-5 ">
                             <div class="chat-header border-0">
                                 <a id="back_user_list" href="javascript:void(0)" class="back-user-list">
                                     <i class="material-icons">chevron_left</i>
@@ -294,59 +302,14 @@ ul li{
                                             <div class="col-md-4">
                                                 <div class="input-group">
 													<span class="input-group-text">$</span>
-													<input type="text" class="form-control">
+													<input type="number" name="hourly_rate" class="form-control" onkeyup="setValuetoProfile('hourly_rate', this.value)"/>
 													<span class="input-group-text">/hour</span>
 												</div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-8">
-                                                <h4>Listed hourly rate</h4>
-                                                <p>
-                                                    Plus 10% upon your hourly rate. Client will see this rate when you’re matched to a client 
-                                                </p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="input-group">
-													<span class="input-group-text">$</span>
-													<input type="text" class="form-control" disabled>
-													<span class="input-group-text">/hour</span>
-												</div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-8">
-                                                <h4>Service fee</h4>
-                                                <p>
-                                                    BrainX takes 12% from your hourly rate and 8% from client. It helps us run the platform and get clients for you. 
-                                                </p>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="input-group">
-													<span class="input-group-text">$</span>
-													<input type="text" class="form-control" disabled>
-													<span class="input-group-text">/hour</span>
-												</div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-8">
-                                                <h4>You’ll receive</h4>
-
-                                                
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="input-group">
-													<span class="input-group-text">$</span>
-													<input type="text" class="form-control" disabled>
-													<span class="input-group-text">/hour</span>
-												</div>
-                                            </div>
-                                        </div>
-                                        
                                     </div>
                                 <div class="card-footer border-0">
-                                    <button class="btn btn-primary"> Next</button>
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#profile"> Preview my profile</button>
 
                                 </div>
                             </div>
@@ -361,7 +324,7 @@ ul li{
 </div>	
 <!-- /Page Content -->
 
-
+@include('pages.talent.profile-modal-view')
 		<!-- The Modal -->
 		<div class="modal fade custom-modal" id="add-category">
 			<div class="modal-dialog modal-dialog-centered">
@@ -394,8 +357,8 @@ ul li{
                                         </label>
                                         </div>
                                     </div>
-                                <div class="card-footer border-0 pb-2 mt-4">
-                                    <button type="button" data-bs-dismiss="modal" class="btn btn-primary" onclick="showSection(document.getElementsByClassName('section-2')[0], this);"> Next</button>
+                                <div class="card-footer border-0  mt-4 col-md-6">
+                                    <button type="button" data-bs-dismiss="modal" class="btn mt-4 btn-primary" onclick="showSection(document.getElementsByClassName('section-2')[0], this);"> Next</button>
 
                                 </div>
                             </div>
@@ -407,8 +370,8 @@ ul li{
 		</div>
 		<!-- /The Modal -->
 
+</form>
 
-        
 @endsection
 
 @section('custom-js')
@@ -515,21 +478,20 @@ ul li{
 function addToList(element){
 
 if(element.checked){
-$('.inserted').before($('<p class="keyword " >' + element.value + '<a class="delete '+element.id+'" onclick="deleteWord(this,\''+element.value+'\')"><i class="fa fa-times" aria-hidden="true"></i></a></p>'));
+    $('#skill-lists').append($('<li class="list-inline-item btn btn-dark">'+element.id+'</li>'))
+$('.inserted').before($('<p class="keyword " >' + element.id + '<a class="delete '+element.value+'" onclick="deleteWord(this,\''+element.value+'\')"><i class="fa fa-times" aria-hidden="true"></i></a></p>'));
 }else{
-    console.log(document.getElementsByClassName(element.id)[0])
-    deleteWord(document.getElementsByClassName(element.id)[0], element.value)
+    
+    deleteWord(document.getElementsByClassName(element.value)[0], element.value)
 }
 }
 
 //Delete a keyword
 function deleteWord(element, value){
-//   var index = allKeywords.indexOf($(element).parent('.keyword').text());
-//   if(index !== -1){                                  
-//     allKeywords.splice(index, 1);
-//   }
+
+    
   $(element).parent('.keyword').remove();
-  var skill = document.querySelector("input[value="+value+"]");
+  var skill = document.querySelector("input[value='"+value+"']");
   skill.checked = false;
 }
 </script>
@@ -542,6 +504,15 @@ function deleteWord(element, value){
         el.classList.remove('d-none')
         btn.disabled= true
         el.scrollIntoView()
+    }
+
+</script>
+
+<script>
+
+    function setValuetoProfile(id, value){
+        var el = document.getElementById(id);
+        el.innerHTML = value
     }
 
 </script>

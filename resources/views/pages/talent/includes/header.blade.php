@@ -122,12 +122,15 @@
                 </span>
             </a>
             <div class="dropdown-menu">
-                <a class="dropdown-item" href="profile.html"><i data-feather="user" class="me-1"></i> Profile</a>
-                <a class="dropdown-item" href="login.html"><i data-feather="log-out" class="me-1"></i> Logout</a>
+                <a class="dropdown-item" href="/view-profile"><i data-feather="user" class="me-1"></i> Profile</a>
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i data-feather="log-out" class="me-1"></i> Logout</a>
             </div>
         </li>
         <!-- /User Menu -->
         
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
     </ul>
     <!-- /Header Menu -->
     

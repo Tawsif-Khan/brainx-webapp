@@ -531,8 +531,8 @@ button.bg-danger:hover {
 	box-shadow: unset;
 }
 .btn-primary.disabled, .btn-primary:disabled {
-    background-color: #09e5ab;
-    border-color: #09e5ab;
+    background-color: #efefef;
+    border-color: #efefef;
     color: #fff;
 }
 .btn-secondary.active:focus:not(:disabled):not(.disabled), 
@@ -14147,6 +14147,7 @@ ul {
     background-size: cover;
     overflow: hidden;
 	background: #fdfdfd;
+
 }
 .footer-user {
     position: absolute;
