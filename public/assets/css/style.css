@@ -6841,6 +6841,7 @@ div#global-loader {
 .loader-img {
 	position: absolute;
     z-index: 9;
+	width: 100px;
 }
 @-webkit-keyframes spin {
 	0% { 
