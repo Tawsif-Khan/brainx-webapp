@@ -271,7 +271,7 @@ ul li{
                                 </div>
                             </div>
                         </div>
-                        <div class="section-5 ">
+                        <div class="section-5 d-none">
                             <div class="chat-header border-0">
                                 <a id="back_user_list" href="javascript:void(0)" class="back-user-list">
                                     <i class="material-icons">chevron_left</i>
@@ -357,8 +357,8 @@ ul li{
                                         </label>
                                         </div>
                                     </div>
-                                <div class="card-footer border-0  mt-4 col-md-6">
-                                    <button type="button" data-bs-dismiss="modal" class="btn mt-4 btn-primary" onclick="showSection(document.getElementsByClassName('section-2')[0], this);"> Next</button>
+                                <div class="card-footer border-0  mt-4 col-md-8 offset-md-2 ">
+                                    <button type="button" data-bs-dismiss="modal" class="btn mt-4 btn-primary w-100" onclick="showSection(document.getElementsByClassName('section-2')[0], this);"> Next</button>
 
                                 </div>
                             </div>

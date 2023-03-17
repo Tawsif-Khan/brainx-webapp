@@ -17,6 +17,17 @@
                                   
                                     <div class="card-body text-center">
                                         <form action="">
+
+				@if (Auth::guard()->user() == null )
+                                            <div class="form-group">
+                                                <input type="text" name="name" class="form-control" placeholder="Full Name"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" name="email" class="form-control" placeholder="Email"/>
+                                            </div>
+											@else
+											
+											@endif
                                             <div class="form-group">
                                                 <input type="text" name="topic" class="form-control" placeholder="Topic"/>
                                             </div>
