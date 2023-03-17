@@ -7,6 +7,12 @@
         width: 75px;
         height: auto;
     }
+	.blurry{
+		height: 20px;
+		filter: blur(5px);
+		margin-top: -10px;
+		background: #ffffffff;
+	}
 </style>
 <!-- Start Navigation -->
 			
@@ -45,7 +51,10 @@
 						<div class="col-md-4 col-lg-5">
 							<div class="banner-img aos text-center" data-aos="fade-up">
 								<img src="assets/img/Tawsif_circle-removebg-preview.jpg" class="img-fluid hero-img" alt="banner">
-                                <div class="freelance-info text-center">
+								<div class="blurry">
+
+								</div>
+								<div class="freelance-info text-center">
 									<h3 class="mt-2"><a href="">Tawsif Khan</a></h3>
 									<h4 class="freelance-specific">PhD Student in AI - Malaysia</h4>
                                     <p>"AI age is now. Join force with BrainX to bring AI revolution to the global economy"</p>
