@@ -45,6 +45,14 @@
 
     </head>
     <body class="home-page bg-one">
+		<!-- Loader -->
+		<div id="global-loader"  >
+			<div class="whirly-loader"> </div>
+			<div class="loader-img">
+				<img src="assets/img/BrainX/X.png" class="img-fluid" alt="">
+			</div>
+		</div>
+		<!-- Loader -->
          <!-- Main Wrapper -->
 		<div class="main-wrapper">
 			@if (Auth::guard()->user() == null || Request::is('/'))
