@@ -160,8 +160,16 @@
 			</section>
 			<!-- /Great About -->
             <div class="great-about text-center">
-                <a href="post-project.html" class="login-btn"> Join Us</a>
+				@if (Auth::guard()->user() == null )
+				<a class="btn" href="{{ url('auth/linkedin') }}">	
+				<button class="btn btn-primary sub-btn" type="submit">Join us</button>
+				</a>
+				@else
+				<a class="btn" href="{{ url('build-profile') }}">	
+					<button class="btn btn-primary sub-btn" type="submit">Dashboard</button>
+					</a>
 
+				@endif
             </div>
 	
 
@@ -214,7 +222,8 @@
 			</section>
 
             <div class="great-about text-center">
-                <a href="post-project.html" class="login-btn"> Give a feedback</a>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#add-feedback" class="login-btn"> Give a feedback</a>
 
             </div>
+			@include('includes.feedback-modal')
 @endsection
