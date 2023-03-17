@@ -21,6 +21,12 @@ Route::get('/', function () {
 Route::get('/business', function () {
     return view('pages.business');
 });
+Route::get('/privacy-policy', function () {
+    return view('pages.privacy');
+});
+Route::get('/terms-of-service', function () {
+    return view('pages.terms');
+});
 Route::get('/pending', function () {
     return view('pages.talent.pending');
 })->name('talent.pending');

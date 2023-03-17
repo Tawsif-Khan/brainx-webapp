@@ -18,8 +18,8 @@
 									<ul class="nav footer-bottom-nav">
                                         
 										{{-- <li><a href="review.html">Contact us</a></li> --}}
-										<li><a href="privacy-policy.html">Privacy Policy</a></li>
-										<li><a href="term-condition.html">Terms of use</a></li>
+										<li><a href="/privacy-policy">Privacy Policy</a></li>
+										<li><a href="/terms-of-service">Terms of use</a></li>
 									</ul>
 								</div>
 							</div>
