@@ -30,6 +30,9 @@ return new class extends Migration
             $table->string('github')->nullable();
             $table->string('website')->nullable();
             $table->string('photo')->nullable();
+            $table->string('resumePath')->nullable();
+            $table->string('status')->default('INCOMPLETE');
+
             $table->timestamps();
 
 
