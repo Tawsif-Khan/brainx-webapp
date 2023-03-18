@@ -47,5 +47,5 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verified'])->
 });
 
 Route::get('auth/linkedin', [LinkedinController::class, 'linkedinRedirect']);
-Route::get('linkedin-back', [LinkedinController::class, 'linkedinCallback']);
+Route::get('linkedin-backs', [LinkedinController::class, 'linkedinCallback']);
 require __DIR__ . '/auth.php';
