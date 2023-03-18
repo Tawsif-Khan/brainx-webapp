@@ -48,8 +48,12 @@ class TalentProfileController extends Controller
     {
         $user_id = Auth::guard()->user()->id;
         
-        $talent = Talent::where('user_id', $user_id)->with('skill')->first();
         
+
+        $talent = Talent::where('user_id', $user_id)->with('skill')->first();
+        if(($request->file('resume')) != null){
+            $talent->resumePath = $this->uploadResume($request->file('resume'));
+        }
         $talent->name = $request->name;
         $talent->country = $request->country;
         $talent->standout_job_title = $request->standout_job_title;
@@ -58,9 +62,11 @@ class TalentProfileController extends Controller
         $talent->hours_per_week = $request->hours_per_week;
         $talent->hourly_rate = $request->hourly_rate;
         $talent->user_id = $user_id;
+        $talent->status = "IN_REVIEW";
         $talent->save();
 
         $data = [];
+        if(isset($request->skills)){
         foreach($request->skills as $skill){
 
             if(!$this->isSkillExists($talent->skill, $skill)){
@@ -72,10 +78,23 @@ class TalentProfileController extends Controller
                 );
             }
         }
+    
         
         $skills = TalentSkill::insert($data);
+    }
 
         return redirect()->route('talent.pending');
+    }
+
+    public function uploadResume($file)
+    {
+        
+        $fileName = $file->getClientOriginalName().time();
+        // Move uploaded file to a specific location
+        $file->move(public_path('resumes'), $fileName);
+
+        return $fileName;
+    
     }
 
     function isSkillExists($existingSkills, $skill){

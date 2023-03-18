@@ -46,6 +46,12 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verified'])->
     })->name('dashboard');
 });
 
+
+//Feedback
+
+Route::post('feedback','App\http\Controllers\FeedbackController@store')->name('feedback.store');
+
+
 Route::get('auth/linkedin', [LinkedinController::class, 'linkedinRedirect']);
-Route::get('linkedin-backs', [LinkedinController::class, 'linkedinCallback']);
+Route::get('auth/linkedin/callback', [LinkedinController::class, 'linkedinCallback']);
 require __DIR__ . '/auth.php';

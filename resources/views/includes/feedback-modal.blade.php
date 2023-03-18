@@ -12,7 +12,7 @@
 
 					<!-- Modal body -->
 					<div class="modal-body">
-						<form>
+						<form id="feedback-form">
                             <div class="  card m-2 border-0 text-center col-md-12 ">
                                   
                                     <div class="card-body text-center">
@@ -32,12 +32,12 @@
                                                 <input type="text" name="topic" class="form-control" placeholder="Topic"/>
                                             </div>
                                             <div class="form-group">
-                                                <textarea name="description" id="desc" cols="52" rows="5" class="form-control" placeholder="I want to give feedback for BrainX or what we can help you"></textarea>
+                                                <textarea name="message" id="desc" cols="52" rows="5" class="form-control" placeholder="I want to give feedback for BrainX or what we can help you"></textarea>
                                             </div>
                                         </form>
                                     </div>
                                 <div class="card-footer pb-2">
-                                    <button type="button" data-bs-dismiss="modal" class="btn btn-primary" > Send</button>
+                                    <button type="button" data-bs-dismiss="modal" class="btn btn-primary" onclick="postFeedback()" > Send</button>
 
                                 </div>
                             </div>
@@ -48,3 +48,22 @@
 			</div>
 		</div>
 		<!-- /The Modal -->
+@section('feedback-js')
+
+<script>
+	function postFeedback() {
+            $.ajax({
+               type:'POST',
+               url:'/feedback',
+			   headers: {
+        'X-CSRF-TOKEN': ' @php echo csrf_token() @endphp'
+    			},
+               data:  $('#feedback-form').serialize(),
+               success:function(data) {
+					alert(data.success)
+               }
+            });
+         }
+</script>
+
+@endsection

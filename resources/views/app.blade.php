@@ -90,5 +90,6 @@
 		<script src="assets/js/script.js"></script>
 
 		@yield('custom-js')
+		@yield('feedback-js')
     </body>
 </html>
