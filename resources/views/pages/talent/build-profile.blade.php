@@ -45,7 +45,7 @@ ul li{
                                     <div class="media d-flex">
                                         <div class="media-img-wrap flex-shrink-0 me-3">
                                             <div class="avatar avatar-online">
-                                                <img src="assets/img/img-05.jpg" alt="User Image" class="avatar-img rounded-circle">
+                                                <img src="assets/img/BrainX/logo-outline.svg" alt="User Image" class="avatar-img rounded-circle">
                                             </div>
                                         </div>
                                         <div class="media-body flex-grow-1">
@@ -111,7 +111,7 @@ ul li{
                                 <div class="media d-flex">
                                     <div class="media-img-wrap flex-shrink-0">
                                         <div class="avatar avatar-online">
-                                            <img src="assets/img/img-05.jpg" alt="User Image" class="avatar-img rounded-circle">
+                                            <img src="assets/img/BrainX/logo-outline.svg" alt="User Image" class="avatar-img rounded-circle">
                                         </div>
                                     </div>
                                     <div class="media-body flex-grow-1">
@@ -132,7 +132,7 @@ ul li{
                             </div>
                            
                         </div>
-                        <div class="section-2 d-none">
+                        <div class="section-2 ">
 
                             <div class="chat-header border-0">
                                 <a id="back_user_list" href="javascript:void(0)" class="back-user-list">
@@ -141,7 +141,7 @@ ul li{
                                 <div class="media d-flex">
                                     <div class="media-img-wrap flex-shrink-0">
                                         <div class="avatar avatar-online">
-                                            <img src="assets/img/img-05.jpg" alt="User Image" class="avatar-img rounded-circle">
+                                            <img src="assets/img/BrainX/logo-outline.svg" alt="User Image" class="avatar-img rounded-circle">
                                         </div>
                                     </div>
                                     <div class="media-body flex-grow-1">
@@ -152,36 +152,47 @@ ul li{
                                 
                                 
                             </div>
-                            <div class="  card m-2 border-0  col-md-6 offset-md-3">
+                            <div class="  card m-2 border-0  col-md-12 ">
                                 
                                     <div class="card-body text-start">
-                                        <div class="form-group">
-                                            <label for="">
-                                                What is your legal full name?
-                                            </label>
-                                            <input type="text" name="name" class="form-control" onkeyup="setValuetoProfile('name', this.value)" value="{{ $user->name}}"/>
+                                        <div class="row">
+
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <label for="">
+                                                    What is your legal full name?
+                                                </label>
+                                                <input type="text" name="name" class="form-control" onkeyup="setValuetoProfile('name', this.value)" value="{{ $user->name}}"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">
+                                                    Which country are you from?
+                                                </label>
+                                                @include('includes.countries')
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">
+                                                    What is your standout job title? (ex: AI engineer...)
+                                                </label>
+                                                <input type="text" name="standout_job_title" class="form-control" onkeyup="setValuetoProfile('position', this.value)"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">
+                                                    How many years of AI experience do you have?
+                                                </label>
+                                                <input type="number" name="experience" class="form-control" onkeyup="setValuetoProfile('experience', this.value)"/>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="">
-                                                Which country are you from?
-                                            </label>
-                                            @include('includes.countries')
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="">
-                                                What is your standout job title? (ex: AI engineer...)
-                                            </label>
-                                            <input type="text" name="standout_job_title" class="form-control" onkeyup="setValuetoProfile('position', this.value)"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="">
-                                                How many years of AI experience do you have?
-                                            </label>
-                                            <input type="number" name="experience" class="form-control" onkeyup="setValuetoProfile('experience', this.value)"/>
+                                        <div class="col-md-5 text-center">
+                                            <div class="avatar avatar-xxl">
+												<img class="avatar-img rounded-circle" alt="User Image" src="{{ $user->talent->photo }}">
+											</div>
                                         </div>
                                     </div>
+
+                                    </div>
                                 
-                                <div class="card-footer border-0">
+                                <div class="card-footer border-0 ">
                                     <button type="button" class="btn btn-primary" onclick="showSection(document.getElementsByClassName('section-3')[0], this);"> Next</button>
 
                                 </div>
@@ -196,7 +207,7 @@ ul li{
                                 <div class="media d-flex">
                                     <div class="media-img-wrap flex-shrink-0">
                                         <div class="avatar avatar-online">
-                                            <img src="assets/img/img-05.jpg" alt="User Image" class="avatar-img rounded-circle">
+                                            <img src="assets/img/BrainX/logo-outline.svg" alt="User Image" class="avatar-img rounded-circle">
                                         </div>
                                     </div>
                                     <div class="media-body flex-grow-1">
@@ -211,7 +222,7 @@ ul li{
                                 
                                     <div class="card-body text-start">
                                         <div class="form-group">
-                                            <textarea name="bio"  cols="80" rows="5" onkeyup="setValuetoProfile('bio', this.value)"></textarea>
+                                            <textarea name="bio"  cols="80" rows="5" onkeyup="setValuetoProfile('bio', this.value)" placeholder="Please briefly summarize your professional experience in AI"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="">
@@ -245,7 +256,7 @@ ul li{
                                 <div class="media d-flex">
                                     <div class="media-img-wrap flex-shrink-0">
                                         <div class="avatar avatar-online">
-                                            <img src="assets/img/img-05.jpg" alt="User Image" class="avatar-img rounded-circle">
+                                            <img src="assets/img/BrainX/logo-outline.svg" alt="User Image" class="avatar-img rounded-circle">
                                         </div>
                                     </div>
                                     <div class="media-body flex-grow-1">
@@ -279,7 +290,7 @@ ul li{
                                 <div class="media d-flex">
                                     <div class="media-img-wrap flex-shrink-0">
                                         <div class="avatar avatar-online">
-                                            <img src="assets/img/img-05.jpg" alt="User Image" class="avatar-img rounded-circle">
+                                            <img src="assets/img/BrainX/logo-outline.svg" alt="User Image" class="avatar-img rounded-circle border-1">
                                         </div>
                                     </div>
                                     <div class="media-body flex-grow-1">

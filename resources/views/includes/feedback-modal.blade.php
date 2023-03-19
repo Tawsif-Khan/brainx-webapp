@@ -5,8 +5,8 @@
 				<div class="modal-content">
 
 					<!-- Modal Header -->
-					<div class="modal-header">
-						<h4 class="modal-title text-center">Give a feedback</h4>
+					<div class="modal-header text-center">
+						<h4 class="modal-title text-center w-100">Give a feedback</h4>
 						<button type="button" class="close" data-bs-dismiss="modal"><span>&times;</span></button>
 					</div>
 
@@ -36,7 +36,7 @@
                                             </div>
                                         </form>
                                     </div>
-                                <div class="card-footer pb-2">
+                                <div class="card-footer pb-2 border-0">
                                     <button type="button" data-bs-dismiss="modal" class="btn btn-primary" onclick="postFeedback()" > Send</button>
 
                                 </div>

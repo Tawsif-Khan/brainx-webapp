@@ -23,7 +23,7 @@
                 </p>
             </div>
             <div class="col-md-12">
-                <button type="button" class="btn btn-primary">Invite you AI friends</button>
+                <button type="button" class="btn btn-primary">Invite your AI friends</button>
             </div>
         </div>
     </div>

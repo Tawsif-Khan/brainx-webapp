@@ -2,74 +2,72 @@
 
 @section('content')
 
+<style>
+    p{
+        margin-bottom: 30px;
+    }
+</style>
 
 <section class="section home-banner ">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center text-justify">
 
-            <h1>Terms of Service</h1>
-            <p>
-                Welcome to BrainX, a freelance platform connecting the global network of talented AI professionals with businesses in need of their skills. Before using our platform, please carefully read and agree to the following Terms of Service:
+            <h1 class="mb-5">Privacy Policy</h1>
+            <p class="text-justify">
+                Welcome to BrainX, a freelance platform connecting the global network of talented AI professionals with businesses in need of their skills. At BrainX, we take your privacy seriously and are committed to protecting your personal information. This privacy policy outlines how we collect, use, and protect your personal information.         
             </p>
             <h3>
-                1. User Conduct
+                Information Collected:
             </h3>
                 <p>
-                    You are responsible for all activities that occurs on your account and agree not to use our platform to:
+                    We collect personal information you provide to us when you create an account, such as your name, email address, and payment information. We also collect information related to your account and activity on our platform, such as the projects you’ve worked on, communication with other users, and feedback you’ve left or received.
                 </p>
-                <ul>
-                    <li>violate any laws or regulations</li>
-                    <li>harass, threaten or intimidate others
-                    </li>
-                    <li>post false or misleading information</li>
-                    <li>engage in any fraudulent activity</li>
-                    <li>infringe on any intellectual property rights</li>
-                    <li>solicit or offer any service outside of the website</li>
-                </ul>
+               
             <h3>
-                2. Use of BrainX
+                Use of Information:
             </h3>
-                <h4>
-                    As a Freelancer:
-                </h4>
-                <ul>
-                    <li>
-                        You agree to provide accurate information regarding your skills, experience and personal information.
-                    </li>
-                    <li>
-                        When a freelancer accepts a contract, he/she has to stay responsible to complete the assignment and deliver high-quality work with required deadlines for clients.
-                    </li>
-                    <li>You acknowledge that any communication or work performed through the platform belongs to the client and may not be used for any other purposes without their consent.</li>
-                    <li>You agree to communicate promptly and professionally with clients before, during and after a project. You agree not to communicate with clients outside of the platform. </li>
-                    <li>Freelancer’s performance is reviewed regularly while working on the platform. </li>
-                </ul>
-                <h4>
-                    As a Business Client:
-                </h4>
-                <ul>
-                    <li>You agree to provide accurate information regarding the work you need completed, including timelines and budgets</li>
-                    <li>You acknowledge that payments must be made through BrainX</li>
-                    <li>You agree to pay Freelancers for completed work in a timely manner.</li>
-                </ul>
+                <p>
+                    We use your personal information to provide our services to you and to improve your experience on our platform. This includes communicating with you about projects, processing payments, and resolving disputes. We may also use your information to promote our services or send you important updates about our platform.
+                </p>
             <h3>
-                3. Fees
+                Sharing of Information:
             </h3>
+                <p>
+                    We may share your personal information with third-party service providers to help us operate our platform and to provide our services to you. This may include payment processing, customer support, and marketing. We will only share your personal information to the extent necessary for these third-party service providers to perform their functions.
+                </p>
+            <h3>
+                Protection of Information:
+            </h3>
+            <p>
+                We take reasonable measures to protect your personal information from unauthorized access, disclosure, or theft. We use industry-standard data encryption and access controls to safeguard your information.
+            </p>
 
             <h3>
-                4. Termination
+                Your Choices:
             </h3>
-
+                <p>
+                    You can access and update your personal information at any time by logging into your account. You may also delete your account, which will permanently remove all information associated with your account. However, please note that we may retain certain information for legal or business purposes.
+                </p>
             <h3>
-                5. Limitation of Liability
+                Children’s Privacy:
             </h3>
-
+                <p>
+                    Our platform is not intended for children under the age of 18, and we do not knowingly collect personal information from anyone under the age of 18. If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately.
+                </p>
             <h3>
-                6. Intellectual Property Rights
+                Changes to Privacy Policy:
             </h3>
-
+                <p>
+                    We reserve the right to modify or update this privacy policy at any time. We will notify you of any changes via email or by posting a notice on our website.
+                </p>
             <h3>
-                7. Changes to Terms of Service
+                Contact Us:
             </h3>
+            <p>
+                If you have any questions or concerns about this privacy policy or our platform, please give us feedback. <br>
+By using BrainX, you agree to this privacy policy. If you do not agree with this policy, please do not use our platform.
+
+            </p>
         </div>
     </div>
 </section>
