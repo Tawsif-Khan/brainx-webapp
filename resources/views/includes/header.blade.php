@@ -1,3 +1,6 @@
+<style>
+   
+</style>
 <!-- Header -->
 <header class="header">
     <nav class="navbar navbar-expand-lg header-nav">
@@ -31,7 +34,7 @@
         <ul class="nav header-navbar-rht reg-head pe-5">												
             {{-- <li><a href="register.html" class="reg-btn"><img src="assets/img/icon/reg-icon.svg" class="me-1" alt="icon"> Register</a></li> --}}
             @if (Auth::guard()->user() == null)
-            <li><a href="{{ url('auth/linkedin') }}" class="log-btn"><img src="assets/img/icon/lock-icon.svg" class="me-1" alt="icon"> Login</a></li>
+            <li><a href="{{ url('auth/linkedin') }}" class="log-btn"><img src="assets/img/icon/lock-icon.svg" class="me-2" alt="icon"> Login</a></li>
                 
             @endif
             {{-- <li><a href="post-project.html" class="login-btn">Post a Project </a></li> --}}

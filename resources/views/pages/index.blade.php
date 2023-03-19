@@ -3,9 +3,19 @@
 @section('content')
 
 <style>
+	.great-icon{
+		background: white;
+		text-align: left;
+	}
+    .great-icon.number img{
+        width: 45px;
+        height: auto;
+		justify-items: last baseline;
+    }
     .great-icon img{
         width: 75px;
         height: auto;
+		justify-items: last baseline;
     }
 	.blurry{
 		height: 20px;
@@ -13,9 +23,17 @@
 		margin-top: -10px;
 		background: #ffffffff;
 	}
+	.boxes-shadow{
+		box-shadow: 2px 2px #adaaaa;
+	}
+
+	.great-about {
+		padding: 50px 0px 50px;
+	}
 </style>
 <!-- Start Navigation -->
-			
+
+
 			<!-- Home Banner -->
 			<section class="section home-banner ">
 				<div class="container">
@@ -31,21 +49,23 @@
 									<h5>Trused by over 2M+ users</h5> 
 								</div> --}}
                                 <h1>
-                                    Join the global network of freelance<br/> AI talents to consult and develop AI<br/> applications for your business
+                                    Join the global network of freelance<br/> AI talents to consult and develop AI<br/> applications for businesses
                                 </h1>
                                 
-								<p>BrainX is a freelance platform connecting your business to the global network of remote AI talents. </p>
+								<p>BrainX is a freelance platform connecting the global network of remote AI talents to businesses.  </p>
                                 @if (Auth::guard()->user() == null )
-								<a class="btn" href="{{ url('auth/linkedin') }}">	
+								<a class="btn" href="#" data-bs-toggle="modal" data-bs-target="#login-modal" >	
 								<button class="btn btn-primary sub-btn" type="submit">Join us</button>
                                 </a>
                                 @else
 								<a class="btn" href="{{ url('build-profile') }}">	
-                                    <button class="btn btn-primary sub-btn" type="submit">Dashboard</button>
+                                    <button class="btn btn-primary sub-btn" type="submit">Join us</button>
                                     </a>
     
                                 @endif
-										
+								<div class="col-md-6 mt-4">
+									<img class="w-100" src="assets/img/BrainX/ms-badge.png" alt="">
+								</div>
 							</div>
 						</div>
 						<div class="col-md-4 col-lg-5">
@@ -56,7 +76,7 @@
 								</div>
 								<div class="freelance-info text-center">
 									<h3 class="mt-2"><a href="">Tawsif Khan</a></h3>
-									<h4 class="freelance-specific">PhD Student in AI - Malaysia</h4>
+									<h4 class="freelance-specific"><strong>PhD Student in AI - Malaysia</strong></h4>
                                     <p>"AI age is now. Join force with BrainX to bring AI revolution to the global economy"</p>
                                 </div>
 							</div>
@@ -68,7 +88,7 @@
 			</section>
 			<!-- /Home Banner -->
        
-            <section class="section about-project">
+            <section class="section about-project great-about">
                 <div class="about-position">
                     <div class="container">
                         <div class="row">
@@ -79,20 +99,20 @@
                             </div>
                         </div>
                         <div class="row justify-content-center text-left">
-                            <div class="col-md-6 d-flex">
-                                <div class="about-it-blk aos" data-aos="fade-up">
+                            <div class="col-md-6 d-flex ">
+                                <div class="about-it-blk aos boxes-shadow" data-aos="fade-up">
                                     <div class="about-it-img">
                                         <a href="javascript:;"><img class="img-fluid" src="assets/img/BrainX/Consult.png" alt=""></a>
                                     </div>
                                     <div class="about-it-content ">
-                                        <h4>Free Consulting</h4>
-                                        <p>Talents can consult your business about tools, data, models,... for your AI projects</p>
+                                        <h4>Consulting</h4>
+                                        <p>Business clients might know that AI can potentially be a benefit, but not actually be sure how</p>
                                         
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-6 d-flex">
-                                <div class="about-it-blk aos" data-aos="fade-up">
+                                <div class="about-it-blk aos boxes-shadow" data-aos="fade-up">
                                     <div class="about-it-img">
                                         <a href="javascript:;"><img class="img-fluid" src="assets/img/BrainX/Development.png" alt=""></a>
                                     </div>
@@ -121,7 +141,7 @@
 					</div>
 					<div class="row">
 						<div class="col-xl-6 col-md-6">
-							<div class="great-blk aos" data-aos="fade-up">
+							<div class="great-blk aos boxes-shadow" data-aos="fade-up">
 								<div class="great-icon">
 									<img src="assets/img/BrainX/Flexible-work.png"  alt="">
 								</div>
@@ -132,7 +152,7 @@
 							</div>
 						</div>
 						<div class="col-xl-6 col-md-6">
-							<div class="great-blk aos" data-aos="fade-up">
+							<div class="great-blk aos boxes-shadow" data-aos="fade-up">
 								<div class="great-icon">
 									<img src="assets/img/BrainX/get-matched.png"  alt="">
 								</div>
@@ -143,7 +163,7 @@
 							</div>
 						</div>
 						<div class="col-xl-6 col-md-6">
-							<div class="great-blk aos" data-aos="fade-up">
+							<div class="great-blk aos boxes-shadow" data-aos="fade-up">
 								<div class="great-icon">
 									<img src="assets/img/BrainX/Safe-transaction.png"  alt="">
 								</div>
@@ -154,7 +174,7 @@
 							</div>
 						</div>
 						<div class="col-xl-6 col-md-6">
-							<div class="great-blk aos" data-aos="fade-up">
+							<div class="great-blk aos boxes-shadow" data-aos="fade-up">
 								<div class="great-icon">
 									<img src="assets/img/BrainX/AI-focused-profile.png"  alt="">
 								</div>
@@ -168,18 +188,18 @@
 				</div>
 			</section>
 			<!-- /Great About -->
-            <div class="great-about text-center">
+            <section class="great-about text-center">
 				@if (Auth::guard()->user() == null )
-				<a class="btn" href="{{ url('auth/linkedin') }}">	
-				<button class="btn btn-primary sub-btn" type="submit">Join us</button>
+				<a class="btn" href="#" data-bs-toggle="modal" data-bs-target="#login-modal" >	
+				<button class="btn btn-primary sub-btn" type="button">Join us</button>
 				</a>
 				@else
-				<a class="btn" href="{{ url('build-profile') }}">	
-					<button class="btn btn-primary sub-btn" type="submit">Dashboard</button>
+				<a class="login-btn" href="{{ url('build-profile') }}">	
+					<button class="btn btn-primary sub-btn" type="button">Join us</button>
 					</a>
 
 				@endif
-            </div>
+			</section>
 	
 
             <section class="section great-about">
@@ -193,35 +213,35 @@
 					</div>
 					<div class="row">
 						<div class="col-xl-4 col-md-4">
-							<div class="great-blk aos" data-aos="fade-up">
-								<div class="great-icon">
+							<div class="great-blk aos boxes-shadow" data-aos="fade-up">
+								<div class="great-icon number">
 									<img src="assets/img/BrainX/1.png"  alt="">
 								</div>
 								<div class="great-content">
 									<h4>Sign up</h4>
-									<p>Sign up and start building your AI-focused profile <br>&nbsp</p>
+									<p>Sign up and start building your AI-focused profile </p>
 								</div>
 							</div>
 						</div>
 						<div class="col-xl-4 col-md-4">
-							<div class="great-blk aos" data-aos="fade-up">
-								<div class="great-icon">
+							<div class="great-blk aos boxes-shadow" data-aos="fade-up">
+								<div class="great-icon number">
 									<img src="assets/img/BrainX/2.png"  alt="">
 								</div>
 								<div class="great-content">
 									<h4>Review</h4>
-									<p>Submit your profile for our review <br>&nbsp</p>
+									<p>Submit your profile for our review </p>
 								</div>
 							</div>
 						</div>
 						<div class="col-xl-4 col-md-4">
-							<div class="great-blk aos" data-aos="fade-up">
-								<div class="great-icon">
+							<div class="great-blk aos boxes-shadow" data-aos="fade-up">
+								<div class="great-icon number">
 									<img src="assets/img/BrainX/3.png"  alt="">
 								</div>
 								<div class="great-content">
 									<h4>Public profile</h4>
-									<p>When accepted, you can access more features and get matched to clients</p>
+									<p>When accepted, you can get matched to clients</p>
 								</div>
 							</div>
 						</div>
@@ -230,9 +250,12 @@
 				</div>
 			</section>
 
-            <div class="great-about text-center">
-                <a href="#" data-bs-toggle="modal" data-bs-target="#add-feedback" class="login-btn"> Give a feedback</a>
+            <section class="great-about text-center">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#add-feedback" class="btn btn-primary sub-btn"> Give a feedback</a>
 
-            </div>
+			</section>
+			
+
 			@include('includes.feedback-modal')
+			@include('includes.modals.login-modal')
 @endsection

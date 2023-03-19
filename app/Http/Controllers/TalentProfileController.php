@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Category;
 use App\Models\Talent;
 use App\Models\TalentSkill;
+use CV;
 
 class TalentProfileController extends Controller
 {
@@ -22,7 +23,8 @@ class TalentProfileController extends Controller
         if(Auth::guard()->user() != null){
             $user = User::find(Auth::guard()->user()->id);
             $categories = Category::with('skills')->get();
-            // dd($categories);
+            // $response = CV::parse('resumes/Profile.pdf');
+            // dd($response);
             return view('pages.talent.build-profile')->with('user', $user)->with('categories', $categories);
         }
         return redirect('/');

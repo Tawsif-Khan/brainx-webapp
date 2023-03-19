@@ -61,8 +61,8 @@
 			@include('pages.talent.includes.header')
 			@endif
             @yield('content')
+			@include('includes.footer')
         </div>
-		@include('includes.footer')
 
         <!-- jQuery -->
 		<script src="assets/js/jquery-3.6.1.min.js"></script>
