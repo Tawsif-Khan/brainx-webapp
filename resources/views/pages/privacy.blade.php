@@ -3,6 +3,10 @@
 @section('content')
 
 <style>
+
+    h1{
+        margin-top: 50px;
+    }
     p{
         margin-bottom: 30px;
     }
@@ -10,9 +14,9 @@
 
 <section class="section home-banner ">
     <div class="container">
-        <div class="row align-items-center text-justify">
+        <h1 class="mb-1">Privacy Policy</h1>
+        <div class="row align-items-center text-justify p-5">
 
-            <h1 class="mb-5">Privacy Policy</h1>
             <p class="text-justify">
                 Welcome to BrainX, a freelance platform connecting the global network of talented AI professionals with businesses in need of their skills. At BrainX, we take your privacy seriously and are committed to protecting your personal information. This privacy policy outlines how we collect, use, and protect your personal information.         
             </p>

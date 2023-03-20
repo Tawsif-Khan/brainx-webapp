@@ -2,16 +2,34 @@
 
 @section('content')
 
+<style>
+    ul li{
+        margin-left: 40px;
+    }
+    h1{
+        margin-top: 50px;
+    }
+    h3{
+        margin-top: 30px;
+    }
+    h4{
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+    p{
+        margin-left: 20px;
+    }
+</style>
 
 <section class="section home-banner ">
     <div class="container">
+        <h1 class="mb-1 mt-4">Terms of Service</h1>
         <div class="row align-items-center p-5">
 
-            <h1 class="mb-4">Terms of Service</h1>
             <p>
                 Welcome to BrainX, a freelance platform connecting the global network of talented AI professionals with businesses in need of their skills. Before using our platform, please carefully read and agree to the following Terms of Service:
             </p>
-            <ul  style="list-style: none;">
+            <ol  style="list-style: none;">
                 <li>
             <h3>
                 1. User Conduct
@@ -105,10 +123,13 @@
             </p>
         </li>
         <li>
-        </ul>
+        </ol>
+        <p>
             By using BrainX, you agree to these Terms of Service. If you have any questions or concerns, please give us feedback. 
+        </p>
         </div>
     </div>
+
 </section>
 
 

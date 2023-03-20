@@ -1852,7 +1852,7 @@ label {
 	padding: 10px 15px;
 }
 .user-menu .dropdown-menu .dropdown-item:hover {
-	color: #FF5B37;
+	color: #0B0D63;
 	background-color: transparent;
 }
 .header .dropdown-menu > li > a:focus,
@@ -1868,13 +1868,13 @@ label {
 	padding: 10px 18px;
 }
 .header .dropdown-menu > li > a i {
-	color: #FF5B37;
+	color: #0B0D63;
 	margin-right: 10px;
 	text-align: center;
 	width: 18px;
 }
 .header .user-menu .dropdown-menu > li > a i {
-	color: #FF5B37;
+	color: #0B0D63;
 	font-size: 16px;
 	margin-right: 10px;
 	min-width: 18px;
@@ -1892,7 +1892,7 @@ label {
 	margin-left: 0;
 }
 .menu-title {
-	color: #FF5B37;
+	color: #0B0D63;
 	display: block;
 	font-size: 14px;
 	font-weight: 600;
@@ -1900,7 +1900,20 @@ label {
 	padding: 0 25px;
 }
 
+.open-desktop{
+	display: none;
+}
+
 @media (max-width: 767.98px) {
+
+.join-us{
+	display: none;
+}
+
+.open-desktop{
+	display: block;
+}
+
 .header .has-arrow .dropdown-toggle:after {
 	display: none;
 }
@@ -4100,7 +4113,6 @@ html.menu-opened body header:before {
 }
 .great-about:before {
     content: "";
-    background-image: url(../../assets/img/bg/bg-21.png);
     background-repeat: no-repeat, no-repeat;
     background-position: right top;
     position: absolute;
@@ -11665,15 +11677,22 @@ label.file-upload  input[type="file"] {
 .chat-cont-left .chat-users-list a.media.active {
 	background-color: #f5f5f6;
 }
+
+
 .chat-cont-right {
     -ms-flex: 0 0 65%;
     flex: 0 0 65%;
     max-width: 65%;
 	background: #fff;
-	border-left: 1px solid #444444;
+	border-left: 1px solid #adaaaa;
 	/* box-shadow: 0px 4px 14px rgba(198, 198, 198, 0.25); */
 	/* border-radius: 0px 0px 10px 10px; */
 	padding: 10px;
+}
+
+
+.boxes-shadow, .boxes-shadow.motivation{
+	box-shadow: 2px 2px #adaaaa !important;
 }
 .chat-cont-right .chat-header {
 	-webkit-box-align: center;
@@ -11681,7 +11700,7 @@ label.file-upload  input[type="file"] {
 	align-items: center;
     background: #fff;
 	border: 1px solid #F4EEFF;
-	box-shadow: 0px 4px 4px #F5F8FF;
+	/* box-shadow: 0px 4px 4px #F5F8FF; */
 	border-radius: 5px;
 	display: -webkit-box;
 	display: -ms-flexbox;

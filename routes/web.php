@@ -28,7 +28,7 @@ Route::get('/terms-of-service', function () {
     return view('pages.terms');
 });
 Route::get('/pending', function () {
-    return view('pages.talent.pending');
+    return view('pages.talent.pending-profile');
 })->name('talent.pending');
 
 

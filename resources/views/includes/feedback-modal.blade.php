@@ -48,6 +48,7 @@
 			</div>
 		</div>
 		<!-- /The Modal -->
+		@include('includes.modals.feedback-success')
 @section('feedback-js')
 
 <script>
@@ -60,7 +61,8 @@
     			},
                data:  $('#feedback-form').serialize(),
                success:function(data) {
-					alert(data.success)
+				 $('#success-feedback-modal').modal('toggle');
+				 console.log('done')
                }
             });
          }
