@@ -20,6 +20,15 @@
 ul li{
     padding: 10px 0px;
 }
+
+.chat-header.border-bottom{
+	border-bottom: 1px solid #adaaaa !important;
+    margin-right: -16px;
+}
+
+.chat-window .card{
+    box-shadow: none;
+}
 </style>
 <form action="{{ route('submit.profile') }}" method="POST">
     @csrf
@@ -33,73 +42,7 @@ ul li{
                 
                 <div class="chat-window">
                  
-                    <!-- Chat Left -->
-                    <div class="chat-cont-left">
-                        
-                        <div class="chat-users-list">
-                            <div class="" style="overflow:visible;">
-                                <div class="chat-header border-bottom mb-4">
-                                    {{-- <a id="back_user_list" href="javascript:void(0)" class="back-user-list">
-                                        <i class="material-icons">chevron_left</i>
-                                    </a> --}}
-                                    <div class="media d-flex">
-                                        <div class="media-img-wrap flex-shrink-0 me-3">
-                                            <div class="avatar avatar-online">
-                                                <img src="assets/img/BrainX/logo-outline.svg" alt="User Image" class="avatar-img rounded-circle">
-                                            </div>
-                                        </div>
-                                        <div class="media-body flex-grow-1">
-                                            <h3 class="mt-2">Talent care </h3>
-                                        </div>
-                                    </div>
-                                    
-                                    
-                                </div>
-                                <div class="card">
-                                    <div class="card-header border-0">
-                                        <div class="card-title">
-                                            Get matched to clients
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        Based on your experience and skills in AI, you will be matched to suitable projects and clients by our experts
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header border-0">
-                                        <div class="card-title">
-                                           Flexible work
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        Multiple flexible engagements: full-time contract, part-time, hourly, project based. Work anywhere remotely
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header border-0">
-                                        <div class="card-title">
-                                            AI-focused profile
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        BrainX help you create a standout profile showcasing your experience & skills in AI
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-header border-0">
-                                        <div class="card-title">
-                                            Safe transaction
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        Start working with clients only after they escrow payment to BrainX
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Chat Left -->
-                
+                    @include('pages.talent.includes.motivation-section')
                     <!-- Chat Right -->
                     <div class="chat-cont-right chat-scrol">
                         <div class="">
@@ -116,6 +59,7 @@ ul li{
                                     </div>
                                     <div class="media-body flex-grow-1">
                                         <div class="user-name">Talent care </div>
+                                        <div class="user-status">Welcome to BrainX! Let’s start building your AI profile  </div>
                                         <div><strong>1/5. Import</strong></div>
                                     </div>
                                 </div>
@@ -132,7 +76,7 @@ ul li{
                             </div>
                            
                         </div>
-                        <div class="section-2 ">
+                        <div class="section-2 d-none">
 
                             <div class="chat-header border-0">
                                 <a id="back_user_list" href="javascript:void(0)" class="back-user-list">
@@ -229,7 +173,8 @@ ul li{
                                                 Your availability to work on BrainX
                                             </label>
                                             <select name="hours_per_week" id="" class="form-control" onchange="setValuetoProfile('hours_of_week', this.value)">
-                                                <option value="0">Not available for now</option>
+                                                {{-- <option value="0">Not available for now</option> --}}
+                                                <option value="5">5 hours/week</option>
                                                 <option value="10">10 hours/week</option>
                                                 <option value="15">15 hours/week</option>
                                                 <option value="20">20 hours/week</option>
@@ -339,7 +284,7 @@ ul li{
 		<!-- The Modal -->
 		<div class="modal fade custom-modal" id="add-category">
 			<div class="modal-dialog modal-dialog-centered">
-				<div class="modal-content pb-5 pt-5">
+				<div class="modal-content ">
 
 					<!-- Modal Header -->
 					<div class="modal-header text-center">
@@ -348,7 +293,7 @@ ul li{
 					</div>
 
 					<!-- Modal body -->
-					<div class="modal-body pb-5 pt-5">
+					<div class="modal-body  pt-5">
 						<form>
                             <div class="  card  border-0 text-center col-md-12 ">
                                    

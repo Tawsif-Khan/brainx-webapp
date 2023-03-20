@@ -23,12 +23,12 @@
 		margin-top: -10px;
 		background: #ffffffff;
 	}
-	.boxes-shadow{
-		box-shadow: 2px 2px #adaaaa;
-	}
 
 	.great-about {
-		padding: 50px 0px 50px;
+		padding: 40px 0px 40px;
+	}
+	h3 a{
+		text-decoration: underline;
 	}
 </style>
 <!-- Start Navigation -->
@@ -40,30 +40,31 @@
 					<div class="row align-items-center">
 						<div class="col-md-8 col-lg-7">
 							<div class="banner-content aos" data-aos="fade-up">
-								{{-- <div class="rating d-flex">
-									<i class="fas fa-star checked"></i>
-									<i class="fas fa-star checked"></i>
-									<i class="fas fa-star checked"></i>
-									<i class="fas fa-star checked"></i>
-									<i class="fas fa-star checked"></i>
-									<h5>Trused by over 2M+ users</h5> 
-								</div> --}}
+								
+								
                                 <h1>
                                     Join the global network of freelance<br/> AI talents to consult and develop AI<br/> applications for businesses
                                 </h1>
                                 
 								<p>BrainX is a freelance platform connecting the global network of remote AI talents to businesses.  </p>
-                                @if (Auth::guard()->user() == null )
-								<a class="btn" href="#" data-bs-toggle="modal" data-bs-target="#login-modal" >	
-								<button class="btn btn-primary sub-btn" type="submit">Join us</button>
+                                <span class="open-desktop">
+
+								<a class="btn" href="#" data-bs-toggle="modal" data-bs-target="#desktop-modal" >	
+									<button class="btn btn-primary sub-btn " type="submit">Join us</button>
+									</a>
+								</span>
+
+								@if (Auth::guard()->user() == null )
+								<a class="btn join-us" href="#" data-bs-toggle="modal" data-bs-target="#login-modal" >	
+								<button class="btn btn-primary sub-btn " type="submit">Join us</button>
                                 </a>
                                 @else
-								<a class="btn" href="{{ url('build-profile') }}">	
-                                    <button class="btn btn-primary sub-btn" type="submit">Join us</button>
+								<a class="btn join-us" href="{{ url('build-profile') }}">	
+                                    <button class="btn btn-primary sub-btn " type="submit">Join us</button>
                                     </a>
     
                                 @endif
-								<div class="col-md-6 mt-4">
+								<div class="col-md-6 col-sm-8 mt-4">
 									<img class="w-100" src="assets/img/BrainX/ms-badge.png" alt="">
 								</div>
 							</div>
@@ -158,7 +159,7 @@
 								</div>
 								<div class="great-content">
 									<h4>Get matched to clients</h4>
-									<p>Based on your experience and skills in AI, you will be matched to suitable projects and clients by our expert</p>
+									<p>Based on your experience and skills in AI, you will be matched to suitable projects and clients by our expert. No searching and bidding</p>
 								</div>
 							</div>
 						</div>
@@ -189,13 +190,19 @@
 			</section>
 			<!-- /Great About -->
             <section class="great-about text-center">
+				<span class="open-desktop">
+
+				<a class="btn" href="#" data-bs-toggle="modal" data-bs-target="#desktop-modal" >	
+					<button class="btn btn-primary sub-btn boxes-shadow " type="button">Join us</button>
+					</a>
+				</span>
 				@if (Auth::guard()->user() == null )
-				<a class="btn" href="#" data-bs-toggle="modal" data-bs-target="#login-modal" >	
-				<button class="btn btn-primary sub-btn" type="button">Join us</button>
+				<a class="btn join-us" href="#" data-bs-toggle="modal" data-bs-target="#login-modal" >	
+				<button class="btn btn-primary sub-btn boxes-shadow join-us" type="button">Join us</button>
 				</a>
 				@else
-				<a class="login-btn" href="{{ url('build-profile') }}">	
-					<button class="btn btn-primary sub-btn" type="button">Join us</button>
+				<a class="btn join-us" href="{{ url('build-profile') }}">	
+					<button class="btn btn-primary sub-btn boxes-shadow join-us" type="button">Join us</button>
 					</a>
 
 				@endif
@@ -251,11 +258,12 @@
 			</section>
 
             <section class="great-about text-center">
-                <a href="#" data-bs-toggle="modal" data-bs-target="#add-feedback" class="btn btn-primary sub-btn"> Give a feedback</a>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#add-feedback" class="btn btn-primary sub-btn boxes-shadow"> Give a feedback</a>
 
 			</section>
 			
 
 			@include('includes.feedback-modal')
 			@include('includes.modals.login-modal')
+			@include('includes.modals.desktop-msg')
 @endsection
