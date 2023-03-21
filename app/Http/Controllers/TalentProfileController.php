@@ -155,4 +155,10 @@ class TalentProfileController extends Controller
     {
         //
     }
+
+    public function showPendingPage(){
+
+    $user = Auth::guard()->user();
+    return view('pages.talent.pending-profile')->with('user', $user);
+    }
 }
