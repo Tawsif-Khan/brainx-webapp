@@ -55,7 +55,7 @@
 		<!-- Loader -->
          <!-- Main Wrapper -->
 		<div class="main-wrapper">
-			@if (Auth::guard()->user() == null || Request::is('/'))
+			@if (Request::is('business') || Request::is('/') || Request::is('terms-of-service') || Request::is('privacy-policy') )
 			@include('includes.header')
 			@else
 			@include('pages.talent.includes.header')
@@ -91,5 +91,6 @@
 
 		@yield('custom-js')
 		@yield('feedback-js')
+		@yield('invitation-js')
     </body>
 </html>

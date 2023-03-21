@@ -77,4 +77,6 @@ By using BrainX, you agree to this privacy policy. If you do not agree with this
 </section>
 
 
+@include('includes.modals.login-modal')
+@include('includes.modals.desktop-msg')
 @endsection

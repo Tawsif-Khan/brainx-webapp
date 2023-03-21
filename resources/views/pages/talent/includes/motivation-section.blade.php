@@ -1,6 +1,14 @@
+
+<style>
+    .motivation{
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+</style>
 <!-- Chat Left -->
 <div class="chat-cont-left">
                         
+        <h2 class="ps-3">My Clients</h2>
     <div class="chat-users-list">
         <div class="" style="overflow:visible;">
             <div class="chat-header border-bottom mb-4">

@@ -132,5 +132,6 @@
 
 </section>
 
-
+@include('includes.modals.login-modal')
+@include('includes.modals.desktop-msg')
 @endsection

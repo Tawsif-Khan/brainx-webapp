@@ -1,11 +1,23 @@
 <style>
-   
+   .has-submenu a{
+    color: #000;
+   }
+
+   .has-submenu a:active{
+    color: #0B0D63;
+   }
 </style>
 <!-- Header -->
 <header class="header">
     <nav class="navbar navbar-expand-lg header-nav">
         <div class="navbar-header">
-            
+            <a id="mobile_btn" href="javascript:void(0);">
+                <span class="bar-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </a>
             <a href="/" class="navbar-brand logo">
                 <img src="assets/img/BrainX_logo.png" class="img-fluid" alt="Logo">
             </a>
@@ -20,15 +32,16 @@
                 </a>
             </div>
             <ul class="main-nav">
-                
-                {{-- <li class="has-submenu">
+                <li class="has-submenu">
                     <a href="/business">For Business </a>
-                    
                 </li>
                 <li class="has-submenu">
                     <a href="/">For Tech Talent</a>
-                    
-                </li> --}}
+                </li>
+                <li class="has-submenu fade" style="width: 200px">
+                </li>
+                <li class="has-submenu fade" style="width: 100px">                                        
+                </li>
             </ul>
         </div>		 
         <ul class="nav header-navbar-rht reg-head pe-5">												

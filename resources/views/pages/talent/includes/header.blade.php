@@ -34,6 +34,15 @@
             </a>
             
         </li>
+        @if (isset($user) && $user->talent->status != "INCOMPLETE")
+        <li class="nav-item dropdown">
+            <a href="#" class=" nav-link user-img" >
+                <img src="assets/img/BrainX/Message-icon.png" alt=""> 
+            </a>
+            
+        </li>
+            
+        @endif
         <!-- /Notifications -->
         
         <!-- User Menu -->

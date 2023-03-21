@@ -31,13 +31,11 @@ ul li{
 }
 
 .section-5{
-    position: absolute;
-    bottom: 0px;
+    margin-top: 30px;
 }
 </style>
 <div class="content ">
     <div class="container-fluid">
-        <h2 class="ps-3">My Clients</h2>
         <div class="row">
             
             <div class="col-md-12">
@@ -69,18 +67,16 @@ ul li{
                             </div>
                             <div class=" card m-2 border-0  col-md-12 ">
                                 
-                                    <div class="card-body text-start">
+                                    <div class="card-body text-start d-flex">
                                         
-                                        <div class="row focus">
-                                            <div class="col-md-6 text-center">
+                                            <div class="col-md-3 ps-5">
                                                 
-                                                <button class="btn btn-primary">Invite your AI friends</button>
+                                                <button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#invite">Invite your AI friends</button>
                                             </div>
-                                            <div class="col-md-6 text-center">
-                                                
-                                                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#profile">My preview profile</button>
+                                            <div class="col-md-6 ">
+
+                                                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#profile">My profile</button>
                                             </div>
-                                        </div>
                                     </div>
                                     
                             </div>
@@ -96,6 +92,7 @@ ul li{
 <!-- /Page Content -->
 
 @include('pages.talent.profile-modal-view')
+@include('includes.modals.invitation-modal')
 		
 
 

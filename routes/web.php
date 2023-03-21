@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\LinkedinController;
+use Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,7 +29,8 @@ Route::get('/terms-of-service', function () {
     return view('pages.terms');
 });
 Route::get('/pending', function () {
-    return view('pages.talent.pending-profile');
+    $user = Auth::guard()->user();
+    return view('pages.talent.pending-profile')->with('user', $user);
 })->name('talent.pending');
 
 
