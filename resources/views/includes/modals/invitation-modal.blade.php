@@ -1,6 +1,6 @@
 
 		<!-- The Modal -->
-		<div class="modal fade custom-modal" id="add-feedback">
+		<div class="modal fade custom-modal" id="invite">
 			<div class="modal-dialog modal-dialog-centered">
 				<div class="modal-content">
 
@@ -18,26 +18,14 @@
                                     <div class="card-body text-center">
                                         <form action="">
 
-				@if (Auth::guard()->user() == null )
+				
                                             <div class="form-group">
-                                                <input type="text" name="name" class="form-control" placeholder="Full Name"/>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="email" name="email" class="form-control" placeholder="Email"/>
-                                            </div>
-											@else
-											
-											@endif
-                                            <div class="form-group">
-                                                <input type="text" name="topic" class="form-control" placeholder="Topic"/>
-                                            </div>
-                                            <div class="form-group">
-                                                <textarea name="message" id="desc" cols="52" rows="5" class="form-control" placeholder="I want to give feedback for BrainX or what we can help you"></textarea>
+                                                <input type="email" name="topic" class="form-control" placeholder="Your friend's email"/>
                                             </div>
                                         </form>
                                     </div>
                                 <div class="card-footer pb-2 border-0">
-                                    <button type="button" data-bs-dismiss="modal" class="btn btn-primary" onclick="postFeedback()" > Send</button>
+                                    <button type="button" data-bs-dismiss="modal" class="btn btn-primary" onclick="sendInvitation()" > Send</button>
 
                                 </div>
                             </div>
@@ -48,11 +36,16 @@
 			</div>
 		</div>
 		<!-- /The Modal -->
-		@include('includes.modals.feedback-success')
-@section('feedback-js')
+		{{-- @include('includes.modals.feedback-success') --}}
+@section('invitation-js')
 
 <script>
-	function postFeedback() {
+	function sendInvitation() {
+
+        $('#success-feedback-modal').modal('toggle');
+        $('#message-box').html('Invitation sent successfully!')
+
+        return;
             $.ajax({
                type:'POST',
                url:'/feedback',
@@ -62,7 +55,7 @@
                data:  $('#feedback-form').serialize(),
                success:function(data) {
 				 $('#success-feedback-modal').modal('toggle');
-        $('#message-box').html('Successfully sent feedback.')
+                 $('#message-box').html('ofosijdofa')
                }
             });
          }

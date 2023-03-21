@@ -14,7 +14,7 @@
                             <img class="avatar-img rounded-circle me-3" src="assets/img/BrainX/linkedin.png" alt="">Sign in with Linkedin</button>
                         </a>
                         <p class="mt-2">
-                            You will be navigated to LinkedIn to sign up
+                            You will be navigated to LinkedIn to Log in
                         </p>
                 </div>
             </div>

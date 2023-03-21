@@ -35,7 +35,6 @@ ul li{
 <!-- Content -->
 <div class="content ">
     <div class="container-fluid">
-        <h2 class="ps-3">My Clients</h2>
         <div class="row">
             
             <div class="col-md-12">
@@ -67,7 +66,7 @@ ul li{
                                 
                             </div>
                             <div class="row">
-                                <div class="col-md-12 text-center mt-4 mb-4">
+                                <div class="col-md-12  mt-5 mb-5 ps-3 ms-4">
                                     <a href="javascript:void(0);" class="btn btn-sm btn-primary " data-bs-toggle="modal" data-bs-target="#add-category">
                                         Import from Linkedin
                                     </a>
@@ -265,7 +264,9 @@ ul li{
                                         </div>
                                     </div>
                                 <div class="card-footer border-0">
-                                    <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#profile"> Preview my profile</button>
+                                    <button class="btn btn-primary" type="submit">
+                                        Submit for review
+                                    </button>
 
                                 </div>
                             </div>

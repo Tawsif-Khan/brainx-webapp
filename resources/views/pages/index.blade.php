@@ -30,6 +30,9 @@
 	h3 a{
 		text-decoration: underline;
 	}
+	.feedback{
+		margin-bottom: 50px;
+	}
 </style>
 <!-- Start Navigation -->
 
@@ -257,7 +260,7 @@
 				</div>
 			</section>
 
-            <section class="great-about text-center">
+            <section class="great-about text-center feedback">
                 <a href="#" data-bs-toggle="modal" data-bs-target="#add-feedback" class="btn btn-primary sub-btn boxes-shadow"> Give a feedback</a>
 
 			</section>

@@ -18,9 +18,12 @@ right: 0%;
 </style>
 <div class="modal fade custom-modal" id="profile">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content pb-5 pt-5">
+        <div class="modal-content pb-5 ">
+            
+                <h3 class="title">Your profile is pending for review</h3>
 
-        <div class="row">
+                
+        <div class="row pt-5">
             <div class="col-md-5 text-center">
                 <div class="img-profile">
 
@@ -28,24 +31,24 @@ right: 0%;
                 </div>
             </div>
             <div class="col-md-7">
-                <h2 id="name">Name</h2>
-                <h3 id="position">Full stach</h3>
+                <h2 id="name">{{ $user->talent->name }}</h2>
+                <h3 id="position">{{ $user->talent->standout_job_title }}</h3>
                 <div class="row">
                     <div class="col-md-6 p-2">
                         
-                        <i class="material-icons mb-1">business_center</i> <span id="experience"></span> years of experience
+                        <i class="material-icons mb-1">business_center</i> <span id="experience">{{ $user->talent->experience }}</span> years of experience
                     </div>
                     <div class="col-md-6 p-2">
-                        <i class="material-icons mb-1">payments</i>$<span id="hourly_rate"></span>/hour
+                        <i class="material-icons mb-1">payments</i>$<span id="hourly_rate">{{ $user->talent->hourly_rate }}</span>/hour
                     </div>
                     <div class="col-md-6 p-2">
 
                         
-                        <i class="material-icons mb-1">schedule</i> <span id="hours_of_week"></span> hours/week
+                        <i class="material-icons mb-1">schedule</i> <span id="hours_of_week">{{ $user->talent->hours_per_week }}</span> hours/week
                     </div>
                     <div class="col-md-6 p-2">
 
-                        <i class="material-icons mb-1">location_on</i> <span id="country"></span>
+                        <i class="material-icons mb-1">location_on</i> <span id="country">{{ $user->talent->country }}</span>
                     </div>
                 </div>
             </div>
@@ -56,7 +59,7 @@ right: 0%;
             <div class="col-md-12 p-5">
                 <h4>Bio</h4>
                 <p id="bio" class="p-2">
-                    sdfjoaisj dfoiajsofajsd oifjsdoifj aosdi
+                    {{ $user->talent->brief_summary }}
                 </p>
             </div>
         </div>
@@ -70,15 +73,16 @@ right: 0%;
                         <ul id="skill-lists" class="list-inline">
     
                         </ul>
+                        
                     </div>
                 </div>
                 
             </div>
         </section>
 
-        <div class="modal-footer">
-            <button class="btn btn-primary" type="submit">
-                Submit for review
+        <div class="modal-footer text-center border-0">
+            <button class="btn btn-primary" type="button" data-bs-dismiss="modal">
+                Close
             </button>
         </div>
     </div>    

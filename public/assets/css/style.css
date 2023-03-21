@@ -156,7 +156,7 @@ a:hover,
 a:active,
 a:focus {
 	outline: none;
-	text-decoration: none;
+	color: #0B0D63;
 }
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -1981,7 +1981,7 @@ label {
 }
 .main-nav li a {
     display: block;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 600;
 }
 .main-nav li.login-link {
@@ -2547,12 +2547,12 @@ label {
 	-ms-flex-align: center;
 	align-items: center;
 	background-color: #fff4f0;
-    height: 60px;
+    height: 100px;
     padding:  0 20px;
 	justify-content: space-between;
 	-webkit-justify-content: space-between;
 	-ms-flex-pack: space-between;
-    border-bottom: 1px solid #f7d0c6;
+    /* border-bottom: 1px solid #f7d0c6; */
 	display: none;
 }
 .menu-close {
@@ -7645,7 +7645,7 @@ label.file-upload.image-btn {
 }
 .content {
     min-height: 200px;
-    padding: 100px 0 30px;
+    padding: 90px 0 0px;
 	background-color: #fff;
 }
 .inner-banner {
@@ -11531,6 +11531,8 @@ label.file-upload  input[type="file"] {
     position: relative;
 }
 .chat-cont-left {
+	padding-top: 30px;
+	padding-bottom: 50px;
     border-right: 0px solid #f0f0f0;
     -ms-flex: 0 0 34%;
     flex: 0 0 34%;
@@ -11687,7 +11689,7 @@ label.file-upload  input[type="file"] {
 	border-left: 1px solid #adaaaa;
 	/* box-shadow: 0px 4px 14px rgba(198, 198, 198, 0.25); */
 	/* border-radius: 0px 0px 10px 10px; */
-	padding: 10px;
+	padding: 20px 10px 50px 10px;
 }
 
 
@@ -14526,7 +14528,6 @@ h2.footer-title:before {
 
 .footer.footer-two {
 	background: #161515;
-	margin-top: 50px;
 }
 .footer-two .footer-title {
 	margin-bottom: 10px;
