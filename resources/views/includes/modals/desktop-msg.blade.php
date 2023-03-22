@@ -15,7 +15,7 @@
 kindly use a PC to sign up an account on BrainX
                         </p>
                 </div>
-                <div class="modal-footer border-0">
+                <div class="modal-footer text-center border-0">
                     <button type="button" data-bs-dismiss="modal" class="btn btn-primary">Close</button>
                 </div>
             </div>

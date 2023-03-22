@@ -1,10 +1,14 @@
 <style>
    .has-submenu a{
     color: #000;
+    border-bottom: #0B0D63;
    }
 
    .has-submenu a:active{
     color: #0B0D63;
+   }
+   .bar-icon span{
+    background-color: #0B0D63;
    }
 </style>
 <!-- Header -->
@@ -28,15 +32,15 @@
                     <img src="assets/img/BrainX_logo.png" class="img-fluid" alt="Logo">
                 </a>
                 <a id="menu_close" class="menu-close" href="javascript:void(0);">
-                    <i class="fas fa-times"></i>
+                    <i class="fas fa-times text-primary"></i>
                 </a>
             </div>
             <ul class="main-nav">
                 <li class="has-submenu">
-                    <a href="/business">For Business </a>
+                    <a href="/">For Business </a>
                 </li>
                 <li class="has-submenu">
-                    <a href="/">For Tech Talent</a>
+                    <a href="/talent">For Tech Talent</a>
                 </li>
                 <li class="has-submenu fade" style="width: 200px">
                 </li>

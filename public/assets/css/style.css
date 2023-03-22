@@ -2546,7 +2546,7 @@ label {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
-	background-color: #fff4f0;
+	background-color: #fff;
     height: 100px;
     padding:  0 20px;
 	justify-content: space-between;
@@ -18333,7 +18333,7 @@ button.scroll-top:focus{
 		padding-left: 0;
 	}
 	.main-nav > li {
-		border-bottom: 1px solid #fddbd2;
+		border-bottom: 1px solid #0B0D63;
 		margin-left: 0;
 		margin-right: 0;
 	}
@@ -18398,7 +18398,7 @@ button.scroll-top:focus{
 		-moz-transition: all 0.4s;
 		-webkit-transition: all 0.4s;
 		-o-transition: all 0.4s;
-		background-color: #fff4f0;
+		background-color: #fff;
 	}
 	.menu-header {
 		display: -webkit-box;
@@ -19038,6 +19038,10 @@ button.scroll-top:focus{
 	.profile-preword, .profile-right {		
 		text-align: center;
 		display: block;
+	}
+
+	.about-project{
+		margin-top: 0px;
 	}
 	.profile-inf {
 		text-align: center;
