@@ -27,8 +27,12 @@
 	.great-about {
 		padding: 40px 0px 40px;
 	}
-	h3 a{
-		text-decoration: underline;
+	.banner-content .sub-btn {
+		text-transform: none;
+	}
+	h3 {
+		/* color:  */
+		/* text-decoration: underline; */
 	}
 </style>
 <!-- Start Navigation -->
@@ -39,7 +43,7 @@
 				<div class="container">
 					<div class="row align-items-center">
 						<div class="col-md-8 col-lg-7">
-							<div class="banner-content aos" data-aos="fade-up">
+							<div class="banner-content aos mt-5 pt-5" data-aos="fade-up">
 								
 								
                                 <h1>
@@ -50,17 +54,17 @@
                                 <span class="open-desktop">
 
 								<a class="btn" href="#" data-bs-toggle="modal" data-bs-target="#desktop-modal" >	
-									<button class="btn btn-primary sub-btn " type="submit">Post a request</button>
+									<button class="btn btn-primary sub-btn " disabled type="submit">Post a request</button>
 									</a>
 								</span>
 
 								@if (Auth::guard()->user() == null )
 								<a class="btn join-us" href="#" data-bs-toggle="modal" data-bs-target="#login-modal" >	
-								<button class="btn btn-primary sub-btn " type="submit">Post a request</button>
+								<button class="btn btn-primary sub-btn " disabled type="submit">Post a request</button>
                                 </a>
                                 @else
 								<a class="btn join-us" href="{{ url('build-profile') }}">	
-                                    <button class="btn btn-primary sub-btn " type="submit">Post a request</button>
+                                    <button class="btn btn-primary sub-btn " disabled type="submit">Post a request</button>
                                     </a>
     
                                 @endif
@@ -79,7 +83,7 @@
 
 								</div>
 								<div class="freelance-info text-center">
-									<h3 class="mt-2">Tawsif Khan</h3>
+									<h3 class="mt-2 text-primary">Tawsif Khan</h3>
 									<h4 class="freelance-specific"><strong>PhD Student in AI - Malaysia</strong></h4>
 									
                                 </div>
@@ -92,7 +96,7 @@
 
 								</div>
 								<div class="freelance-info text-center">
-									<h3 class="mt-2">Tawsif Khan</h3>
+									<h3 class="mt-2 text-primary">Tawsif Khan</h3>
 									<h4 class="freelance-specific"><strong>PhD Student in AI - Malaysia</strong></h4>
 									
                                 </div>
@@ -105,7 +109,7 @@
 
 								</div>
 								<div class="freelance-info text-center">
-									<h3 class="mt-2"><a href="">Tawsif Khan</a></h3>
+									<h3 class="mt-2" text-primary><a href="">Tawsif Khan</a></h3>
 									<h4 class="freelance-specific"><strong>PhD Student in AI - Malaysia</strong></h4>
 									
                                 </div>
@@ -139,8 +143,8 @@
                                         <a href="javascript:;"><img class="img-fluid" src="assets/img/BrainX/Consult.png" alt=""></a>
                                     </div>
                                     <div class="about-it-content ">
-                                        <h4>Free Consulting</h4>
-                                        <p>Talents can consult your business about tools, data, models,... for your AI projects</p>
+                                        <h3 class="text-primary">Free Consulting</h3>
+                                        <p>You can consult talents about tools, data, models,... for your AI projects</p>
                                         
                                     </div>
                                 </div>
@@ -164,19 +168,19 @@
             </section>
 
 			<!-- /Great About -->
-            <section class="great-about text-center">
+            <section class="great-about text-center ">
 				<span class="open-desktop">
 				<a class="btn" href="#" data-bs-toggle="modal" data-bs-target="#desktop-modal" >	
-					<button class="btn btn-primary sub-btn boxes-shadow " type="button">Post a request</button>
+					<button class="btn btn-primary sub-btn boxes-shadow " disabled type="button">Post a request</button>
 					</a>
 				</span>
 				@if (Auth::guard()->user() == null )
 				<a class="btn join-us" href="#">	
-				<button class="btn btn-primary sub-btn boxes-shadow join-us" type="button">Post a request</button>
+				<button class="btn btn-primary sub-btn boxes-shadow join-us" disabled type="button">Post a request</button>
 				</a>
 				@else
 				<a class="btn join-us" href="#">	
-					<button class="btn btn-primary sub-btn boxes-shadow join-us" type="button">Post a request</button>
+					<button class="btn btn-primary sub-btn boxes-shadow join-us" disabled type="button">Post a request</button>
 					</a>
 				@endif
 			</section>
@@ -300,7 +304,7 @@
 				</div>
 			</section>
 
-            <section class="great-about text-center">
+            <section class="great-about text-center mb-5">
                 <a href="#" data-bs-toggle="modal" data-bs-target="#add-feedback" class="btn btn-primary sub-btn boxes-shadow"> Give a feedback</a>
 
 			</section>

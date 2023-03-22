@@ -42,7 +42,7 @@
 				<div class="container">
 					<div class="row align-items-center">
 						<div class="col-md-8 col-lg-7">
-							<div class="banner-content aos" data-aos="fade-up">
+							<div class="banner-content aos mt-5 pt-5" data-aos="fade-up">
 								
 								
                                 <h1>
