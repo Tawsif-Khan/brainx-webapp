@@ -34,6 +34,10 @@
 		/* color:  */
 		/* text-decoration: underline; */
 	}
+
+	.btn-primary:disabled{
+		color: black;
+	}
 </style>
 <!-- Start Navigation -->
 
@@ -53,17 +57,17 @@
 								<p>BrainX is a <b>freelance platform</b> connecting your business to the <b>global network of remote AI talents.</b>   </p>
                                 <span class="open-desktop">
 
-								<a class="btn" href="#" data-bs-toggle="modal" data-bs-target="#desktop-modal" >	
+								<a class="btn" href="#"  >	
 									<button class="btn btn-primary sub-btn " disabled type="submit">Post a request</button>
 									</a>
 								</span>
 
 								@if (Auth::guard()->user() == null )
-								<a class="btn join-us" href="#" data-bs-toggle="modal" data-bs-target="#login-modal" >	
+								<a class="btn join-us" href="#">	
 								<button class="btn btn-primary sub-btn " disabled type="submit">Post a request</button>
                                 </a>
                                 @else
-								<a class="btn join-us" href="{{ url('build-profile') }}">	
+								<a class="btn join-us" href="#">	
                                     <button class="btn btn-primary sub-btn " disabled type="submit">Post a request</button>
                                     </a>
     
