@@ -38,15 +38,21 @@
 	.btn-primary:disabled{
 		color: black;
 	}
-	.between-slider{
+	#blog-slider1{
 		display: none;
 	}
 
 @media only screen and (max-width:767.98px) {
-	.between-slider{
+	#blog-slider1{
 		display: block;
 	}
+	.banner-img {
+		float: none;
+	display: block;
 }
+}
+
+
 </style>
 <!-- Start Navigation -->
 
@@ -64,53 +70,33 @@
 								</h1>
                                 
 								<p>BrainX is a <b>freelance platform</b> connecting your business to the <b>global network of remote AI talents.</b>   </p>
-                                {{-- <div id="blog-slider1" class="owl-carousel owl-theme blog-slider aos between-slider" data-aos="fade-up">
-									<div class="grid-blog blog-two aos" data-aos="fade-up">
-										<div class="banner-img aos text-center" data-aos="fade-up">
-											<img src="assets/img/Tawsif_circle-removebg-preview.jpg" class="img-fluid hero-img" alt="banner">
-											<div class="blurry">
-			
-											</div>
-											<div class="freelance-info text-center">
-												<h3 class="mt-2 text-primary">Tawsif Khan</h3>
-												<h4 class="freelance-specific"><strong>PhD Student in AI - Malaysia</strong></h4>
-												
-											</div>
-										</div>
-									</div>
-									<div class="grid-blog blog-two aos" data-aos="fade-up">
-										<div class="banner-img aos text-center" data-aos="fade-up">
-											<img src="assets/img/Tawsif_circle-removebg-preview.jpg" class="img-fluid hero-img" alt="banner">
-											<div class="blurry">
-			
-											</div>
-											<div class="freelance-info text-center">
-												<h3 class="mt-2 text-primary">Tawsif Khan</h3>
-												<h4 class="freelance-specific"><strong>PhD Student in AI - Malaysia</strong></h4>
-												
-											</div>
-										</div>
-									</div>
-									<div class="grid-blog blog-two aos" data-aos="fade-up">
-										<div class="banner-img aos text-center" data-aos="fade-up">
-											<img src="assets/img/Tawsif_circle-removebg-preview.jpg" class="img-fluid hero-img" alt="banner">
-											<div class="blurry">
-			
-											</div>
-											<div class="freelance-info text-center">
-												<h3 class="mt-2" text-primary><a href="">Tawsif Khan</a></h3>
-												<h4 class="freelance-specific"><strong>PhD Student in AI - Malaysia</strong></h4>
-												
-											</div>
-										</div>
-									</div>
+                                <div id="blog-slider1" class="owl-carousel owl-theme blog-slider aos between-slider" data-aos="fade-up">
 									
-								</div>	 --}}
+									<div class="grid-blog blog-two aos" > 
+										<div class="banner-img aos text-center" >
+											<div class="text-center ps-5 ms-2">
+
+											<img src="assets/img/Tawsif_circle-removebg-preview.jpg" class="img-fluid hero-img" alt="banner">
+
+										</div>
+											<div class="blurry">
+											</div>
+										<div class="freelance-info text-center">
+												<h3 class="mt-2 text-primary">Tawsif Khan</h3>
+												<h4 class="freelance-specific"><strong>PhD Student in AI - Malaysia</strong></h4>
+												<h5>Two Silver Awards (Malaysian Tech Expo) </h5>
+
+											</div>
+										</div>
+									</div>
+									 
+									
+								</div>	
 								
 								<span class="open-desktop">
 
 								<a class="btn" href="#"   data-bs-toggle="modal" data-bs-target="#desktop-modal">	
-									<button class="btn btn-primary sub-btn " disabled type="submit">Post a request</button>
+									<button class="btn btn-primary sub-btn "  type="submit">Post a request</button>
 									</a>
 								</span>
 
@@ -141,7 +127,7 @@
 								<div class="freelance-info text-center">
 									<h3 class="mt-2 text-primary">Tawsif Khan</h3>
 									<h4 class="freelance-specific"><strong>PhD Student in AI - Malaysia</strong></h4>
-									<h6>Two Silver Awards (Malaysian Tech Expo) </h5>
+									<h6>Two Silver Awards (Malaysian Tech Expo) </h6>
                                 </div>
 							</div>
 						</div>
@@ -157,7 +143,7 @@
 			</section>
 			<!-- /Home Banner -->
        
-            <section class="section about-project great-about">
+            <section class="section about-project great-about pb-1">
                 <div class="about-position">
                     <div class="container">
                         <div class="row">
@@ -200,7 +186,7 @@
             </section>
 
 			<!-- /Great About -->
-            <section class="great-about text-center ">
+            <section class="great-about text-center pt-0">
 				<span class="open-desktop">
 				<a class="btn" href="#" data-bs-toggle="modal" data-bs-target="#desktop-modal" >	
 					<button class="btn btn-primary sub-btn boxes-shadow "  type="button">Post a request</button>
