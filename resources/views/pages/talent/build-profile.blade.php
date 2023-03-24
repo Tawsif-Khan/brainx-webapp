@@ -43,7 +43,7 @@ ul li{
                  
                     @include('pages.talent.includes.motivation-section')
                     <!-- Chat Right -->
-                    <div class="chat-cont-right chat-scrol">
+                    <div class="chat-cont-right chat-scrol" style="z-index: 99; ">
                         <div class="">
 
                             <div class="chat-header border-0">

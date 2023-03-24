@@ -44,7 +44,7 @@ ul li{
                  
                     @include('pages.talent.includes.motivation-section')
                     <!-- Chat Right -->
-                    <div class="chat-cont-right chat-scrol">
+                    <div class="chat-cont-right chat-scrol" style="z-index: 99; ">
                         
                         <div class="section-5 ">
                             <div class="chat-header border-0">
@@ -73,7 +73,7 @@ ul li{
                                                 
                                                 <button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#invite">Invite your AI friends</button>
                                             </div>
-                                            <div class="col-md-6 ">
+                                            <div class="col-md-6 ms-5">
                                                 <a href="/view-profile">
                                                 <button class="btn btn-primary" type="button" >My profile</button>
                                                 </a>

@@ -11,7 +11,7 @@
         <h2 class="ps-3">My Clients</h2>
     <div class="chat-users-list">
         <div class="" style="overflow:visible;">
-            <div class="chat-header border-bottom mb-4">
+            <div class="chat-header border-bottom mb-4" style="z-index: -99;">
                 {{-- <a id="back_user_list" href="javascript:void(0)" class="back-user-list">
                     <i class="material-icons">chevron_left</i>
                 </a> --}}
