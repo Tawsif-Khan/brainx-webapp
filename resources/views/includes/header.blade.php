@@ -36,11 +36,11 @@
                 </a>
             </div>
             <ul class="main-nav">
-                <li class="has-submenu">
+                <li class="submenu">
                     <a href="/">For Business </a>
                 </li>
-                <li class="has-submenu">
-                    <a href="/talent">For Tech Talent</a>
+                <li class="submenu">
+                    <a href="/talent">For AI Talent</a>
                 </li>
                 <li class="has-submenu fade" style="width: 200px">
                 </li>

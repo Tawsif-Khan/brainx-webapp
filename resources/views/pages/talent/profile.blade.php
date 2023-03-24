@@ -27,6 +27,7 @@
     <div class="row">
         <div class="col-md-12">
 
+            <h4 class="mb-5 text-center text-primary">Your profile is pending for review</h4>
             <div class="row">
                 <div class="col-md-5 text-center">
                     <div class="img-profile">
