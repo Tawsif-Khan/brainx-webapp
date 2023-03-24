@@ -141,36 +141,11 @@
 								<div class="freelance-info text-center">
 									<h3 class="mt-2 text-primary">Tawsif Khan</h3>
 									<h4 class="freelance-specific"><strong>PhD Student in AI - Malaysia</strong></h4>
-									
+									<h6>Two Silver Awards (Malaysian Tech Expo) </h5>
                                 </div>
 							</div>
 						</div>
-						<div class="grid-blog blog-two aos" data-aos="fade-up">
-							<div class="banner-img aos text-center" data-aos="fade-up">
-								<img src="assets/img/Tawsif_circle-removebg-preview.jpg" class="img-fluid hero-img" alt="banner">
-								<div class="blurry">
-
-								</div>
-								<div class="freelance-info text-center">
-									<h3 class="mt-2 text-primary">Tawsif Khan</h3>
-									<h4 class="freelance-specific"><strong>PhD Student in AI - Malaysia</strong></h4>
-									
-                                </div>
-							</div>
-						</div>
-						<div class="grid-blog blog-two aos" data-aos="fade-up">
-							<div class="banner-img aos text-center" data-aos="fade-up">
-								<img src="assets/img/Tawsif_circle-removebg-preview.jpg" class="img-fluid hero-img" alt="banner">
-								<div class="blurry">
-
-								</div>
-								<div class="freelance-info text-center">
-									<h3 class="mt-2" text-primary><a href="">Tawsif Khan</a></h3>
-									<h4 class="freelance-specific"><strong>PhD Student in AI - Malaysia</strong></h4>
-									
-                                </div>
-							</div>
-						</div>
+						
 						
 					</div>	
 							
