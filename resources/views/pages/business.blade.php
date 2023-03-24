@@ -64,7 +64,7 @@
 								</h1>
                                 
 								<p>BrainX is a <b>freelance platform</b> connecting your business to the <b>global network of remote AI talents.</b>   </p>
-                                <div id="blog-slider1" class="owl-carousel owl-theme blog-slider aos between-slider" data-aos="fade-up">
+                                {{-- <div id="blog-slider1" class="owl-carousel owl-theme blog-slider aos between-slider" data-aos="fade-up">
 									<div class="grid-blog blog-two aos" data-aos="fade-up">
 										<div class="banner-img aos text-center" data-aos="fade-up">
 											<img src="assets/img/Tawsif_circle-removebg-preview.jpg" class="img-fluid hero-img" alt="banner">
@@ -105,7 +105,7 @@
 										</div>
 									</div>
 									
-								</div>	
+								</div>	 --}}
 								
 								<span class="open-desktop">
 
@@ -199,7 +199,7 @@
                                         <a href="javascript:;"><img class="img-fluid" src="assets/img/BrainX/Consult.png" alt=""></a>
                                     </div>
                                     <div class="about-it-content ">
-                                        <h3 ></h3>
+                                        <h3 >Hire AI contractors</h3>
                                         <p>Hire AI contractors for your AI projects within a particular period of time and pay them in hourly rate</p>
                                         
                                     </div>
