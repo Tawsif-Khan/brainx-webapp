@@ -38,6 +38,15 @@
 	.btn-primary:disabled{
 		color: black;
 	}
+	.between-slider{
+		display: none;
+	}
+
+@media only screen and (max-width:767.98px) {
+	.between-slider{
+		display: block;
+	}
+}
 </style>
 <!-- Start Navigation -->
 
@@ -51,11 +60,54 @@
 								
 								
                                 <h1>
-									Hire freelance AI talents to consult and develop AI applications for your business
+									Hire freelance AI talents to develop AI applications for your business
 								</h1>
                                 
 								<p>BrainX is a <b>freelance platform</b> connecting your business to the <b>global network of remote AI talents.</b>   </p>
-                                <span class="open-desktop">
+                                <div id="blog-slider1" class="owl-carousel owl-theme blog-slider aos between-slider" data-aos="fade-up">
+									<div class="grid-blog blog-two aos" data-aos="fade-up">
+										<div class="banner-img aos text-center" data-aos="fade-up">
+											<img src="assets/img/Tawsif_circle-removebg-preview.jpg" class="img-fluid hero-img" alt="banner">
+											<div class="blurry">
+			
+											</div>
+											<div class="freelance-info text-center">
+												<h3 class="mt-2 text-primary">Tawsif Khan</h3>
+												<h4 class="freelance-specific"><strong>PhD Student in AI - Malaysia</strong></h4>
+												
+											</div>
+										</div>
+									</div>
+									<div class="grid-blog blog-two aos" data-aos="fade-up">
+										<div class="banner-img aos text-center" data-aos="fade-up">
+											<img src="assets/img/Tawsif_circle-removebg-preview.jpg" class="img-fluid hero-img" alt="banner">
+											<div class="blurry">
+			
+											</div>
+											<div class="freelance-info text-center">
+												<h3 class="mt-2 text-primary">Tawsif Khan</h3>
+												<h4 class="freelance-specific"><strong>PhD Student in AI - Malaysia</strong></h4>
+												
+											</div>
+										</div>
+									</div>
+									<div class="grid-blog blog-two aos" data-aos="fade-up">
+										<div class="banner-img aos text-center" data-aos="fade-up">
+											<img src="assets/img/Tawsif_circle-removebg-preview.jpg" class="img-fluid hero-img" alt="banner">
+											<div class="blurry">
+			
+											</div>
+											<div class="freelance-info text-center">
+												<h3 class="mt-2" text-primary><a href="">Tawsif Khan</a></h3>
+												<h4 class="freelance-specific"><strong>PhD Student in AI - Malaysia</strong></h4>
+												
+											</div>
+										</div>
+									</div>
+									
+								</div>	
+								
+								<span class="open-desktop">
 
 								<a class="btn" href="#"  >	
 									<button class="btn btn-primary sub-btn " disabled type="submit">Post a request</button>
@@ -147,8 +199,8 @@
                                         <a href="javascript:;"><img class="img-fluid" src="assets/img/BrainX/Consult.png" alt=""></a>
                                     </div>
                                     <div class="about-it-content ">
-                                        <h3 class="text-primary">Free Consulting</h3>
-                                        <p>You can consult talents about tools, data, models,... for your AI projects</p>
+                                        <h3 ></h3>
+                                        <p>Hire AI contractors for your AI projects within a particular period of time and pay them in hourly rate</p>
                                         
                                     </div>
                                 </div>
@@ -159,9 +211,10 @@
                                         <a href="javascript:;"><img class="img-fluid" src="assets/img/BrainX/Development.png" alt=""></a>
                                     </div>
                                     <div class="about-it-content text-left">
-                                        <h4>Development</h4>
+                                        <h4>Outsource AI projects</h4>
                                         <p>
-											Talents can help your business build AI applications, data engineering, custom model development, AI operation,...</p>
+											Outsource AI projects to freelancers and pay them in a fixed price	
+										</p>
                                         
                                     </div>
                                 </div>

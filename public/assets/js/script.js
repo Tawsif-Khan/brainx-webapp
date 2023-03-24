@@ -938,7 +938,37 @@ Version      : 1.0
 	        }
 	    });
     }
-	
+	if($('#blog-slider1').length > 0 ){
+		$('#blog-slider1').owlCarousel({
+			items: 1,
+	        margin: 20,
+	        dots : false,
+			nav: false,
+			smartSpeed: 2000,
+			fadeOut:true,
+			// navText: [
+			// 	'<i class="fas fa-arrow-left"></i>',
+			// 	'<i class="fas fa-arrow-right"></i>'
+			// ],
+			autoplay:true,
+			loop: true,
+			responsiveClass:true,
+	        responsive: {
+	          	0: {
+	            	items: 1
+	          	},
+	          	768 : {
+	            	items: 1
+	          	},
+				991 : {
+	            	items: 1
+	          	},
+	          	1170: {
+	            	items: 1
+	          	}
+	        }
+	    });
+    }
 	if($('#blog-slider').length > 0 ){
 		$('#blog-slider').owlCarousel({
 			items: 1,

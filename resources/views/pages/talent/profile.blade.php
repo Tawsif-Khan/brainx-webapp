@@ -20,7 +20,7 @@
     }
     
     </style>
-    <div class="container">
+    <div class="container" style="height: 100%;">
 
     <div class="content">
         <div class="container-fluid">
