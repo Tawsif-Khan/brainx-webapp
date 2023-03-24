@@ -6625,6 +6625,8 @@ html.menu-opened body header:before {
 	right: 0px;
     bottom: -30px;
 }
+
+
 .review-five .client-img img {
 	margin: auto
 }
@@ -19566,6 +19568,7 @@ button.scroll-top:focus{
 	.personal-info input::placeholder{
 		font-size:12px;
 	}
+	
 	.new-addd .add-new,
 	.select-level	{
 		font-size: 12px;
@@ -19573,6 +19576,9 @@ button.scroll-top:focus{
 	.multistep-form .form-control {
 		min-height: 40px;
 		height: 40px;
+	}
+	.no-js .owl-carousel, .owl-carousel.owl-loaded {
+		display: none;
 	}
 	.bread-crumb-bar {
 		padding-top: 60px;

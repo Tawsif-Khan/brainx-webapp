@@ -69,16 +69,16 @@ ul li{
                                 
                                     <div class="card-body text-start d-flex">
                                         
-                                            <div class="col-md-3 ps-5">
+                                            <div class="col-md-3 ps-5 d-none">
                                                 
                                                 <button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#invite">Invite your AI friends</button>
                                             </div>
                                             <div class="col-md-6 ">
-
-                                                <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#profile">My profile</button>
+                                                <a href="/view-profile">
+                                                <button class="btn btn-primary" type="button" >My profile</button>
+                                                </a>
                                             </div>
                                     </div>
-                                    
                             </div>
                         </div>
                     </div>
