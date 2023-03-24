@@ -146,7 +146,7 @@ label {
 	color: #2E2E2E;
 }
 a {
-    color: #fff;
+    color: #000;
     text-decoration: none;
 }
 a:hover {
@@ -4396,7 +4396,7 @@ html.menu-opened body header:before {
 }
 .grid-blog.blog-two {
 	background: #FFFFFF;
-	border: 1px solid #F5F6FA;
+	/* border: 1px solid #F5F6FA; */
 	box-shadow: 0px 4px 24px rgba(214, 214, 214, 0.25);
 	border-radius: 10px;
 }
@@ -19750,7 +19750,7 @@ button.scroll-top:focus{
 	.about-position {
 		position: relative;
 		bottom: 0;
-		padding: 80px 0px 55px;
+		padding: 0px 0px 55px;
 	}
 	.great-about {
 		padding: 80px 0px 55px;

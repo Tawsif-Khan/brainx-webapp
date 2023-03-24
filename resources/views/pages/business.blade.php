@@ -109,7 +109,7 @@
 								
 								<span class="open-desktop">
 
-								<a class="btn" href="#"  >	
+								<a class="btn" href="#"   data-bs-toggle="modal" data-bs-target="#desktop-modal">	
 									<button class="btn btn-primary sub-btn " disabled type="submit">Post a request</button>
 									</a>
 								</span>
@@ -174,7 +174,7 @@
                                         <a href="javascript:;"><img class="img-fluid" src="assets/img/BrainX/Consult.png" alt=""></a>
                                     </div>
                                     <div class="about-it-content ">
-                                        <h3 >Hire AI contractors</h3>
+                                        <h4 >Hire AI contractors</h4>
                                         <p>Hire AI contractors for your AI projects within a particular period of time and pay them in hourly rate</p>
                                         
                                     </div>
@@ -203,7 +203,7 @@
             <section class="great-about text-center ">
 				<span class="open-desktop">
 				<a class="btn" href="#" data-bs-toggle="modal" data-bs-target="#desktop-modal" >	
-					<button class="btn btn-primary sub-btn boxes-shadow " disabled type="button">Post a request</button>
+					<button class="btn btn-primary sub-btn boxes-shadow "  type="button">Post a request</button>
 					</a>
 				</span>
 				@if (Auth::guard()->user() == null )
