@@ -32,7 +32,7 @@
                 <div class="col-md-5 text-center">
                     <div class="img-profile">
     
-                    <img class="avatar-img" src="https://media.licdn.com/dms/image/D5603AQHaDemYa2QfJw/profile-displayphoto-shrink_100_100/0/1673269388874?e=1684368000&v=beta&t=StBD1GxNI5Y5UpB_NQ1UQoCbywIw0W9K-t1usX80W-s" alt="">
+                    <img class="avatar-img" src="{{ $user->talent->photo }}" alt="">
                     </div>
                 </div>
                 <div class="col-md-7">
