@@ -93,10 +93,9 @@
 									
 								</div>	
 								
-								<span class="open-desktop">
-
-								<a class="btn" href="#"   data-bs-toggle="modal" data-bs-target="#desktop-modal">	
-									<button class="btn btn-primary sub-btn "  type="submit">Post a request</button>
+								<span class="open-desktop text-center">
+									<a class="btn" href="#"   data-bs-toggle="modal" data-bs-target="#desktop-modal">	
+										<button class="btn btn-primary sub-btn "  type="submit">Post a request</button>
 									</a>
 								</span>
 
@@ -107,8 +106,7 @@
                                 @else
 								<a class="btn join-us" href="#">	
                                     <button class="btn btn-primary sub-btn " disabled type="submit">Post a request</button>
-                                    </a>
-    
+                                </a>
                                 @endif
 								<div class="col-md-6 col-sm-8 mt-4">
 									<img class="w-100" src="assets/img/BrainX/ms-badge.png" alt="">
@@ -186,8 +184,8 @@
             </section>
 
 			<!-- /Great About -->
-            <section class="great-about text-center pt-0">
-				<span class="open-desktop">
+            <section class="great-about text-center">
+				<span class="open-desktop pt-0">
 				<a class="btn" href="#" data-bs-toggle="modal" data-bs-target="#desktop-modal" >	
 					<button class="btn btn-primary sub-btn boxes-shadow "  type="button">Post a request</button>
 					</a>

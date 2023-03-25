@@ -58,7 +58,7 @@
 								</span>
 
 								@if (Auth::guard()->user() == null )
-								<a class="btn join-us" href="#" data-bs-toggle="modal" data-bs-target="#login-modal" >	
+								<a class="btn join-us" href="#" data-bs-toggle="modal" data-bs-target="#signup-modal" >	
 								<button class="btn btn-primary sub-btn " type="submit">Join us</button>
                                 </a>
                                 @else
@@ -200,7 +200,7 @@
 					</a>
 				</span>
 				@if (Auth::guard()->user() == null )
-				<a class="btn join-us" href="#" data-bs-toggle="modal" data-bs-target="#login-modal" >	
+				<a class="btn join-us" href="#" data-bs-toggle="modal" data-bs-target="#signup-modal" >	
 				<button class="btn btn-primary sub-btn boxes-shadow join-us" type="button">Join us</button>
 				</a>
 				@else
@@ -268,5 +268,6 @@
 
 			@include('includes.feedback-modal')
 			@include('includes.modals.login-modal')
+			@include('includes.modals.signup-modal')
 			@include('includes.modals.desktop-msg')
 @endsection
