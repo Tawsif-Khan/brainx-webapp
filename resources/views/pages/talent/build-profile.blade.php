@@ -30,7 +30,7 @@ ul li{
     box-shadow: none;
 }
 </style>
-<form action="{{ route('submit.profile') }}" method="POST">
+<form action="{{ route('submit.profile') }}" method="POST" enctype="multipart/form-data">
     @csrf
 <!-- Content -->
 <div class="content ">
@@ -205,7 +205,8 @@ ul li{
                                     </div>
                                     <div class="media-body flex-grow-1">
                                         <div class="user-name">Talent care </div>
-                                        <div><strong>4/5. AI skills</strong></div>
+                                        <div><strong>4/5. Strong AI skills</strong></div>
+                                        <div class="user-status">Please choose skills that you’re strong at. You’ll match to projects or clients that are suitable to your strengths  </div>
                                     </div>
                                 </div>
                                 
@@ -313,6 +314,8 @@ ul li{
                                             Upload Linkedin PDF
                                         </label>
                                         </div>
+                                        <div id="file-selected"></div>
+
                                     </div>
                                 <div class="card-footer border-0  mt-4 col-md-8 offset-md-2 ">
                                     <button type="button" data-bs-dismiss="modal" class="btn mt-4 btn-primary w-100" onclick="showSection(document.getElementsByClassName('section-2')[0], this);"> Next</button>
@@ -472,5 +475,28 @@ function deleteWord(element, value){
         el.innerHTML = value
     }
 
+</script>
+
+<script>
+    //on change event listener for #file-select
+document.getElementById("cv").onchange = function() {
+
+//call getFileSelected method
+getFileSelected();
+
+};
+
+function getFileSelected(){
+
+//get the value of the input file element
+var getFileExt = document.getElementById("cv").value.split('.').pop();
+
+if(getFileExt !== "pdf"){
+    document.getElementById("file-selected").innerHTML = '<strong class="text-danger">Please upload a PDF file!</strong>';
+}else{
+    document.getElementById("file-selected").innerHTML = '<strong>PDF Uploaded</strong>';
+
+}
+}
 </script>
 @endsection

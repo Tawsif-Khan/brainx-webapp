@@ -91,7 +91,7 @@ ul li{
 </div>	
 <!-- /Page Content -->
 
-@include('pages.talent.profile-modal-view')
+{{-- @include('pages.talent.profile-modal-view') --}}
 @include('includes.modals.invitation-modal')
 		
 
