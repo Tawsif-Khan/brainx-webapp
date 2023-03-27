@@ -31,6 +31,7 @@ return new class extends Migration
             $table->string('website')->nullable();
             $table->string('photo')->nullable();
             $table->string('resumePath')->nullable();
+            $table->text('resumeData')->nullable();
             $table->string('status')->default('INCOMPLETE');
 
             $table->timestamps();

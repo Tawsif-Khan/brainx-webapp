@@ -24,8 +24,13 @@ class TalentProfileController extends Controller
             $user = User::find(Auth::guard()->user()->id);
             $categories = Category::with('skills')->get();
             
+            if($user->talent->status == "INCOMPLETE"){
             
             return view('pages.talent.build-profile')->with('user', $user)->with('categories', $categories);
+            }else{
+                return view('pages.talent.pending-profile')->with('user', $user)->with('categories', $categories);
+            
+            }
         }
         return redirect('/');
     }
@@ -50,11 +55,13 @@ class TalentProfileController extends Controller
     {
         $user_id = Auth::guard()->user()->id;
         
-        
+        // $this->convertToHTML();
 
         $talent = Talent::where('user_id', $user_id)->with('skill')->first();
-        if(($request->file('resume')) != null){
-            $talent->resumePath = $this->uploadResume($request->file('resume'));
+        // dd($request->resume->extension());
+        if($request->resume != null){
+            $talent->resumePath = $this->uploadResume($request->resume);
+            $talent->resumeData = $this->getResumeData($talent->resumePath);
         }
         $talent->name = $request->name;
         $talent->country = $request->country;
@@ -83,7 +90,7 @@ class TalentProfileController extends Controller
     
         
         $skills = TalentSkill::insert($data);
-    }
+        }
 
         return redirect()->route('talent.pending');
     }
@@ -91,12 +98,57 @@ class TalentProfileController extends Controller
     public function uploadResume($file)
     {
         
-        $fileName = $file->getClientOriginalName().time();
+        $fileName = Auth::guard()->user()->id.time().'.'.$file->extension();
         // Move uploaded file to a specific location
         $file->move(public_path('resumes'), $fileName);
 
         return $fileName;
     
+    }
+
+    public function getResumeData($fileName){
+        // Set the path to the PDF file
+        // $pdfFilePath = '/Users/tawsifkhan/Projects/BrainX/laravel-multi-auth/public/resumes/'.$fileName;
+        $pdfFilePath = __DIR__.'/../../../public/resumes/'.$fileName;
+        // dd($pdfFilePath);
+        $command = escapeshellcmd("pdftohtml $pdfFilePath -");
+        // Convert the PDF to text using pdftotext
+        $text = shell_exec($command);
+        
+        // // Convert the text to an array
+        $data = explode("\n", $text);
+
+        // // Convert the array to JSON
+        $json = json_encode($data);
+        // dd(json_decode($json));
+        // // Output the JSON
+        return $json;
+    }
+
+    function convertToHTML(){
+        $this->getResumeData('11679853700.pdf');
+        return;
+        // Parse the PDF content using Poppler
+$pdfFile = __DIR__.'/../../../public/resumes/11679853700.pdf';
+$pdf = new \Poppler\Poppler();
+$pages = $pdf->render($pdfFile);
+
+// Convert the PDF content to HTML using Dompdf
+$html = '';
+foreach ($pages as $page) {
+    $text = $page->getText();
+    $html .= "<p>$text</p>";
+}
+$dompdf = new \Dompdf\Dompdf();
+$dompdf->loadHtml($html);
+$dompdf->setPaper('A4', 'portrait');
+$dompdf->render();
+
+// Save the HTML output to a file or output it to the browser
+$htmlOutput = $dompdf->output();
+dd($htmlOutput);
+
+file_put_contents('output.html', $htmlOutput);
     }
 
     function isSkillExists($existingSkills, $skill){
@@ -117,8 +169,11 @@ class TalentProfileController extends Controller
      */
     public function show()
     {   
+        
+        $title = ['Top Skills','Languages','Honors-Awards',''];
+
         $user = User::with('talent')->find(Auth::guard()->user()->id);
-        // dd($user->talent);
+        
         return view('pages.talent.profile')->with('user', $user);
     }
 
