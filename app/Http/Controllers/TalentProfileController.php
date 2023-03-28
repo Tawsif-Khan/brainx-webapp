@@ -24,7 +24,7 @@ class TalentProfileController extends Controller
             $user = User::find(Auth::guard()->user()->id);
             $categories = Category::with('skills')->get();
             
-            if($user->talent->status == "INCOMPLETE"){
+            if(!isset($user->talent) || $user->talent->status == "INCOMPLETE"){
             
             return view('pages.talent.build-profile')->with('user', $user)->with('categories', $categories);
             }else{
@@ -111,7 +111,7 @@ class TalentProfileController extends Controller
         // $pdfFilePath = '/Users/tawsifkhan/Projects/BrainX/laravel-multi-auth/public/resumes/'.$fileName;
         $pdfFilePath = __DIR__.'/../../../public/resumes/'.$fileName;
         // dd($pdfFilePath);
-        $command = escapeshellcmd("pdftohtml $pdfFilePath -");
+        $command = escapeshellcmd("pdftotext $pdfFilePath -");
         // Convert the PDF to text using pdftotext
         $text = shell_exec($command);
         
@@ -170,11 +170,47 @@ file_put_contents('output.html', $htmlOutput);
     public function show()
     {   
         
-        $title = ['Top Skills','Languages','Honors-Awards',''];
+        $title = ['Experience','Education'];
 
         $user = User::with('talent')->find(Auth::guard()->user()->id);
+
+        $resume = json_decode($user->talent->resumeData);
+
+        // dd($resume);
+        $read = false;
+        $running = '';
+        $data = [];
+        $blank = 0;                
+        $ignore = false;
+
+        foreach($resume as $line){
+            
+            if($read && !in_array($line, $title) && !str_contains($line, 'Page') && !empty($line)){
+                
+                array_push($data[$running],$line); 
+            }
+            if($read && empty($line) ){
+                $blank++;
+                if($blank %2==0)
+                    array_push($data[$running],$line); 
+            }
+            if(in_array($line, $title)){
+                $read = true;
+                $running = $line;
+                $data[$running] = [];
+            }
+
+            if(!str_contains($line, 'Page')){
+                $ignore = true;
+            }else{
+                $ignore = false;
+            }
+            
+        }
+        // dd($data);
+
         
-        return view('pages.talent.profile')->with('user', $user);
+        return view('pages.talent.profile')->with('user', $user)->with('data', $data);
     }
 
     /**

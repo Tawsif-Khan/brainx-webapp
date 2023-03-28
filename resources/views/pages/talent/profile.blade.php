@@ -8,8 +8,8 @@
     .img-profile img{
         border-radius: 50%;
     position: relative;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border: 4px solid #E0E0E0;
     top: 0%;
     right: 0%;
@@ -28,7 +28,7 @@
         <div class="col-md-12">
 
             <h4 class="mb-5 text-center text-primary">Your profile is pending for review</h4>
-            <div class="row">
+            <div class="row m-5">
                 <div class="col-md-5 text-center">
                     <div class="img-profile">
     
@@ -60,7 +60,7 @@
             </div>
     <section>
     
-            <div class="row">
+            <div class="row border m-5">
                 <div class="col-md-12 p-5">
                     <h4>Bio</h4>
                     <p id="bio" class="p-2">
@@ -71,7 +71,7 @@
         </section>
     
             <section>
-                <div class="row">
+                <div class="row border m-5">
                     <div class="col-md-12 p-5">
                         <h4>Skills</h4>
                         <div class="col-md-12 p-2">
@@ -86,6 +86,42 @@
                     </div>
                     
                 </div>
+            </section>
+
+            <section>
+                <div class="row border m-5">
+                    <div class="col-md-12 p-5">
+                <h4>
+                    Experience
+                </h4>
+                <div class="ms-3">
+                @foreach ($data['Experience'] as $item)
+                        
+                    {{ $item }} <br/>
+                @endforeach
+                </div>
+            </div>
+            
+        </div>
+            </section>
+
+            <section>
+                <div class="row border m-5">
+                    <div class="col-md-12 p-5">
+                <h4>
+                    Education
+                </h4>
+                <div class="ms-3">
+
+                @foreach ($data['Education'] as $item)
+                    
+                    {{ $item }} <br/>
+                @endforeach
+            </div>
+
+        </div>
+                    
+    </div>
             </section>
     
         </div>

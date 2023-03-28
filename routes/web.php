@@ -35,15 +35,24 @@ Route::get('/view-profile', 'App\http\controllers\TalentProfileController@show')
 Route::get('/build-profile', 'App\http\controllers\TalentProfileController@index')->name('build.profile');
 Route::post('/submit-profile','App\http\controllers\TalentProfileController@store')->name('submit.profile');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verified'])->group(function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Admin/Dashboard');
-    })->name('dashboard');
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard','App\http\controllers\Admin\DashboardController@index')->name('admin.dashboard');
+    Route::get('/users','App\http\controllers\Admin\AdminController@users')->name('admin.users');
+    Route::get('/categories','App\http\controllers\Admin\SkillController@index')->name('admin.categories');
+    Route::post('/category/insert','App\http\controllers\Admin\SkillController@storeCategory')->name('admin.category.insert');
+    Route::get('/skills','App\http\controllers\Admin\SkillController@skills')->name('admin.skills');
+    Route::post('/skill/insert','App\http\controllers\Admin\SkillController@store')->name('admin.skill.insert');
 });
+
+// Route::get('/dashboard', function () {
+//     return Inertia::render('Dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+// Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verified'])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return Inertia::render('Admin/Dashboard');
+//     })->name('dashboard');
+// });
 
 
 //Feedback
