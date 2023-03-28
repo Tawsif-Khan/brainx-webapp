@@ -21,7 +21,8 @@
                                                 <input type="text" name="skill_name" class="form-control" placeholder="Skill Name"/>
                                             </div>
                                             <div class="form-group">
-												<select name="category_id" id="">
+												<select name="category_id" class="form-control" id="">
+													<option value="">- Select Category -</option>
 													@foreach ($categories as $category)
 													<option value="{{ $category->category_id }}">
 														{{ $category->category_name }}

@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-		<title>Kofejob - Bootstrap Admin HTML Template</title>
+		<title>Admin - BrainX</title>
 		
 		<!-- Favicon -->
 		<link rel="shortcut icon" href="/assets/img/favicon.png">
@@ -191,7 +191,7 @@
 								<a href="{{ route('admin.categories') }}"><i data-feather="copy"></i> <span>Categories</span></a>
 							</li>
 							<li>
-								<a href="{{ route('admin.skill.insert') }}"><i data-feather="database"></i> <span>Skills</span></a>
+								<a href="{{ route('admin.skills') }}"><i data-feather="database"></i> <span>Skills</span></a>
 							</li>
 							<li>
 								<a href="{{ route('admin.users') }}"><i data-feather="users"></i> <span>Talents</span></a>
