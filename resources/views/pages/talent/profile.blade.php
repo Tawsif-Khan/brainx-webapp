@@ -73,15 +73,30 @@
             <section>
                 <div class="row border m-5">
                     <div class="col-md-12 p-5">
-                        <h4>Skills</h4>
+                        <h4>Strength points</h4>
                         <div class="col-md-12 p-2">
-                            <ul id="skill-lists" class="list-inline">
-                                @foreach ($user->talent->skill as $skill)
-                                    <li class="btn btn-dark list-inline-item">
-                                        {{ ($skill->skill->skill_name) }}
-                                    </li>
-                                @endforeach
-                            </ul>
+                                @php
+                                    foreach ($user->talent->skill as  $skill) {
+                                        $skills[$skill->skill->category->category_name][] = $skill->skill->skill_name;
+                                    }
+                                    
+                                @endphp
+                                <ul>
+
+                                @foreach ($skills as $key => $items)
+                                <li class="mt-3">
+                                    <h5>{{ $key }}</h5>
+                                    <ul id="skill-lists" class="list-inline">
+                                        @foreach ($items as $item)
+                                        <li class="btn btn-rounded btn-outline-primary list-inline-item">
+                                            {{ ($item) }}
+                                        </li>
+                                        @endforeach
+                                    
+                                    </ul>
+                                </li>
+                                @endforeach                                </ul>
+
                         </div>
                     </div>
                     
