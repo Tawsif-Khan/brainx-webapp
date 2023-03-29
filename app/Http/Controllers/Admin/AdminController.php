@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Talent;
 
 class AdminController extends Controller
 {
@@ -15,6 +16,14 @@ class AdminController extends Controller
         $users = User::with('talent')->get();
 
         return view('pages.admin.users')->with('users', $users);
+    }
+
+    public function  updateStatus(Request $request){
+        $talent = Talent::find($request->talent_id);
+        $talent->status = $request->status;
+        $talent->save();
+
+        return redirect()->route('admin.users');
     }
 
 

@@ -67,7 +67,20 @@
                                             </ul>
                                         </td>
                                         <td>{{ $user->created_at }}</td>
-                                        <td>{{ $user->talent->status }}</td>
+                                        <td>
+                                            <form action="{{ route('admin.update.users.status') }}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="talent_id" value="{{ $user->talent->talent_id }}">
+                                            <select name="status" class="form-control" onchange="this.form.submit()">
+                                                <option value="INCOMPLETE" @if ($user->talent->status == 'INCOMPLETE')
+                                                    {{ 'selected' }}
+                                                @endif>INCOMPLETE</option>
+                                                <option value="IN_REVIEW" @if ($user->talent->status == 'IN_REVIEW')
+                                                    {{ 'selected' }}
+                                                @endif>IN_REVIEW</option>
+                                            </select>
+                                        </form>
+                                            </td>
                                         <td class="text-end three-dots">
                                             <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown"><i class="fas fa-ellipsis-v"></i></a>
                                             <div class="dropdown-menu user-menu-list">
