@@ -206,7 +206,7 @@ ul li{
                                     <div class="media-body flex-grow-1">
                                         <div class="user-name">Talent care </div>
                                         <div><strong>4/5. Strong AI skills</strong></div>
-                                        <div class="user-status">Please choose skills that you’re strong at. You’ll match to projects or clients that are suitable to your strengths  </div>
+                                        <div class="user-status">Please choose skills that you’re strong at. You’ll be matched to projects or clients that are suitable to your strengths  </div>
                                     </div>
                                 </div>
                                 

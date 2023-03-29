@@ -38,6 +38,7 @@ Route::post('/submit-profile','App\http\controllers\TalentProfileController@stor
 Route::prefix('admin')->group(function () {
     Route::get('/dashboard','App\http\controllers\Admin\DashboardController@index')->name('admin.dashboard');
     Route::get('/users','App\http\controllers\Admin\AdminController@users')->name('admin.users');
+    Route::post('/users/status/update','App\http\controllers\Admin\AdminController@updateStatus')->name('admin.update.users.status');
     Route::get('/categories','App\http\controllers\Admin\SkillController@index')->name('admin.categories');
     Route::post('/category/insert','App\http\controllers\Admin\SkillController@storeCategory')->name('admin.category.insert');
     Route::get('/skills','App\http\controllers\Admin\SkillController@skills')->name('admin.skills');
