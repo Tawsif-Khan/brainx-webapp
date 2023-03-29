@@ -6,7 +6,7 @@
 <div class="page-header">
     <div class="row">
         <div class="col-md-10">
-            <h3 class="page-title">Cateries</h3>
+            <h3 class="page-title">Categories</h3>
         </div>
         <div class="col-md-2">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add-category">Add new</button>
