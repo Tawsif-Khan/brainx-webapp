@@ -196,6 +196,9 @@
 							<li>
 								<a href="{{ route('admin.users') }}"><i data-feather="users"></i> <span>Talents</span></a>
 							</li>
+							<li>
+								<a href="{{ route('admin.feedbacks') }}"><i data-feather="users"></i> <span>Feedbacks</span></a>
+							</li>
 						</ul>
 					</div>
 				</div>

@@ -15,7 +15,7 @@ class TalentProfileController extends Controller
 
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
     /**
      * Display a listing of the resource.
@@ -31,10 +31,9 @@ class TalentProfileController extends Controller
             
             if(!isset($user->talent) || $user->talent->status == "INCOMPLETE"){
             
-            return view('pages.talent.build-profile')->with('user', $user)->with('categories', $categories);
+                return view('pages.talent.build-profile')->with('user', $user)->with('categories', $categories);
             }else{
                 return view('pages.talent.pending-profile')->with('user', $user)->with('categories', $categories);
-            
             }
         }
         return redirect('/');
@@ -158,41 +157,7 @@ class TalentProfileController extends Controller
 
         $user = User::with('talent')->find($id);
 
-        // $resume = json_decode($user->talent->resumeData);
-
-        // // dd($resume);
-        // $read = false;
-        // $running = '';
-        // $data = [];
-        // $blank = 0;                
-        // $ignore = false;
-
-        // foreach($resume as $line){
-        //     $line = trim($line, "\f");
-        //     if($read && !in_array($line, $title) && !str_contains($line, 'Page') && !empty($line)){
-                
-        //         array_push($data[$running],$line); 
-        //     }
-        //     if($read && empty($line) ){
-        //         $blank++;
-        //         if($blank %2==0)
-        //             array_push($data[$running],$line); 
-        //     }
-        //     if(in_array($line, $title)){
-        //         $read = true;
-        //         $running = $line;
-        //         $data[$running] = [];
-        //     }
-
-        //     if(!str_contains($line, 'Page')){
-        //         $ignore = true;
-        //     }else{
-        //         $ignore = false;
-        //     }
-            
-        // }
-        // dd($data);
-
+        
         
         return view('pages.talent.profile')->with('user', $user);
     }

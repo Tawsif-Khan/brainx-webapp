@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Talent;
+use App\Models\Feedback;
 
 class AdminController extends Controller
 {
@@ -26,7 +27,11 @@ class AdminController extends Controller
         return redirect()->route('admin.users');
     }
 
+    public function feedbacks(){
+        $feedbacks = Feedback::orderBy('id','DESC')->get();
 
+        return view('pages.admin.feedbacks')->with('feedbacks', $feedbacks);
+    }
     /**
      * Display a listing of the resource.
      *
