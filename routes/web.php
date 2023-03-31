@@ -16,10 +16,10 @@ use App\Http\Controllers\LinkedinController;
 |
 */
 
-Route::get('/talent', function () {
+Route::get('/', function () {
     return view('pages.index');
 });
-Route::get('/', function () {
+Route::get('/business', function () {
     return view('pages.business');
 });
 Route::get('/privacy-policy', function () {
@@ -31,7 +31,7 @@ Route::get('/terms-of-service', function () {
 Route::get('/pending', 'App\http\controllers\TalentProfileController@showPendingPage')->name('talent.pending');
 
 
-Route::get('/view-profile', 'App\http\controllers\TalentProfileController@show')->name('show.profile');
+Route::get('/view-profile/{id}', 'App\http\controllers\TalentProfileController@show')->name('show.profile');
 Route::get('/build-profile', 'App\http\controllers\TalentProfileController@index')->name('build.profile');
 Route::post('/submit-profile','App\http\controllers\TalentProfileController@store')->name('submit.profile');
 

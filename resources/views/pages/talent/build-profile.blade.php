@@ -44,7 +44,7 @@ ul li{
                     @include('pages.talent.includes.motivation-section')
                     <!-- Chat Right -->
                     <div class="chat-cont-right chat-scrol" style="z-index: 99; ">
-                        <div class="">
+                        {{-- <div class="">
 
                             <div class="chat-header border-0">
                                 <a id="back_user_list" href="javascript:void(0)" class="back-user-list">
@@ -74,8 +74,8 @@ ul li{
                                 </div>
                             </div>
                            
-                        </div>
-                        <div class="section-2 d-none">
+                        </div> --}}
+                        <div class="section-2 ">
 
                             <div class="chat-header border-0">
                                 <a id="back_user_list" href="javascript:void(0)" class="back-user-list">
@@ -89,7 +89,8 @@ ul li{
                                     </div>
                                     <div class="media-body flex-grow-1">
                                         <div class="user-name">Talent care </div>
-                                        <div><strong>2/5. Intro</strong></div>
+                                        <div class="user-status">Welcome to BrainX! Let’s start building your AI profile  </div>
+                                        <div><strong>1/5. Intro</strong><b class="pb-1"> *</b></div>
                                     </div>
                                 </div>
                                 
@@ -105,7 +106,7 @@ ul li{
                                                 <label for="">
                                                     What is your legal full name?
                                                 </label>
-                                                <input type="text" name="name" class="form-control" onkeyup="setValuetoProfile('name', this.value)" value="{{ $user->name}}"/>
+                                                <input type="text" name="name" class="form-control" required onkeyup="setValuetoProfile('name', this.value)" value="{{ $user->name}}"/>
                                             </div>
                                             <div class="form-group">
                                                 <label for="">
@@ -117,13 +118,13 @@ ul li{
                                                 <label for="">
                                                     What is your standout job title? (ex: AI engineer...)
                                                 </label>
-                                                <input type="text" name="standout_job_title" class="form-control" onkeyup="setValuetoProfile('position', this.value)"/>
+                                                <input type="text" name="standout_job_title" class="form-control " required onkeyup="setValuetoProfile('position', this.value)"/>
                                             </div>
                                             <div class="form-group">
                                                 <label for="">
                                                     How many years of AI experience do you have?
                                                 </label>
-                                                <input type="number" name="experience" class="form-control" onkeyup="setValuetoProfile('experience', this.value)"/>
+                                                <input type="number" name="experience" class="form-control" required onkeyup="setValuetoProfile('experience', this.value)"/>
                                             </div>
                                         </div>
                                         <div class="col-md-5 text-center">
@@ -136,7 +137,7 @@ ul li{
                                     </div>
                                 
                                 <div class="card-footer border-0 ">
-                                    <button type="button" class="btn btn-primary" onclick="showSection(document.getElementsByClassName('section-3')[0], this);"> Next</button>
+                                    <button type="button" class="btn btn-primary" onclick="showSection(document.getElementsByClassName('section-3')[0], this,['name','country','standout_job_title','experience']);"> Next</button>
 
                                 </div>
                             </div>
@@ -155,7 +156,7 @@ ul li{
                                     </div>
                                     <div class="media-body flex-grow-1">
                                         <div class="user-name">Talent care </div>
-                                        <div><strong>3/5. Bio</strong></div>
+                                        <div><strong>2/5. Bio</strong></div>
                                     </div>
                                 </div>
                                 
@@ -165,13 +166,13 @@ ul li{
                                 
                                     <div class="card-body text-start">
                                         <div class="form-group">
-                                            <textarea name="bio"  cols="80" rows="5" onkeyup="setValuetoProfile('bio', this.value)" placeholder="Please briefly summarize your professional experience in AI"></textarea>
+                                            <textarea name="bio"  cols="80" rows="5" class="form-control" required  onkeyup="setValuetoProfile('bio', this.value)" placeholder="Please briefly summarize your professional experience in AI"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="">
                                                 Your availability to work on BrainX
                                             </label>
-                                            <select name="hours_per_week" id="" class="form-control" onchange="setValuetoProfile('hours_of_week', this.value)">
+                                            <select name="hours_per_week" id="" required class="form-control" onchange="setValuetoProfile('hours_of_week', this.value)">
                                                 {{-- <option value="0">Not available for now</option> --}}
                                                 <option value="5">5 hours/week</option>
                                                 <option value="10">10 hours/week</option>
@@ -186,7 +187,7 @@ ul li{
                                     </div>
                                 
                                 <div class="card-footer border-0">
-                                    <button class="btn btn-primary" type="button" onclick="showSection(document.getElementsByClassName('section-4')[0], this);"> Next</button>
+                                    <button class="btn btn-primary" type="button" onclick="showSection(document.getElementsByClassName('section-4')[0], this,['bio']);"> Next</button>
 
                                 </div>
                             </div>
@@ -205,7 +206,7 @@ ul li{
                                     </div>
                                     <div class="media-body flex-grow-1">
                                         <div class="user-name">Talent care </div>
-                                        <div><strong>4/5. Strong AI skills</strong></div>
+                                        <div><strong>3/5. Strong AI skills</strong></div>
                                         <div class="user-status">Please choose skills that you’re strong at. You’ll be matched to projects or clients that are suitable to your strengths  </div>
                                     </div>
                                 </div>
@@ -222,7 +223,7 @@ ul li{
                                     
                                     </div>
                                 <div class="card-footer border-0">
-                                    <button class="btn btn-primary" type="button" onclick="showSection(document.getElementsByClassName('section-5')[0], this);"> Next</button>
+                                    <button class="btn btn-primary" type="button" onclick="showSection(document.getElementsByClassName('section-5')[0], this,[]);"> Next</button>
 
                                 </div>
                             </div>
@@ -240,7 +241,7 @@ ul li{
                                     </div>
                                     <div class="media-body flex-grow-1">
                                         <div class="user-name">Talent care </div>
-                                        <div><strong>5/5. Hourly rate</strong></div>
+                                        <div><strong>4/5. Hourly rate</strong></div>
                                     </div>
                                 </div>    
                             </div>
@@ -265,10 +266,47 @@ ul li{
                                         </div>
                                     </div>
                                 <div class="card-footer border-0">
+                                    
+                                    <button class="btn btn-primary" type="button" onclick="showSection(document.getElementsByClassName('section-6')[0], this,['hourly_rate']);"> Next</button>
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section-6 d-none">
+
+                            <div class="chat-header border-0">
+                                <a id="back_user_list" href="javascript:void(0)" class="back-user-list">
+                                    <i class="material-icons">chevron_left</i>
+                                </a>
+                                <div class="media d-flex">
+                                    <div class="media-img-wrap flex-shrink-0">
+                                        <div class="avatar avatar-online">
+                                            <img src="assets/img/BrainX/logo-outline.svg" alt="User Image" class="avatar-img rounded-circle">
+                                        </div>
+                                    </div>
+                                    <div class="media-body flex-grow-1">
+                                        <div class="user-name">Talent care </div>
+                                        <div><strong>5/5. Linkedin *</strong></div>
+                                        <div class="user-status">Please add your LinkedIn profile for our review.   </div>
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+
+                            <div class="  card m-2 border-0  col-md-12 ">
+                               
+                                    <div class="card-body text-start">
+
+                                        <input type="text" class="form-control" required name="linkedin_url" />
+                                        
+                                    
+                                    </div>
+                                <div class="card-footer border-0">
                                     <button class="btn btn-primary" type="submit">
                                         Submit for review
                                     </button>
-
                                 </div>
                             </div>
                         </div>
@@ -458,12 +496,39 @@ function deleteWord(element, value){
 
 <script>
 
-    function showSection(el, btn){
+    function showSection(el, btn, names){
 
-        console.log(el)
+        if(checkIsset(names)){
         el.classList.remove('d-none')
         btn.disabled= true
         el.scrollIntoView()
+        }else{
+
+        }
+    }
+
+    function checkIsset(names){
+        var isFilled = true;
+        names.forEach(name => {
+            // console.log(document.querySelector('input[name="'+name+'"]').value)
+            let el = document.querySelector('input[name="'+name+'"]');
+            if(el == null){
+                el = document.querySelector('select[name="'+name+'"]');
+                if(el == null){
+                    el = document.querySelector('textarea[name="'+name+'"]');
+                }else{
+                    console.log(el)
+
+                }
+            }
+            if(!el.value){
+                isFilled = false;
+                el.classList.add('is-invalid')
+            }else{
+                el.classList.remove('is-invalid')
+            }
+        })
+        return isFilled
     }
 
 </script>

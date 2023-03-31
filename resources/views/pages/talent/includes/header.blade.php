@@ -3,11 +3,11 @@
 			
     <!-- Logo -->
     <div class="header-left">
-        <a href="/" class="navbar-brand logo ">
-            <img src="assets/img/BrainX/BrainX_icon_White-removebg-preview.png" alt="Logo">
+        <a href="#" class="navbar-brand logo ">
+            <img src="/assets/img/BrainX/BrainX_icon_White-removebg-preview.png" alt="Logo">
         </a>
         {{-- <a href="/" class="logo logo-small">
-            <img src="assets/img/BrainX_logo.png" alt="Logo" width="30" height="30">
+            <img src="/assets/img/BrainX_logo.png" alt="Logo" width="30" height="30">
         </a> --}}
         <!-- Sidebar Toggle -->
         <a href="javascript:void(0);" id="toggle_btn">
@@ -30,14 +30,14 @@
         <!-- Notifications -->
         <li class="nav-item dropdown">
             <a href="#" class=" nav-link user-img" data-bs-toggle="modal" data-bs-target="#add-feedback">
-                <img src="assets/img/BrainX/Feedback-button-on-navigation-bar.png" alt=""> 
+                <img src="/assets/img/BrainX/Feedback-button-on-navigation-bar.png" alt=""> 
             </a>
             
         </li>
         {{-- @if (isset($user) && $user->talent->status != "INCOMPLETE") --}}
         <li class="nav-item dropdown">
             <a href="{{ route('build.profile') }}" class=" nav-link user-img" >
-                <img src="assets/img/BrainX/Message-icon.png" alt=""> 
+                <img src="/assets/img/BrainX/Message-icon.png" alt=""> 
             </a>
             
         </li>
@@ -49,7 +49,7 @@
         <li class="nav-item dropdown has-arrow main-drop">
             <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown">
                 <span class="user-img">
-                    <img src="assets/img/BrainX/Talent-profile-avatar.png" alt="">
+                    <img src="/assets/img/BrainX/Talent-profile-avatar.png" alt="">
                     <span class="status online"></span>
                 </span>
             </a>

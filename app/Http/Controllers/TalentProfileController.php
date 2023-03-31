@@ -12,6 +12,11 @@ use CV;
 
 class TalentProfileController extends Controller
 {
+
+    public function __construct()
+    {
+        // $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -59,10 +64,10 @@ class TalentProfileController extends Controller
 
         $talent = Talent::where('user_id', $user_id)->with('skill')->first();
         // dd($request->resume->extension());
-        if($request->resume != null){
-            $talent->resumePath = $this->uploadResume($request->resume);
-            $talent->resumeData = $this->getResumeData($talent->resumePath);
-        }
+        // if($request->resume != null){
+        //     $talent->resumePath = $this->uploadResume($request->resume);
+        //     $talent->resumeData = $this->getResumeData($talent->resumePath);
+        // }
         $talent->name = $request->name;
         $talent->country = $request->country;
         $talent->standout_job_title = $request->standout_job_title;
@@ -71,6 +76,7 @@ class TalentProfileController extends Controller
         $talent->hours_per_week = $request->hours_per_week;
         $talent->hourly_rate = $request->hourly_rate;
         $talent->user_id = $user_id;
+        $talent->linkedin = $request->linkedin_url;
         $talent->status = "IN_REVIEW";
         $talent->save();
 
@@ -125,31 +131,7 @@ class TalentProfileController extends Controller
         return $json;
     }
 
-    function convertToHTML(){
-        $this->getResumeData('11679853700.pdf');
-        return;
-        // Parse the PDF content using Poppler
-$pdfFile = __DIR__.'/../../../public/resumes/11679853700.pdf';
-$pdf = new \Poppler\Poppler();
-$pages = $pdf->render($pdfFile);
-
-// Convert the PDF content to HTML using Dompdf
-$html = '';
-foreach ($pages as $page) {
-    $text = $page->getText();
-    $html .= "<p>$text</p>";
-}
-$dompdf = new \Dompdf\Dompdf();
-$dompdf->loadHtml($html);
-$dompdf->setPaper('A4', 'portrait');
-$dompdf->render();
-
-// Save the HTML output to a file or output it to the browser
-$htmlOutput = $dompdf->output();
-dd($htmlOutput);
-
-file_put_contents('output.html', $htmlOutput);
-    }
+    
 
     function isSkillExists($existingSkills, $skill){
         foreach($existingSkills as $existingSkill){
@@ -167,50 +149,86 @@ file_put_contents('output.html', $htmlOutput);
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {   
-        
+        // $this->extractResume();
+        // return;
+        $id = decrypt($id);
         $title = ['Experience','Education'];
 
-        $user = User::with('talent')->find(Auth::guard()->user()->id);
+        $user = User::with('talent')->find($id);
 
-        $resume = json_decode($user->talent->resumeData);
+        // $resume = json_decode($user->talent->resumeData);
 
-        // dd($resume);
-        $read = false;
-        $running = '';
-        $data = [];
-        $blank = 0;                
-        $ignore = false;
+        // // dd($resume);
+        // $read = false;
+        // $running = '';
+        // $data = [];
+        // $blank = 0;                
+        // $ignore = false;
 
-        foreach($resume as $line){
-            
-            if($read && !in_array($line, $title) && !str_contains($line, 'Page') && !empty($line)){
+        // foreach($resume as $line){
+        //     $line = trim($line, "\f");
+        //     if($read && !in_array($line, $title) && !str_contains($line, 'Page') && !empty($line)){
                 
-                array_push($data[$running],$line); 
-            }
-            if($read && empty($line) ){
-                $blank++;
-                if($blank %2==0)
-                    array_push($data[$running],$line); 
-            }
-            if(in_array($line, $title)){
-                $read = true;
-                $running = $line;
-                $data[$running] = [];
-            }
+        //         array_push($data[$running],$line); 
+        //     }
+        //     if($read && empty($line) ){
+        //         $blank++;
+        //         if($blank %2==0)
+        //             array_push($data[$running],$line); 
+        //     }
+        //     if(in_array($line, $title)){
+        //         $read = true;
+        //         $running = $line;
+        //         $data[$running] = [];
+        //     }
 
-            if(!str_contains($line, 'Page')){
-                $ignore = true;
-            }else{
-                $ignore = false;
-            }
+        //     if(!str_contains($line, 'Page')){
+        //         $ignore = true;
+        //     }else{
+        //         $ignore = false;
+        //     }
             
-        }
+        // }
         // dd($data);
 
         
-        return view('pages.talent.profile')->with('user', $user)->with('data', $data);
+        return view('pages.talent.profile')->with('user', $user);
+    }
+
+    public function extractResume(){
+        // Init
+$resumeParser = new \LinkedInResumeParser\Parser();
+$parsedResume = $resumeParser->parse(__DIR__.'/../../../public/resumes/21680031331.pdf');
+ 
+// Get Name
+echo $parsedResume->getName();
+ 
+// Get Email
+echo $parsedResume->getEmail();
+ 
+// Get LinkedIn Profile URL
+echo $parsedResume->getUrl();
+ 
+// Get Summary
+echo $parsedResume->getSummary();
+ 
+// Get Work Experiences
+$experiences = $parsedResume->getExperiences();
+if (count($experiences) > 0) {
+    foreach ($experiences as $experience) {
+        echo $experience->getTitle() . ' at ' . $experience->getOrganisation() . ' (' . date_format($experience->getStart(), 'F Y') . ' - ' . date_format($experience->getEnd(), 'F Y') . ')';
+    }
+}
+ 
+// Get Education
+$education = $parsedResume->getEducation();
+if (count($education) > 0) {
+    foreach ($education as $edu) {
+        echo $edu->getLevel() . ', ' . $edu->getCourseTitle() . ' at ' . $edu->getInstitution() . ' (' . date_format($edu->getStart(), 'Y') . ' - ' . date_format($edu->getEnd(), 'Y') . ')';
+    }
+}
     }
 
     /**

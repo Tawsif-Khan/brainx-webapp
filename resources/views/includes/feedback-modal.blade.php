@@ -20,19 +20,19 @@
 
 				@if (Auth::guard()->user() == null )
                                             <div class="form-group">
-                                                <input type="text" name="name" class="form-control" placeholder="Full Name"/>
+                                                <input type="text" name="name" class="form-control" placeholder="Full Name" required/>
                                             </div>
                                             <div class="form-group">
-                                                <input type="email" name="email" class="form-control" placeholder="Email"/>
+                                                <input type="email" name="email" class="form-control" placeholder="Email" required/>
                                             </div>
 											@else
 											
 											@endif
                                             <div class="form-group">
-                                                <input type="text" name="topic" class="form-control" placeholder="Topic"/>
+                                                <input type="text" name="topic" class="form-control" placeholder="Topic" required/>
                                             </div>
                                             <div class="form-group">
-                                                <textarea name="message" id="desc" cols="52" rows="5" class="form-control" placeholder="I want to give feedback for BrainX or what we can help you"></textarea>
+                                                <textarea name="message" id="desc" cols="52" rows="5" class="form-control" required placeholder="I want to give feedback for BrainX or what we can help you"></textarea>
                                             </div>
                                         </form>
                                     </div>
@@ -53,6 +53,9 @@
 
 <script>
 	function postFeedback() {
+
+		// if(document.get)
+
             $.ajax({
                type:'POST',
                url:'/feedback',

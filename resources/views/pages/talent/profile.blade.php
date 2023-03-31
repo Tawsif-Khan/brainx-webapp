@@ -19,6 +19,9 @@
         width: 1000px;
     }
     
+    .border{
+        border-radius: .45rem!important;
+    }
     </style>
     <div class="container" style="height: 100%;">
 
@@ -29,19 +32,19 @@
 
             <h4 class="mb-5 text-center text-primary">Your profile is pending for review</h4>
             <div class="row m-5">
-                <div class="col-md-5 text-center">
+                <div class="col-md-3 ">
                     <div class="img-profile">
     
                     <img class="avatar-img" src="{{ $user->talent->photo }}" alt="">
                     </div>
                 </div>
-                <div class="col-md-7">
+                <div class="col-md-9">
                     <h2 id="name">{{ $user->name }}</h2>
                     <h3 id="position">{{ $user->talent->standout_job_title }}</h3>
                     <div class="row">
                         <div class="col-md-6 p-2">
                             
-                            <i class="material-icons mb-1">business_center</i> <span id="experience">{{ $user->talent->experience }}</span> years of experience
+                            <i class="material-icons mb-1">business_center</i> <span id="experience">{{ $user->talent->experience }}</span> years in AI
                         </div>
                         <div class="col-md-6 p-2">
                             <i class="material-icons mb-1">payments</i>$<span id="hourly_rate">{{ $user->talent->hourly_rate }}</span>/hour
@@ -60,7 +63,7 @@
             </div>
     <section>
     
-            <div class="row border m-5">
+            <div class="row border rounded m-5">
                 <div class="col-md-12 p-5">
                     <h4>Bio</h4>
                     <p id="bio" class="p-2">
@@ -81,10 +84,9 @@
                                     }
                                     
                                 @endphp
-                                <ul>
-
+                            <ul class="row">
                                 @foreach ($skills as $key => $items)
-                                <li class="mt-3">
+                                <li class="col mt-3">
                                     <h5>{{ $key }}</h5>
                                     <ul id="skill-lists" class="list-inline">
                                         @foreach ($items as $item)
@@ -92,10 +94,10 @@
                                             {{ ($item) }}
                                         </li>
                                         @endforeach
-                                    
                                     </ul>
                                 </li>
-                                @endforeach                                </ul>
+                                @endforeach                                
+                            </ul>
 
                         </div>
                     </div>
@@ -106,18 +108,17 @@
             <section>
                 <div class="row border m-5">
                     <div class="col-md-12 p-5">
-                <h4>
-                    Experience
-                </h4>
-                <div class="ms-3">
-                @foreach ($data['Experience'] as $item)
-                        
-                    {{ $item }} <br/>
-                @endforeach
+                        <h4>
+                            Experience
+                        </h4>
+                        <div class="ms-3">
+                        {{-- @foreach ($data['Experience'] as $item)
+                                
+                            {{ $item }} <br/>
+                        @endforeach --}}
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-        </div>
             </section>
 
             <section>
@@ -128,10 +129,10 @@
                 </h4>
                 <div class="ms-3">
 
-                @foreach ($data['Education'] as $item)
+                {{-- @foreach ($data['Education'] as $item)
                     
                     {{ $item }} <br/>
-                @endforeach
+                @endforeach --}}
             </div>
 
         </div>

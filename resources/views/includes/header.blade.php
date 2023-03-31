@@ -36,12 +36,12 @@
                 </a>
             </div>
             <ul class="main-nav">
-                <li class="submenu">
+                {{-- <li class="submenu">
                     <a href="/">For Business </a>
-                </li>
-                <li class="submenu">
-                    <a href="/talent">For AI Talent</a>
-                </li>
+                </li> --}}
+                {{-- <li class="submenu">
+                    <a href="/">For AI Talent</a>
+                </li> --}}
                 <li class="has-submenu fade" style="width: 200px">
                 </li>
                 <li class="has-submenu fade" style="width: 100px">                                        
@@ -50,7 +50,7 @@
         </div>		 
         <ul class="nav header-navbar-rht reg-head pe-5">												
             {{-- <li><a href="register.html" class="reg-btn"><img src="assets/img/icon/reg-icon.svg" class="me-1" alt="icon"> Register</a></li> --}}
-            @if (Auth::guard()->user() == null && !Request::is('/'))
+            @if (Auth::guard()->user() == null && Request::is('/'))
             <li><a href="{{ url('auth/linkedin') }}" data-bs-toggle="modal" data-bs-target="#login-modal" class="log-btn"><img src="assets/img/icon/lock-icon.svg" class="me-2" alt="icon"> Login</a></li>
                 
             @endif
