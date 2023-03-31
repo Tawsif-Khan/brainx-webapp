@@ -23,7 +23,7 @@ class LinkedinController extends Controller
         try {
             
             $user = Socialite::driver('linkedin')->user();
-            // dd($user);
+            // dd($user->user['profilePicture']);
             $linkedinUser = User::where('oauth_id', $user->id)->first();
       
             if($linkedinUser){
@@ -48,7 +48,7 @@ class LinkedinController extends Controller
                     'role' => 'Talent'
                 ]);
                 $talent = Talent::create([
-                    'photo' => $user->avatar,
+                    'photo' => $user->user['profilePicture']['displayImage~']['elements'][2]['identifiers'][0]['identifier'],
                     'user_id' => $newUser->id
                 ]);
                 Auth::login($newUser);

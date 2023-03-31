@@ -1,4 +1,4 @@
-<select  name="country" class="form-control" onchange="setValuetoProfile('country', this.value)">
+<select  name="country" class="form-control" onchange="setValuetoProfile('country', this.value)" required>
     <option value="">- Select Country -</option>
     <option value="Afghanistan">Afghanistan</option>
     <option value="Åland Islands">Åland Islands</option>

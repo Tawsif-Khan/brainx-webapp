@@ -74,7 +74,7 @@ ul li{
                                                 <button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#invite">Invite your AI friends</button>
                                             </div>
                                             <div class="col-md-6 ms-5">
-                                                <a href="/view-profile">
+                                                <a href="{{ route('show.profile', encrypt(Auth::guard()->user()->id)) }}">
                                                 <button class="btn btn-primary" type="button" >My profile</button>
                                                 </a>
                                             </div>

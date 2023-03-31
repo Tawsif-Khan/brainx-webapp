@@ -106,7 +106,7 @@
         <label class="dropdown-option"> <strong>  {{ $category->category_name }} </strong></label> 
         @foreach ($category->skills as $skill)
         <label class="dropdown-option">
-            <input type="checkbox" name="skills[]" value="{{ $skill->skill_id }}" id="{{ $skill->skill_name }}"  onchange="addToList(this)"/>
+            <input type="checkbox" name="skills[]"  value="{{ $skill->skill_id }}" id="{{ $skill->skill_name }}"  onchange="addToList(this)"/>
             {{ $skill->skill_name }}
           </label>
       
