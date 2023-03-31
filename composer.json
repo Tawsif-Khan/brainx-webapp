@@ -19,8 +19,7 @@
         "laravel/valet": "^4.0",
         "pelago/emogrifier": "5.0.0",
         "phpoffice/phpword": "^1.0",
-        "tightenco/ziggy": "^1.0",
-        "tonchik-tm/pdf-to-html": "1.1.0"
+        "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
