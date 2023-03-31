@@ -156,7 +156,7 @@ ul li{
                                     </div>
                                     <div class="media-body flex-grow-1">
                                         <div class="user-name">Talent care </div>
-                                        <div><strong>2/5. Bio</strong></div>
+                                        <div><strong>2/5. Bio</strong><b class="pb-1"> *</b></div>
                                     </div>
                                 </div>
                                 
@@ -206,7 +206,7 @@ ul li{
                                     </div>
                                     <div class="media-body flex-grow-1">
                                         <div class="user-name">Talent care </div>
-                                        <div><strong>3/5. Strong AI skills</strong></div>
+                                        <div><strong>3/5. Strong AI skills</strong><b class="pb-1"> *</b></div>
                                         <div class="user-status">Please choose skills that you’re strong at. You’ll be matched to projects or clients that are suitable to your strengths  </div>
                                     </div>
                                 </div>
@@ -241,7 +241,7 @@ ul li{
                                     </div>
                                     <div class="media-body flex-grow-1">
                                         <div class="user-name">Talent care </div>
-                                        <div><strong>4/5. Hourly rate</strong></div>
+                                        <div><strong>4/5. Hourly rate</strong><b class="pb-1"> *</b></div>
                                     </div>
                                 </div>    
                             </div>
@@ -287,7 +287,7 @@ ul li{
                                     </div>
                                     <div class="media-body flex-grow-1">
                                         <div class="user-name">Talent care </div>
-                                        <div><strong>5/5. Linkedin *</strong></div>
+                                        <div><strong>5/5. Linkedin </strong><b class="pb-1"> *</b></div>
                                         <div class="user-status">Please add your LinkedIn profile for our review.   </div>
                                     </div>
                                 </div>
@@ -498,12 +498,14 @@ function deleteWord(element, value){
 
     function showSection(el, btn, names){
 
-        if(checkIsset(names)){
+        if(names.length > 0 && checkIsset(names)){
         el.classList.remove('d-none')
         btn.disabled= true
         el.scrollIntoView()
-        }else{
-
+        }else if(names.length == 0 && isSkillChecked()){
+            el.classList.remove('d-none')
+            btn.disabled= true
+            el.scrollIntoView()
         }
     }
 
@@ -529,6 +531,17 @@ function deleteWord(element, value){
             }
         })
         return isFilled
+    }
+
+    function isSkillChecked(){
+        var isChecked = false
+        var skillEls = document.querySelectorAll('input[name="skills[]"]')
+        skillEls.forEach(el => {
+            if(el.checked){
+                isChecked = true
+            }
+        })
+        return isChecked
     }
 
 </script>
