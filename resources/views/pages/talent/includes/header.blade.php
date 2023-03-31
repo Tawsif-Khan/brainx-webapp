@@ -35,12 +35,14 @@
             
         </li>
         {{-- @if (isset($user) && $user->talent->status != "INCOMPLETE") --}}
+        @if (Auth::guard()->user() != null)
         <li class="nav-item dropdown">
             <a href="{{ route('build.profile') }}" class=" nav-link user-img" >
                 <img src="/assets/img/BrainX/Message-icon.png" alt=""> 
             </a>
             
         </li>
+        
             
         {{-- @endif --}}
         <!-- /Notifications -->
@@ -55,7 +57,7 @@
             </a>
             <div class="dropdown-menu">
                 @if (Auth::guard()->user()->talent->status != "INCOMPLETE")
-                <a class="dropdown-item" href="/view-profile"><i data-feather="user" class="me-1"></i> Profile</a>                    
+                <a class="dropdown-item" href="{{ route('show.profile', encrypt(Auth::guard()->user()->id)) }}"><i data-feather="user" class="me-1"></i> Profile</a>                    
                 @endif
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i data-feather="log-out" class="me-1"></i> Logout</a>
             </div>
@@ -65,6 +67,8 @@
         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
         </form>
+
+        @endif
     </ul>
     <!-- /Header Menu -->
     
