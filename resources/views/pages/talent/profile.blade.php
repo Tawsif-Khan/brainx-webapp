@@ -22,6 +22,15 @@
     .border{
         border-radius: .45rem!important;
     }
+    .d-flex{
+        justify-content: space-between;
+    }
+
+    .d-flex button{
+        font-size: 30px;
+        font-weight: 700;
+        padding: 0px 15px;
+    }
     </style>
     <div class="container" style="height: 100%;">
 
@@ -65,7 +74,7 @@
     
             <div class="row border rounded m-5">
                 <div class="col-md-12 p-5">
-                    <h4>Bio</h4>
+                    <h4 class="text-primary">Bio</h4>
                     <p id="bio" class="p-2">
                         {{ $user->talent->brief_summary }}
                     </p>
@@ -76,7 +85,7 @@
             <section>
                 <div class="row border m-5">
                     <div class="col-md-12 p-5">
-                        <h4>Strength points</h4>
+                        <h4 class="text-primary">Strength points</h4>
                         <div class="col-md-12 p-2">
                                 @php
                                     foreach ($user->talent->skill as  $skill) {
@@ -86,7 +95,7 @@
                                 @endphp
                             <ul class="row">
                                 @foreach ($skills as $key => $items)
-                                <li class="col mt-3">
+                                <li class="col-md-6 mt-3">
                                     <h5>{{ $key }}</h5>
                                     <ul id="skill-lists" class="list-inline">
                                         @foreach ($items as $item)
@@ -108,9 +117,12 @@
             <section>
                 <div class="row border m-5">
                     <div class="col-md-12 p-5">
-                        <h4>
-                            Experience
-                        </h4>
+                        <div class="d-flex">
+                            <h4 class="text-muted">
+                                Experience
+                            </h4>
+                            <button class="btn btn-outline-dark btn-rounded" disabled>+</button>
+                        </div>
                         <div class="ms-3">
                         {{-- @foreach ($data['Experience'] as $item)
                                 
@@ -124,9 +136,12 @@
             <section>
                 <div class="row border m-5">
                     <div class="col-md-12 p-5">
-                <h4>
+                        <div class="d-flex">
+                <h4 class="text-muted">
                     Education
                 </h4>
+                <button class="btn btn-outline-dark btn-rounded" disabled>+</button>
+                        </div>
                 <div class="ms-3">
 
                 {{-- @foreach ($data['Education'] as $item)
