@@ -46,7 +46,7 @@
 								
 								
                                 <h1>
-                                    Join the global network of freelance<br/> AI talents to consult and develop AI<br/> applications for businesses
+                                    Join the global network of freelance<br/> AI talents to develop AI applications <br/>for businesses
                                 </h1>
                                 
 								<p>BrainX is a freelance platform connecting the global network of remote AI talents to businesses.  </p>
@@ -79,7 +79,7 @@
 
 								</div>
 								<div class="freelance-info text-center">
-									<h3 class="mt-2"><a href="">Tawsif Khan</a></h3>
+									<h3 class="mt-2">Tawsif Khan</h3>
 									<h4 class="freelance-specific"><strong>PhD Student in AI - Malaysia</strong></h4>
                                     <p>"AI age is now. Join force with BrainX to bring AI revolution to the global economy"</p>
                                 </div>
@@ -109,8 +109,8 @@
                                         <a href="javascript:;"><img class="img-fluid" src="assets/img/BrainX/Consult.png" alt=""></a>
                                     </div>
                                     <div class="about-it-content ">
-                                        <h4>Consulting</h4>
-                                        <p>Business clients might know that AI can potentially be a benefit, but not actually be sure how</p>
+                                        <h4>Contractors</h4>
+                                        <p>Work for businesses within a particular period of time and get paid in hourly rate</p>
                                         
                                     </div>
                                 </div>
@@ -121,8 +121,8 @@
                                         <a href="javascript:;"><img class="img-fluid" src="assets/img/BrainX/Development.png" alt=""></a>
                                     </div>
                                     <div class="about-it-content text-left">
-                                        <h4>Development</h4>
-                                        <p>Talents can help your business build AI applications, data engineering, custom model development, AI operation,...</p>
+                                        <h4>Freelancers</h4>
+                                        <p>Develop AI projects and get paid in a fixed price</p>
                                         
                                     </div>
                                 </div>

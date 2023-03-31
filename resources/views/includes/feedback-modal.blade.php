@@ -37,7 +37,7 @@
                                         </form>
                                     </div>
                                 <div class="card-footer pb-2 border-0">
-                                    <button type="button" data-bs-dismiss="modal" class="btn btn-primary" onclick="postFeedback()" > Send</button>
+                                    <button type="button"  class="btn btn-primary" onclick="postFeedback()" > Send</button>
 
                                 </div>
                             </div>
@@ -54,8 +54,22 @@
 <script>
 	function postFeedback() {
 
-		// if(document.get)
+		var elements = ['topic','message'];
+		var isRequired = false;
+		elements.forEach(el =>{
+			var obj = document.querySelector('input[name="'+el+'"]')
+			if(obj == null){
 
+				obj = document.querySelector('textarea[name="'+el+'"]')
+			}
+			
+			if(!obj.value){
+				isRequired = true
+				obj.classList.add('is-invalid')
+			}
+
+		})
+		if(!isRequired){
             $.ajax({
                type:'POST',
                url:'/feedback',
@@ -65,10 +79,12 @@
                data:  $('#feedback-form').serialize(),
                success:function(data) {
 				 $('#success-feedback-modal').modal('toggle');
-        $('#message-box').html('Successfully sent feedback.')
+				 $('#add-feedback').modal('toggle');
+        		$('#message-box').html('Successfully sent feedback.')
                }
             });
-         }
+		}
+    }
 </script>
 
 @endsection
