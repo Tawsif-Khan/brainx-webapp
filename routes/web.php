@@ -48,6 +48,7 @@ Route::post('/submit-profile','App\http\controllers\TalentProfileController@stor
 
 Route::domain('admin.' . env('APP_URL'))->group(function () {
     
+    Route::get('/talent-profile/{id}', 'App\http\controllers\Admin\AdminController@userDetails')->name('admin.show.profile');
     Route::get('/dashboard','App\http\controllers\Admin\DashboardController@index')->name('admin.dashboard');
     Route::get('/users','App\http\controllers\Admin\AdminController@users')->name('admin.users');
     Route::post('/users/status/update','App\http\controllers\Admin\AdminController@updateStatus')->name('admin.update.users.status');
@@ -58,6 +59,11 @@ Route::domain('admin.' . env('APP_URL'))->group(function () {
     Route::get('/feedbacks','App\http\controllers\Admin\AdminController@feedbacks')->name('admin.feedbacks');
 });
 
+Route::domain('admin.' . env('APP_URL'))->group(function () {
+    
+    Route::get('/login','App\http\controllers\Admin\AuthController@index')->name('admin.login.form');
+    Route::post('/auth/login','App\http\controllers\Admin\AuthController@login')->name('admin.login');
+});
 
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');

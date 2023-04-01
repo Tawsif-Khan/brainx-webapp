@@ -11,15 +11,30 @@ use App\Models\Feedback;
 class AdminController extends Controller
 {
 
-
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function users(){
-        $users = User::with('talent')->get();
+        $users = User::with('talent')->where('role','Talent')->get();
 
         return view('pages.admin.users')->with('users', $users);
     }
 
+    public function userDetails($id)
+    {   
+        
+        $id = decrypt($id);
+        $title = ['Experience','Education'];
+
+        $user = User::with('talent')->find($id);
+
+        return view('pages.admin.talent-details')->with('user', $user);
+    }
+
     public function  updateStatus(Request $request){
+
         $talent = Talent::find($request->talent_id);
         $talent->status = $request->status;
         $talent->save();

@@ -32,7 +32,6 @@
                                         <th>Topic</th>	
                                         <th>Message </th>	
                                         <th>Received Date</th>	
-                                        <th>Status</th>	
                                         <th></th>	
                                     </tr>
                                 </thead>

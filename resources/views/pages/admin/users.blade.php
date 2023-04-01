@@ -30,8 +30,8 @@
                                         </th>
                                         <th>Talent</th>
                                         <th>Expertise</th>	
-                                        <th>Verified</th>	
-                                        <th>Skills </th>	
+                                        <th>Linkedin</th>	
+                                        <th>Country </th>	
                                         <th>Joined Date</th>	
                                         <th>Status</th>	
                                         <th></th>	
@@ -56,15 +56,11 @@
                                             </div>
                                         </td>
                                         <td>{{ $user->talent->standout_job_title }}</td>
-                                        <td class="verify-mail"><i data-feather="check-circle" class="me-1 text-success"></i>Email</td>
+                                        <td class="verify-mail"><i data-feather="linkedin" class="me-1 text-success"></i>
+                                            <a href="{{ $user->talent->linkedin }}" class="link-info">Linkedin</a>
+                                        </td>
                                         <td>
-                                            <ul  class="list-inline">
-                                                @foreach ($user->talent->skill as $skill)
-                                                    <li class="btn btn-dark list-inline-item">
-                                                        {{ ($skill->skill->skill_name) }} 
-                                                    </li>
-                                                @endforeach
-                                            </ul>
+                                            {{ $user->talent->country }}
                                         </td>
                                         <td>{{ $user->created_at }}</td>
                                         <td>
@@ -82,7 +78,10 @@
                                         </form>
                                             </td>
                                         <td class="text-end three-dots">
-                                            <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown"><i class="fas fa-ellipsis-v"></i></a>
+
+                                            <a href="{{ route('admin.show.profile', encrypt($user->id)) }}" class="btn btn-primary">View</a>
+
+                                            {{-- <a href="#" class="dropdown-toggle nav-link" data-bs-toggle="dropdown"><i class="fas fa-ellipsis-v"></i></a>
                                             <div class="dropdown-menu user-menu-list">
                                                 <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#transaction-category"><img class="me-2 " src="assets/img/icon/icon-01.svg" alt=""> View Details</a>
                                                 <a class="dropdown-item" href="#"><img class="me-2 " src="assets/img/icon/icon-02.svg" alt=""> Transaction</a>
@@ -90,7 +89,7 @@
                                                 <a class="dropdown-item" href="#"><img class="me-2 " src="assets/img/icon/icon-04.svg" alt=""> Suspend user</a>
                                                 <a class="dropdown-item" href="#"><i data-feather="edit" class="me-2"></i> Edit</a>
                                                 <a class="dropdown-item mb-0" href="#"><i data-feather="trash-2" class="me-2 text-danger"></i> Delete</a>
-                                            </div>
+                                            </div> --}}
                                         </td>
                                     </tr>
                                                           

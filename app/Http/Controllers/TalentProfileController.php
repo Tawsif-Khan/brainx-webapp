@@ -150,15 +150,12 @@ class TalentProfileController extends Controller
      */
     public function show($id)
     {   
-        // $this->extractResume();
-        // return;
+        
         $id = decrypt($id);
         $title = ['Experience','Education'];
 
         $user = User::with('talent')->find($id);
 
-        
-        
         return view('pages.talent.profile')->with('user', $user);
     }
 
