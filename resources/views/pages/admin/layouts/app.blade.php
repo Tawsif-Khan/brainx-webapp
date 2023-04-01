@@ -9,23 +9,25 @@
 		<link rel="shortcut icon" href="/assets/img/favicon.png">
 		
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/admin/assets/css/bootstrap.min.css">
 		
 		<!-- Fontawesome CSS -->
-		<link rel="stylesheet" href="/assets/plugins/fontawesome/css/fontawesome.min.css">
-		<link rel="stylesheet" href="/assets/plugins/fontawesome/css/all.min.css">
+		<link rel="stylesheet" href="/admin/assets/plugins/fontawesome/css/fontawesome.min.css">
+		<link rel="stylesheet" href="/admin/assets/plugins/fontawesome/css/all.min.css">
 
 		<!-- Feather CSS -->
-		<link rel="stylesheet" href="/assets/css/feather.css">
+		<link rel="stylesheet" href="/admin/assets/css/feather.css">
 		
 		<!-- Datatables CSS -->
-		<link rel="stylesheet" href="/assets/plugins/datatables/datatables.min.css">
+		<link rel="stylesheet" href="/admin/assets/plugins/datatables/datatables.min.css">
 
 		<!-- Datepicker CSS -->
-		<link rel="stylesheet" href="/assets/css/bootstrap-datetimepicker.min.css">
+		<link rel="stylesheet" href="/admin/assets/css/bootstrap-datetimepicker.min.css">
 		
 		<!-- Main CSS -->
-		<link rel="stylesheet" href="/admin/css/style.css">
+		<link rel="stylesheet" href="/admin/assets/css/style.css">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 		
     </head>
     <body>
@@ -191,13 +193,13 @@
 								<a href="{{ route('admin.categories') }}"><i data-feather="copy"></i> <span>Categories</span></a>
 							</li>
 							<li>
-								<a href="{{ route('admin.skills') }}"><i data-feather="database"></i> <span>Skills</span></a>
+								<a href="{{ route('admin.skills') }}"><i data-feather="award"></i> <span>Skills</span></a>
 							</li>
 							<li>
 								<a href="{{ route('admin.users') }}"><i data-feather="users"></i> <span>Talents</span></a>
 							</li>
 							<li>
-								<a href="{{ route('admin.feedbacks') }}"><i data-feather="users"></i> <span>Feedbacks</span></a>
+								<a href="{{ route('admin.feedbacks') }}"><i data-feather="clipboard"></i> <span>Feedbacks</span></a>
 							</li>
 						</ul>
 					</div>
@@ -221,27 +223,27 @@
 		<!-- /Main Wrapper -->
 		
 		<!-- jQuery -->
-		<script src="/assets/js/jquery-3.6.0.min.js"></script>
+		<script src="/admin/assets/js/jquery-3.6.0.min.js"></script>
 		
 		<!-- Bootstrap Core JS -->
-		<script src="/assets/js/bootstrap.bundle.min.js"></script>
+		<script src="/admin/assets/js/bootstrap.bundle.min.js"></script>
 		
 		<!-- Feather Icon JS -->
-		<script src="/assets/js/feather.min.js"></script>
+		<script src="/admin/assets/js/feather.min.js"></script>
 		
 		<!-- Slimscroll JS -->
-		<script src="/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+		<script src="/admin/assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 		
 		<!-- Datatables JS -->
-		<script src="/assets/plugins/datatables/jquery.dataTables.min.js"></script>
-		<script src="/assets/plugins/datatables/datatables.min.js"></script>
+		<script src="/admin/assets/plugins/datatables/jquery.dataTables.min.js"></script>
+		<script src="/admin/assets/plugins/datatables/datatables.min.js"></script>
 
 		<!-- Datepicker Core JS -->
-		<script src="/assets/js/moment.min.js"></script>
-		<script src="/assets/js/bootstrap-datetimepicker.min.js"></script>
+		<script src="/admin/assets/js/moment.min.js"></script>
+		<script src="/admin/assets/js/bootstrap-datetimepicker.min.js"></script>
 		
 		<!-- Custom JS -->
-		<script src="/assets/js/script.js"></script>
+		<script src="/admin/assets/js/script.js"></script>
 
 	</body>
 </html>
