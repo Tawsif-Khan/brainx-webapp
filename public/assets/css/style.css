@@ -11723,7 +11723,7 @@ label.file-upload  input[type="file"] {
 .chat-cont-right .chat-header .media {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
-	align-items: center;
+	/* align-items: center; */
 }
 .chat-cont-right .chat-header .media .media-img-wrap {
 	position: relative;
@@ -11732,7 +11732,7 @@ label.file-upload  input[type="file"] {
 	display: flex;
 	-webkit-box-align: center;
 	-ms-flex-align: center;
-	align-items: center;
+	/* align-items: center; */
 	margin-right: 15px;
 }
 

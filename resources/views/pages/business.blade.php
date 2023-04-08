@@ -101,11 +101,11 @@
 
 								@if (Auth::guard()->user() == null )
 								<a class="btn join-us" href="#">	
-								<button class="btn btn-primary sub-btn " disabled type="submit">Post a request</button>
+								<button class="btn btn-primary sub-btn " data-bs-toggle="modal" data-bs-target="#client-signup"  type="submit">Post a request</button>
                                 </a>
                                 @else
 								<a class="btn join-us" href="#">	
-                                    <button class="btn btn-primary sub-btn " disabled type="submit">Post a request</button>
+                                    <button class="btn btn-primary sub-btn " data-bs-toggle="modal" data-bs-target="#client-signup"  type="submit">Post a request</button>
                                 </a>
                                 @endif
 								<div class="col-md-6 col-sm-8 mt-4">
@@ -329,4 +329,6 @@
 			@include('includes.feedback-modal')
 			@include('includes.modals.login-modal')
 			@include('includes.modals.desktop-msg')
+			@include('pages.client.includes.modals.signup')
+			@include('pages.client.includes.modals.signin')
 @endsection

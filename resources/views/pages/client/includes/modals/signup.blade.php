@@ -1,0 +1,55 @@
+
+		<!-- The Modal -->
+		<div class="modal fade custom-modal" id="client-signup">
+			<div class="modal-dialog modal-dialog-centered">
+				<div class="modal-content">
+
+					<!-- Modal Header -->
+					<div class="modal-header text-center">
+						<h4 class="modal-title text-center w-100">Sign up</h4>
+						<button type="button" class="close" data-bs-dismiss="modal"><span>&times;</span></button>
+					</div>
+
+					<!-- Modal body -->
+					<div class="modal-body">
+                            <div class="  card m-2 border-0 text-center col-md-12 ">
+                                  
+                                    <div class="card-body text-center">
+                                        <form action="{{ route('client.register') }}" method="POST">
+                                            @csrf
+                                            <div class="form-group">
+                                                <input type="text" name="name" class="form-control" placeholder="Full name" required/>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" name="email" class="form-control" placeholder="Work email" required/>
+                                            </div>
+											
+                                            <div class="form-group">
+                                                <input type="text" name="job_title" class="form-control" placeholder="Job title" required/>
+                                            </div>
+                                            <div class="form-group">
+                                            @include('includes.countries')
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" name="password" class="form-control" placeholder="Create a password" required/>
+                                            </div>
+                                            <p>I understand and agree <a href="/terms-of-service">Terms of Service</a>, <a href="/privacy-policy">Privacy Policy</a></p>
+                                            
+                                            <button type="submit"  class="btn btn-primary mt-4"  > Create my account</button>
+
+                                        </form>
+
+                                    </div>
+                                <div class="card-footer pb-2 border-0">
+                                        Already have an account? <a href="#" data-bs-toggle="modal" data-bs-target="#client-signin" style="text-decoration: underline">Log in</a>
+                                </div>
+                            </div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!-- /The Modal -->
+        
+
+        

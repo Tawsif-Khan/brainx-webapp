@@ -54,6 +54,10 @@
             <li><a href="{{ url('auth/linkedin') }}" data-bs-toggle="modal" data-bs-target="#login-modal" class="log-btn"><img src="assets/img/icon/lock-icon.svg" class="me-2" alt="icon"> Login</a></li>
                 
             @endif
+            @if (Auth::guard()->user() == null && Request::is('business'))
+            <li><a href="#" data-bs-toggle="modal" data-bs-target="#client-signin" class="log-btn"><img src="assets/img/icon/lock-icon.svg" class="me-2" alt="icon"> Login</a></li>
+                
+            @endif
             {{-- <li><a href="post-project.html" class="login-btn">Post a Project </a></li> --}}
         </ul>
     </nav>

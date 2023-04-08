@@ -6,7 +6,7 @@
 		<title>Admin - BrainX</title>
 		
 		<!-- Favicon -->
-		<link rel="shortcut icon" href="/assets/img/favicon.png">
+		<link rel="shortcut icon" href="/assets/img/BrainX_logo.png" type="image/x-icon">
 		
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="/admin/assets/css/bootstrap.min.css">

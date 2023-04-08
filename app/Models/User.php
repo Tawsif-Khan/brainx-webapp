@@ -15,6 +15,10 @@ class User extends Authenticatable
     function talent(){
         return $this->hasOne(Talent::class);
     }
+
+    function client(){
+        return $this->hasOne(Client::class);
+    }
     /**
      * The attributes that are mass assignable.
      *
