@@ -17,7 +17,8 @@ class JobController extends Controller
     }
 
     public function create(){
-        return view('pages.client.pages.post-new-request');
+        $jobs = Job::where('client_id', Auth::guard()->user()->id)->orderBy('job_id','DESC')->get();
+        return view('pages.client.pages.post-new-request')->with('jobs', $jobs);
     }
 
     public function jobDetails($id){
