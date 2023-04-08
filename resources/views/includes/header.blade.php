@@ -36,12 +36,12 @@
                 </a>
             </div>
             <ul class="main-nav">
-                {{-- <li class="submenu">
+                <li class="submenu">
                     <a href="/">For Business </a>
-                </li> --}}
-                {{-- <li class="submenu">
+                </li>
+                <li class="submenu">
                     <a href="/">For AI Talent</a>
-                </li> --}}
+                </li> 
                 <li class="has-submenu fade" style="width: 200px">
                 </li>
                 <li class="has-submenu fade" style="width: 100px">                                        
