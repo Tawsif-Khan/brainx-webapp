@@ -37,7 +37,7 @@
             </div>
             <ul class="main-nav">
                 <li class="submenu">
-                    <a href="/">For Business </a>
+                    <a href="/business">For Business </a>
                 </li>
                 <li class="submenu">
                     <a href="/">For AI Talent</a>
