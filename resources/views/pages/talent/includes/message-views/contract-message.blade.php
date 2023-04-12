@@ -9,9 +9,9 @@
             </div>
         </div>
         <div class="media-body flex-grow-1">
-            <div class="user-name"> {{ ($action->sender_id == Auth::user()->id)? Auth::user()->name: $action->client->name }} </div>
-            <div class="user-status"> {{ $action->message->message }} </div>
-            <a href="" data-bs-toggle="modal" data-bs-target="#preview-contract">View the contract</a>
+            <div class="user-name">Client care </div>
+            <div class="user-status">Welcome to BrainX! Please kindly let us know your detailed request clearly so our AI expert can match you to a suitable talent. </div>
+            <div><strong>1/3. Headline</strong><b class="pb-1"> *</b></div>
         </div>
     </div>
     

@@ -1,4 +1,4 @@
-@extends('pages.client.layouts.app')
+@extends('app')
 
 @section('content')
 
@@ -37,8 +37,7 @@ ul li{
 /* align-items: center; */
 }
 </style>
-<form action="{{ route('client.job.create') }}" method="POST" enctype="multipart/form-data">
-    @csrf
+
 <!-- Content -->
 <div class="content ">
     <div class="container-fluid">
@@ -48,13 +47,15 @@ ul li{
                 
                 <div class="chat-window">
                  
-                    @include('pages.client.includes.job-request-list-sidebar')
+                    @include('pages.talent.includes.job-request-list-sidebar')
                     <!-- Chat Right -->
                     <div class="chat-cont-right chat-scrol" style="z-index: 99; ">
-                        
+                        <div class="border-bottom pb-4 text-end">
+                            <button class="btn btn-primary" type="button" data-bs-target="#create-contract" data-bs-toggle="modal"> Create contract</button>
+                        </div>
                         @foreach ($actions as $action)
 
-                            @if(Auth::user()->id == ($action->sender_id || $action->receiver_id) && $action->action_type == 'MESSAGE_WITH_MY_REQUEST')
+                            @if((Auth::user()->id == $action->sender_id || Auth::user()->id == $action->receiver_id) && $action->action_type == 'MESSAGE_WITH_MY_REQUEST')
                                 @include('pages.client.includes.message-views.message-from-system')
                             @endif
                             @if((Auth::user()->id == $action->sender_id || Auth::user()->id == $action->receiver_id) && $action->action_type == 'CONTRACT')
@@ -70,7 +71,14 @@ ul li{
         </div>					
     </div>
 </div>	
+</div>
 <!-- /Page Content -->
 
-@include('pages.client.includes.modals.my-request')
+
+@include('pages.talent.includes.modals.preview-contract')
+<form action="{{ route('submit.contract') }}" method="POST">
+    @csrf
+    @include('pages.talent.includes.modals.create-contract')
+    @include('pages.talent.includes.modals.review-contract')    
+</form>
 @endsection

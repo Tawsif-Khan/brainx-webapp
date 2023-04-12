@@ -199,6 +199,12 @@
 								<a href="{{ route('admin.users') }}"><i data-feather="users"></i> <span>Talents</span></a>
 							</li>
 							<li>
+								<a href="{{ route('admin.clients') }}"><i data-feather="users"></i> <span>Clients</span></a>
+							</li>
+							<li>
+								<a href="{{ route('admin.projects') }}"><i data-feather="clipboard"></i> <span>Projects</span></a>
+							</li>
+							<li>
 								<a href="{{ route('admin.feedbacks') }}"><i data-feather="clipboard"></i> <span>Feedbacks</span></a>
 							</li>
 						</ul>

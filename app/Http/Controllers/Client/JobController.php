@@ -11,8 +11,15 @@ use Auth;
 
 class JobController extends Controller
 {
+
+    public function __construct(){
+
+        $this->middleware('auth');
+        $this->checkRole('Client');
+    }
     
     public function jobsPage(){
+        
         return view('pages.client.pages.dashboard');
     }
 
@@ -25,7 +32,6 @@ class JobController extends Controller
         if($id != null){
             $job = Job::with('actions')->find($id);
         }
-
         $jobs = Job::where('client_id', Auth::guard()->user()->id)->orderBy('job_id','DESC')->get();
         
         $actions = Action::where('job_id', $jobs[0]->job_id)->with('message')->with('sender')->get();

@@ -92,5 +92,6 @@
 		@yield('custom-js')
 		@yield('feedback-js')
 		@yield('invitation-js')
+		@yield('add-milestone-js')
     </body>
 </html>

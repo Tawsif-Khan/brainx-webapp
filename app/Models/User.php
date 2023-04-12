@@ -12,6 +12,12 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    // protected $append = ['talent'];
+
+    // function getTalentAttribute(){
+    //     return $this->talent();
+    // }
+
     function talent(){
         return $this->hasOne(Talent::class);
     }

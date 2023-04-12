@@ -3,20 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Job;
+use App\Models\Contract;
 use App\Models\Action;
+use App\Models\Job;
+use App\Models\Message;
 use App\Models\Milestone;
 use Auth;
 
-class JobController extends Controller
+class ContractController extends Controller
 {
-
-    public function __construct(){
-
-        $this->middleware('auth');
-        $this->checkRole('Talent');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -25,35 +20,6 @@ class JobController extends Controller
     public function index()
     {
         //
-    }
-
-    public function jobDetail(){
-        $jobs = Job::where('talent_id', Auth::guard()->user()->id)->orderBy('job_id','DESC')->get();
-        
-        if(sizeof($jobs)){
-        $job =  $jobs[0];
-        $actions = Action::where('job_id', $job->job_id)->with('message')->with('sender')->get();
-        // dd($actions);
-        return view('pages.talent.job-details')->with('job', $job)->with('jobs', $jobs)->with('actions', $actions);
-        }
-        // dd($actions);
-        return redirect()->route('talent.pending');
-    }
-
-    public function jobDetails($id){
-        $jobs = Job::where('talent_id', Auth::guard()->user()->id)->with(['contract','talent','client','actions'])->orderBy('job_id','DESC')->get();
-        
-        if($id != null){
-            $job = Job::with(['contract','talent','client','actions'])->find($id);
-        }else{
-            $job = $jobs[0];
-        }
-
-        
-        $milestones = Milestone::where('contract_id', $job->contract->id)->get();
-        $actions = Action::where('job_id', $job->job_id)->with('message')->with('sender')->get();
-        // dd($job->talent['talent']->photo);
-        return view('pages.talent.job-details')->with('job', $job)->with('jobs', $jobs)->with('actions', $actions)->with('milestones', $milestones);
     }
 
     /**
@@ -74,7 +40,41 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+        $contract = Contract::create([
+            'contract_name' => $request->contract_name,
+            'description'=> $request->description,
+            'contract_type'=> $request->contract_type,
+            'fixed_price'=> $request->fixed_price,
+            'service_fee'=> $request->service_fee,
+            'talent_receive'=> $request->talent_receive,
+            'job_id'=> $request->job_id
+        ]);
+        $milestones = [];
+        foreach($request->milestone as $index => $milestone){
+            array_push($milestones, [
+                'caption' => $milestone,
+                'amount' => $request->milestone_value[$index],
+                'contract_id' => $contract->id
+            ]);
+        }
+        
+        $milestone = Milestone::insert($milestones);
+        $job = Job::find($request->job_id);
+        $action = Action::create([
+            'job_id' => $job->job_id,
+            'sender_id' => Auth::user()->id, // sender id 0 means it is auto generated or sent by admin
+            'action_type' => 'CONTRACT',
+            'receiver_id' => $job->client_id
+        ]);
+
+        $message = Message::create([
+            'action_id' => $action->id,
+            'message' => 'Created a contract',
+            'sender_id' => Auth::user()->id
+        ]);
+
+        return redirect()->route('talent.job.details', $request->job_id);
     }
 
     /**

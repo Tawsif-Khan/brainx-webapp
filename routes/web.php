@@ -31,9 +31,12 @@ Route::get('/terms-of-service', function () {
 Route::get('/pending', 'App\http\controllers\TalentProfileController@showPendingPage')->name('talent.pending');
 
 
+Route::get('/job-details/{id}', 'App\http\controllers\JobController@jobDetails')->name('talent.job.details');
+Route::get('/job-details', 'App\http\controllers\JobController@jobDetail')->name('talent.job.detail');
 Route::get('/view-profile/{id}', 'App\http\controllers\TalentProfileController@show')->name('show.profile');
 Route::get('/build-profile', 'App\http\controllers\TalentProfileController@index')->name('build.profile');
 Route::post('/submit-profile','App\http\controllers\TalentProfileController@store')->name('submit.profile');
+Route::post('/submit-contract','App\http\controllers\ContractController@store')->name('submit.contract');
 
 
 Route::prefix('/client')->as('client.')->group(function () {
@@ -56,6 +59,8 @@ Route::domain('admin.' . env('APP_URL'))->group(function () {
     Route::get('/talent-profile/{id}', 'App\http\controllers\Admin\AdminController@userDetails')->name('admin.show.profile');
     Route::get('/dashboard','App\http\controllers\Admin\DashboardController@index')->name('admin.dashboard');
     Route::get('/users','App\http\controllers\Admin\AdminController@users')->name('admin.users');
+    Route::get('/clients','App\http\controllers\Admin\AdminController@clients')->name('admin.clients');
+    Route::get('/projects','App\http\controllers\Admin\AdminController@projects')->name('admin.projects');
     Route::post('/users/status/update','App\http\controllers\Admin\AdminController@updateStatus')->name('admin.update.users.status');
     Route::get('/categories','App\http\controllers\Admin\SkillController@index')->name('admin.categories');
     Route::post('/category/insert','App\http\controllers\Admin\SkillController@storeCategory')->name('admin.category.insert');

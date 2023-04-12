@@ -15,6 +15,18 @@ class Job extends Model
         return $this->hasMany(Action::class,'job_id');
     }
 
+    public function client(){
+        return $this->hasOne(User::class,'id','client_id')->with('client');
+    }
+
+    public function talent(){
+        return $this->hasOne(User::class,'id','talent_id')->with('talent');
+    }
+
+    public function contract(){
+        return $this->belongsTo(Contract::class,'job_id','job_id');
+    }
+
     /**
      * The attributes that are mass assignable.
      *
