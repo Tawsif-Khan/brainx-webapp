@@ -29,13 +29,7 @@ class AdminController extends Controller
         return view('pages.admin.clients')->with('users', $users);
     }
 
-    public function projects(){
-
-        dd(Auth::user());
-        $jobs = Job::with('client')->with('talent')->get();
-
-        return view('pages.admin.projects')->with('jobs', $jobs);
-    }
+   
 
     public function userDetails($id)
     {   

@@ -93,5 +93,6 @@
 		@yield('feedback-js')
 		@yield('invitation-js')
 		@yield('add-milestone-js')
+		@yield('is-email-exist-js')
     </body>
 </html>

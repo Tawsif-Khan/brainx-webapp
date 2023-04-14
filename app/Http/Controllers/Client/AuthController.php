@@ -49,4 +49,17 @@ class AuthController extends Controller
 
         return redirect()->route('client.job.new');
     }   
+
+    public function isEmailExist(Request $request){
+
+        if (!filter_var($request->email, FILTER_VALIDATE_EMAIL)) {
+            return response()->json(['result' => true, 'message' => 'Invalid email'], 200);
+        }
+        $user = User::where('email', $request->email)->first();
+
+        if($user != null){
+            return response()->json(['result' => true, 'message' => 'Email exists'], 200);
+        }
+        return response()->json(['result' => false, 'message' => ''], 200);
+    }
 }

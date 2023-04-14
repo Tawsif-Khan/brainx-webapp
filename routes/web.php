@@ -54,7 +54,22 @@ Route::prefix('/client')->as('client.')->middleware('auth')->group(function () {
 });
 
 
-Route::domain('admin.' . env('APP_URL'))->group(function () {
+Route::domain('admin.' . env('APP_URL'))->middleware('auth')->group(function () {
+    
+    Route::get('/talent-profile/{id}', 'App\http\controllers\Admin\AdminController@userDetails')->name('admin.show.profile');
+    Route::get('/dashboard','App\http\controllers\Admin\DashboardController@index')->name('admin.dashboard');
+    Route::get('/users','App\http\controllers\Admin\AdminController@users')->name('admin.users');
+    Route::get('/clients','App\http\controllers\Admin\AdminController@clients')->name('admin.clients');
+    Route::get('/projects','App\http\controllers\Admin\AdminController@projects')->name('admin.projects');
+    Route::post('/users/status/update','App\http\controllers\Admin\AdminController@updateStatus')->name('admin.update.users.status');
+    Route::get('/categories','App\http\controllers\Admin\SkillController@index')->name('admin.categories');
+    Route::post('/category/insert','App\http\controllers\Admin\SkillController@storeCategory')->name('admin.category.insert');
+    Route::get('/skills','App\http\controllers\Admin\SkillController@skills')->name('admin.skills');
+    Route::post('/skill/insert','App\http\controllers\Admin\SkillController@store')->name('admin.skill.insert');
+    Route::get('/feedbacks','App\http\controllers\Admin\AdminController@feedbacks')->name('admin.feedbacks');
+});
+
+Route::prefix('/admin')->as('admin.')->middleware('auth')->group(function () {
     
     Route::get('/talent-profile/{id}', 'App\http\controllers\Admin\AdminController@userDetails')->name('admin.show.profile');
     Route::get('/dashboard','App\http\controllers\Admin\DashboardController@index')->name('admin.dashboard');
@@ -89,8 +104,9 @@ Route::domain('admin.' . env('APP_URL'))->group(function () {
 //Feedback
 
 Route::post('feedback','App\http\Controllers\FeedbackController@store')->name('feedback.store');
+Route::post('email/isexist','App\http\Controllers\Client\AuthController@isEmailExist')->name('email.isexist');
 
-
+ 
 Route::get('auth/linkedin', [LinkedinController::class, 'linkedinRedirect']);
 Route::get('auth/linkedin/callback', [LinkedinController::class, 'linkedinCallback']);
 require __DIR__ . '/auth.php';
