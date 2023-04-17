@@ -1,10 +1,6 @@
 
 <style>
-	.footer{
-		position: absolute;
-    width: 100%;
-    bottom: 0px;
-	}
+	
 </style>
 			<!-- Footer -->	
 			<footer class="footer footer-two bg-primary" id="bottom-scroll">

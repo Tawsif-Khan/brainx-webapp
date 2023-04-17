@@ -42,7 +42,13 @@
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Scripts -->
-
+<style>
+	.footer{
+		position: absolute;
+    width: 100%;
+    bottom: 0px;
+	}
+</style>
     </head>
     <body class="home-page bg-one">
 		<!-- Loader -->
