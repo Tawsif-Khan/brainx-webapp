@@ -4,32 +4,34 @@
         margin-left: 15px;
         margin-right: 15px;
     }
+    .btn-outline-primary{
+        font-weight: 700;
+    }
 </style>
 <!-- Chat Left -->
 <div class="chat-cont-left">
-                        
-        <button class="btn btn-outline-primary">Post a request</button>
+    <div class="text-end pe-3">             
+        <button class="btn btn-outline-primary box-shadow text-bold">Post a request</button>
+    </div>
     <div class="chat-users-list">
         <div class="" style="overflow:visible;">
-            <div class="chat-header border-bottom mb-4" style="z-index: -99;">
-                {{-- <a id="back_user_list" href="javascript:void(0)" class="back-user-list">
-                    <i class="material-icons">chevron_left</i>
-                </a> --}}
-                
-                
-                
-            </div>
+            
             @foreach ($jobs as $job)
                 
-            <div class="card boxes-shadow motivation ">
-                <div class="card-header border-0 ">
-                    <div class="card-title">
-                        {{ $job->job_title }}
-                    </div>
-                </div>
-                
+    <div class="media d-flex border-top pt-4 mt-4">
+        <div class="media-img-wrap flex-shrink-0 me-3">
+            <div class="avatar ">
+                {{-- <img src="assets/img/BrainX/logo-outline.svg" alt="User Image" class="avatar-img rounded-circle"> --}}
             </div>
-            @endforeach
+        </div>
+        <a href="{{ route('client.job.details', ['id'=>$job->job_id]) }}">
+        <div class="media-body flex-grow-1">
+            <h3 class="mt-2">{{ $job->job_title }} </h3>
+        </div>
+        </a>
+    </div>
+    
+    @endforeach
             
         </div>
     </div>

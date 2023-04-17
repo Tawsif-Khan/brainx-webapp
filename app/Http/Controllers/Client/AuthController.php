@@ -21,7 +21,7 @@ class AuthController extends Controller
         if ($user && Hash::check($request->password, $user->password)) {
             // dd($user);
             Auth::login($user);
-            return redirect()->route('client.dashboard');
+            return redirect()->route('client.job.detail');
         }
         return redirect("/business");
 

@@ -50,7 +50,8 @@ Route::prefix('/client')->as('client.')->middleware('auth')->group(function () {
     Route::get('/dashboard','App\http\controllers\Client\JobController@jobsPage')->name('dashboard');   
     Route::get('/job-request/new','App\http\controllers\Client\JobController@create')->name('job.new'); 
     Route::post('/job-request/create','App\http\controllers\Client\JobController@store')->name('job.create'); 
-    Route::get('/job-details/{id}','App\http\controllers\Client\JobController@jobDetails')->name('job.details');    
+    Route::get('/job-details/{id}','App\http\controllers\Client\JobController@jobDetails')->name('job.details'); 
+    Route::get('/job-detail','App\http\controllers\Client\JobController@jobDetail')->name('job.detail');    
 });
 
 

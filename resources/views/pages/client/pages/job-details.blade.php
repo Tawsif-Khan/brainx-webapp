@@ -16,6 +16,7 @@
 .chat-cont-right{
     /* height: 100%; */
     /* overflow-y: hidden; */
+    height: calc(100vh - 200px);
 }
 
 ul li{
@@ -34,7 +35,12 @@ ul li{
 .chat-cont-right .chat-header .media {
 -webkit-box-align: center;
 -ms-flex-align: center;
-/* align-items: center; */
+/* align-items: 
+center; */
+}
+
+.chat-cont-left {
+    margin-right: 0%;
 }
 </style>
 <form action="{{ route('client.job.create') }}" method="POST" enctype="multipart/form-data">

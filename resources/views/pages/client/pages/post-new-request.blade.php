@@ -91,12 +91,12 @@ ul li{
                                     </div>
                                 
                                 <div class="card-footer border-0 ms-2 pt-0">
-                                    <button type="button" class="btn btn-primary" onclick="showSection(document.getElementsByClassName('section-3')[0], this,['name','country','standout_job_title','experience']);"> Next</button>
+                                    <button type="button" class="btn btn-primary" onclick="showSection(document.getElementsByClassName('section-3')[0], this,['job_title']);"> Next</button>
 
                                 </div>
                             </div>
                         </div>
-                        <div class="section-3 ">
+                        <div class="section-3 d-none">
 
                             <div class="chat-header border-0">
                                 <a id="back_user_list" href="javascript:void(0)" class="back-user-list">
@@ -122,10 +122,10 @@ ul li{
 
                                         <div class="row">
                                             <label class="col-md-6">
-                                                <input type="radio" name="job_type"  value="Hire remote AI contract"/> Hire remote AI contract
+                                                <input type="radio" name="job_type" checked  value="Hire remote AI contract" onclick="show_duration_box()" /> Hire remote AI contract
                                             </label>
                                             <label class="col-md-6">
-                                                <input type="radio" name="job_type" value="Outsource AI projects" /> Outsource AI projects
+                                                <input type="radio" name="job_type" id="outsource" value="Outsource AI projects" onclick="hide_duration_box()" /> Outsource AI projects
                                             </label>
                                         </div>
                                         <p class="text-muted">Hire within a particular period of time and pay them in hourly rate</p>
@@ -146,12 +146,12 @@ ul li{
                                     </div>
                                 
                                 <div class="card-footer border-0 ms-1 pt-0">
-                                    <button class="btn btn-primary" type="button" onclick="showSection(document.getElementsByClassName('section-4')[0], this,['bio']);"> Next</button>
+                                    <button class="btn btn-primary" id="desc_next_btn" type="button" onclick="showSection(document.getElementsByClassName('section-4')[0], this,['job_type','job_description','duration_in_weeks']);"> Next</button>
 
                                 </div>
                             </div>
                         </div>
-                        <div class="section-4 mt-3">
+                        <div class="section-4 d-none mt-3">
 
                             <div class="chat-header border-0">
                                 <a id="back_user_list" href="javascript:void(0)" class="back-user-list">
@@ -175,7 +175,7 @@ ul li{
 
                             <div class="  card m-2 border-0 ms-5  col-md-6 ms-5  ps-4">
                                     
-                                    <div class="card-body border text-start row ms-2 p-2">
+                                    <div class="card-body border text-start row ms-2 p-2" id="hourly_rate_box">
                                         <h5>Hourly rate</h5>
                                         <div class="form-group col-md-6">
                                             <label for="from">From</label>
@@ -186,14 +186,14 @@ ul li{
                                         <div class="form-group col-md-6">
                                             <label for="from">To</label>
                                             <div class="d-flex">
-                                                <input type="number" name="hourly_rate_from" class="form-control"/><span class="mt-2 ms-2">/hour</span>
+                                                <input type="number" name="hourly_rate_to" class="form-control"/><span class="mt-2 ms-2">/hour</span>
                                             </div>
                                         </div>
                                         
                                     
                                     </div>
 
-                                    <div class="card-body border text-start row ms-2 p-2">
+                                    <div class="card-body border text-start row ms-2 p-2" id="fixed-price-box">
                                         <h5>Fixed price</h5>
                                         <div class="form-group col-md-12">
                                             <label for="from">Total budget (USD)</label>
@@ -222,4 +222,66 @@ ul li{
     </div>
 </div>	
 <!-- /Page Content -->
+@endsection
+
+@section('post-new-js')
+<script>
+    function showSection(el, btn, names){
+
+if(names.length > 0 && checkIsset(names)){
+el.classList.remove('d-none')
+btn.disabled= true
+el.scrollIntoView()
+}else if(names.length == 0 ){
+    el.classList.remove('d-none')
+    btn.disabled= true
+    el.scrollIntoView()
+}
+}
+function checkIsset(names){
+        var isFilled = true;
+        names.forEach(name => {
+            // console.log(document.querySelector('input[name="'+name+'"]').value)
+            let el = document.querySelector('input[name="'+name+'"]');
+            if(el == null){
+                el = document.querySelector('select[name="'+name+'"]');
+                if(el == null){
+                    el = document.querySelector('textarea[name="'+name+'"]');
+                }else{
+                    console.log(el)
+
+                }
+            }
+            if(!el.value){
+                isFilled = false;
+                el.classList.add('is-invalid')
+            }else{
+                el.classList.remove('is-invalid')
+            }
+
+            if(name == 'duration_in_weeks' || name == 'hours_per_week'){
+                if(!el.value && document.getElementById('outsource').checked == true){
+                    isFilled = true
+                el.classList.remove('is-invalid')
+                }
+            }
+        })
+        return isFilled
+    }
+
+    function show_duration_box(){
+        document.getElementById('hire-AI-contrator').classList.remove('d-none')
+        document.getElementById('hourly_rate_box').classList.remove('d-none')
+        document.getElementById('fixed-price-box').classList.add('d-none')
+        document.getElementById('desc_next_btn').disabled = false
+        
+    }
+    
+    function hide_duration_box(){
+        document.getElementById('hire-AI-contrator').classList.add('d-none')
+        document.getElementById('fixed-price-box').classList.remove('d-none')
+        document.getElementById('hourly_rate_box').classList.add('d-none')
+        
+    }
+</script>
 @endsection

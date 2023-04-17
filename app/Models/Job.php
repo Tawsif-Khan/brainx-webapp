@@ -20,7 +20,7 @@ class Job extends Model
     }
 
     public function talent(){
-        return $this->hasOne(User::class,'id','talent_id')->with('talent');
+        return $this->hasOne(User::class,'id','talent_user_id')->with('talent');
     }
 
     public function contract(){

@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        // Schema::table('jobs', function (Blueprint $table) {
+        Schema::table('jobs', function (Blueprint $table) {
             
-        //     $table->dropColumn(['talent_id']);
-        // });
-        // Schema::table('jobs', function (Blueprint $table) {
-            
-        //     $table->unsignedBigInteger('talent_id')->nullable();
-        //     $table->foreign('talent_id')->references('id')->on('users');
-        // });
+            $table->unsignedBigInteger('talent_user_id')->nullable();
+            $table->foreign('talent_user_id')->references('id')->on('users');
+        });
     }
 
     /**

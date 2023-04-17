@@ -90,5 +90,6 @@
 		@yield('custom-js')
 		@yield('feedback-js')
 		@yield('invitation-js')
+		@yield('post-new-js')
     </body>
 </html>

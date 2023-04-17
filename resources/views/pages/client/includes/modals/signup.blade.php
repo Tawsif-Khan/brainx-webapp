@@ -22,7 +22,7 @@
                                             </div>
                                             <div class="form-group text-start">
                                                 <input type="email" name="email" class="form-control" placeholder="Work email" onfocusout="isExist()"  required/>
-                                                <small class="text-danger ms-1" id="email-error"></small>
+                                                <small class="text-danger " id="email-error"></small>
                                             </div>
 											
                                             <div class="form-group">
@@ -34,7 +34,7 @@
                                             <div class="form-group">
                                                 <input type="password" name="password" class="form-control" placeholder="Create a password" required/>
                                             </div>
-                                            <p>I understand and agree <a href="/terms-of-service">Terms of Service</a>, <a href="/privacy-policy">Privacy Policy</a></p>
+                                            <p>I understand and agree <a style="text-decoration: underline" href="/terms-of-service">Terms of Service</a>, <a style="text-decoration: underline" href="/privacy-policy">Privacy Policy</a></p>
                                             
                                             <button type="submit"  class="btn btn-primary mt-4" id="create-btn" > Create my account</button>
 
