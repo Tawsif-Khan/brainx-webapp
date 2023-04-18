@@ -100,12 +100,12 @@
 								</span>
 
 								@if (Auth::guard()->user() == null )
-								<a class="btn join-us" href="#">	
-								<button class="btn btn-primary sub-btn " data-bs-toggle="modal" data-bs-target="#client-signup"  type="submit">Post a request</button>
+								<a class="btn join-us"  >	
+								<button class="btn btn-primary sub-btn " data-bs-toggle="modal" data-bs-target="#client-signup"  type="button">Post a request</button>
                                 </a>
                                 @else
-								<a class="btn join-us" href="#">	
-                                    <button class="btn btn-primary sub-btn " data-bs-toggle="modal" data-bs-target="#client-signup"  type="submit">Post a request</button>
+								<a class="btn join-us" >	
+                                    <button class="btn btn-primary sub-btn " data-bs-toggle="modal" data-bs-target="#client-signup"  type="button">Post a request</button>
                                 </a>
                                 @endif
 								<div class="col-md-6 col-sm-8 mt-4">
@@ -191,12 +191,12 @@
 					</a>
 				</span>
 				@if (Auth::guard()->user() == null )
-				<a class="btn join-us" href="#">	
-				<button class="btn btn-primary sub-btn boxes-shadow join-us" disabled type="button">Post a request</button>
+				<a class="btn join-us" >	
+				<button class="btn btn-primary sub-btn boxes-shadow join-us" data-bs-toggle="modal" data-bs-target="#client-signup"  type="button">Post a request</button>
 				</a>
 				@else
-				<a class="btn join-us" href="#">	
-					<button class="btn btn-primary sub-btn boxes-shadow join-us" disabled type="button">Post a request</button>
+				<a class="btn join-us" >	
+					<button class="btn btn-primary sub-btn boxes-shadow join-us" data-bs-toggle="modal" data-bs-target="#client-signup"  type="button">Post a request</button>
 					</a>
 				@endif
 			</section>
