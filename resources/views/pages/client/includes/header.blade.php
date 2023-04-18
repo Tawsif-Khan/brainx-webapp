@@ -56,9 +56,9 @@
                 </span>
             </a>
             <div class="dropdown-menu">
-                @if (Auth::guard()->user()->client->status != "INCOMPLETE")
+                {{-- @if (Auth::guard()->user()->client->status != "INCOMPLETE")
                 <a class="dropdown-item" href="{{ route('show.profile', encrypt(Auth::guard()->user()->id)) }}"><i data-feather="user" class="me-1"></i> Profile</a>                    
-                @endif
+                @endif --}}
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i data-feather="log-out" class="me-1"></i> Logout</a>
             </div>
         </li>

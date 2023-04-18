@@ -7,7 +7,7 @@ padding: 0.5rem;
 </style>
 		<!-- The Modal -->
 		<div class="modal fade custom-modal" id="my-request">
-			<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-dialog modal-lg modal-dialog-centered">
 				<div class="modal-content">
 
 					

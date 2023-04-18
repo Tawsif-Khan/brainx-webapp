@@ -62,21 +62,21 @@ class JobController extends Controller
             'budget' => $request->budget,
             'hourly_rate_from' => $request->hourly_rate_from,
             'hourly_rate_to' => $request->hourly_rate_to,
-            'client_id' => Auth::user()->id,
+            'client_id' => Auth::guard()->user()->id,
         ]);
 
         $action = Action::create([
             'job_id' => $job->job_id,
             'sender_id' => NULL, // sender id 0 means it is auto generated or sent by admin
             'action_type' => 'MESSAGE_WITH_MY_REQUEST',
-            'receiver_id' => Auth::user()->id, // receiver 
+            'receiver_id' => Auth::guard()->user()->id, // receiver 
         ]);
 
         $message = Message::create([
             'action_id' => $action->id,
             'message' => 'Our AI expert will review your request and match you to a suitable AI talent. You will be notified via email when we find one for you. Thank for your request!',
             'sender_id' => NULL,
-            'receiver_id' => Auth::user()->id, // receiver
+            'receiver_id' => Auth::guard()->user()->id, // receiver
         ]);
 
         return redirect()->route('client.job.details',['id' => $job->job_id]);

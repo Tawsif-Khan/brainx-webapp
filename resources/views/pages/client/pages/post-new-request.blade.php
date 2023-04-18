@@ -14,7 +14,7 @@
     margin-left: 5px;
 }
 .chat-cont-right{
-    /* height: 100%; */
+    min-height: calc(100vh - 200px);
     /* overflow-y: hidden; */
 }
 
@@ -35,6 +35,10 @@ ul li{
 -webkit-box-align: center;
 -ms-flex-align: center;
 /* align-items: center; */
+}
+
+.chat-cont-left {
+    margin-right: 0%;
 }
 </style>
 <form action="{{ route('client.job.create') }}" method="POST" enctype="multipart/form-data">
@@ -83,7 +87,7 @@ ul li{
                                                     <label for="">
                                                         Write a short headline for your request
                                                     </label>
-                                                    <input type="text" name="job_title" class="form-control" required  />
+                                                    <input type="text" name="job_title" class="form-control" required  placeholder="Ex: who needed for what kind of AI project" />
                                                 </div>
                                             </div>
                                         </div>
@@ -110,7 +114,7 @@ ul li{
                                     </div>
                                     <div class="media-body flex-grow-1">
                                         <div class="user-name">Client care </div>
-                                        <div><strong>2/5. Request description</strong><b class="pb-1"> *</b></div>
+                                        <div><strong>2/3. Request description</strong><b class="pb-1"> *</b></div>
                                     </div>
                                 </div>
                                 
@@ -122,15 +126,24 @@ ul li{
 
                                         <div class="row">
                                             <label class="col-md-6">
-                                                <input type="radio" name="job_type" checked  value="Hire remote AI contract" onclick="show_duration_box()" /> Hire remote AI contract
+                                                <input type="radio" name="job_type" checked  value="Hire remote AI contractor" onclick="show_duration_box()" /> Hire remote AI contractor
                                             </label>
                                             <label class="col-md-6">
                                                 <input type="radio" name="job_type" id="outsource" value="Outsource AI projects" onclick="hide_duration_box()" /> Outsource AI projects
                                             </label>
                                         </div>
-                                        <p class="text-muted">Hire within a particular period of time and pay them in hourly rate</p>
+                                        <p class="text-muted ai-contractor" id="hire-contractor-message">Hire within a particular period of time and pay them in hourly rate</p>
+                                        <p class="text-muted outsource d-none" id="outsource-message">Outsource AI projects to freelancers and pay them in a fixed price</p>
                                         <div class="form-group">
-                                            <textarea name="job_description"  cols="80" rows="5" class="form-control" required   placeholder="Good details to include:"></textarea>
+                                            <textarea name="job_description"  cols="80" rows="5" class="form-control ai-contractor" required   placeholder="Good details to include:
+Job description
+Job responsibility
+Job requirement
+                                            "></textarea>
+                                            <textarea name="job_description"  cols="80" rows="5" class="form-control outsource d-none" required   placeholder="Good details to include: 
+Project description
+Scope of work
+Required skills and experience"></textarea>
                                         </div>
                                         <div class="row" id="hire-AI-contrator">
                                             <div class="form-group col-md-6">
@@ -165,7 +178,7 @@ ul li{
                                     </div>
                                     <div class="media-body flex-grow-1">
                                         <div class="user-name">Client care </div>
-                                        <div><strong>3/5. Budget</strong><b class="pb-1"> *</b></div>
+                                        <div><strong>3/3. Budget</strong><b class="pb-1"> *</b></div>
                                         <div class="user-status"> How much budget do you plan to spend? You only pay your freelance AI talents after they complete your request </div>
                                     </div>
                                 </div>
@@ -193,7 +206,7 @@ ul li{
                                     
                                     </div>
 
-                                    <div class="card-body border text-start row ms-2 p-2" id="fixed-price-box">
+                                    <div class="card-body border text-start row ms-2 p-2 d-none" id="fixed-price-box">
                                         <h5>Fixed price</h5>
                                         <div class="form-group col-md-12">
                                             <label for="from">Total budget (USD)</label>
@@ -221,6 +234,7 @@ ul li{
         </div>					
     </div>
 </div>	
+</form>
 <!-- /Page Content -->
 @endsection
 
@@ -274,13 +288,19 @@ function checkIsset(names){
         document.getElementById('hourly_rate_box').classList.remove('d-none')
         document.getElementById('fixed-price-box').classList.add('d-none')
         document.getElementById('desc_next_btn').disabled = false
-        
+        $('.outsource').addClass('d-none');
+        $('.ai-contractor').removeClass('d-none');
+        $('.section-4').addClass('d-none');
     }
     
     function hide_duration_box(){
         document.getElementById('hire-AI-contrator').classList.add('d-none')
         document.getElementById('fixed-price-box').classList.remove('d-none')
         document.getElementById('hourly_rate_box').classList.add('d-none')
+        document.getElementById('desc_next_btn').disabled = false
+        $('.outsource').removeClass('d-none');
+        $('.ai-contractor').addClass('d-none');
+        $('.section-4').addClass('d-none');
         
     }
 </script>
