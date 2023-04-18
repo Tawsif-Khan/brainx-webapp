@@ -21,7 +21,8 @@ class Action extends Model
     protected $fillable = [
         'job_id',
         'sender_id',
-        'action_type'
+        'action_type',
+        'receiver_id'
 
     ];
 }

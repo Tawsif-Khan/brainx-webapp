@@ -91,17 +91,17 @@ Route::domain('admin.' . env('APP_URL'))->group(function () {
     Route::post('/auth/login','App\http\controllers\Admin\AuthController@login')->name('admin.login');
 });
 
-// Route::get('/dashboard', function () {
-//     return Inertia::render('Dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verified'])->group(function () {
-//     Route::get('/dashboard', function () {
-//         return Inertia::render('Admin/Dashboard');
-//     })->name('dashboard');
-// });
-
-
+Route::group(['middleware' => ['auth']], function() {
+    
+    /**
+    * Verification Routes
+    */
+    Route::get('/email/verify', 'Email\VerificationController@show')->name('verification.notice');
+    Route::get('/email/verify/{id}/{hash}', 'Email\VerificationController@verify')->name('verification.verify')->middleware(['signed']);
+    Route::post('/email/resend', 'Email\VerificationController@resend')->name('verification.resend');
+  
+});
 //Feedback
 
 Route::post('feedback','App\http\Controllers\FeedbackController@store')->name('feedback.store');

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\Client;
+use Illuminate\Auth\Events\Registered;
 use Auth;
 
 class AuthController extends Controller
@@ -45,6 +46,8 @@ class AuthController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
+        event(new Registered($user));
+
         Auth::login($user);
 
         return redirect()->route('client.job.new');
@@ -53,13 +56,13 @@ class AuthController extends Controller
     public function isEmailExist(Request $request){
 
         if (!filter_var($request->email, FILTER_VALIDATE_EMAIL)) {
-            return response()->json(['result' => true, 'message' => 'Invalid email'], 200);
+            return response()->json(['result' => true,'invalid' => true, 'message' => 'Invalid email'], 200);
         }
         $user = User::where('email', $request->email)->first();
 
         if($user != null){
-            return response()->json(['result' => true, 'message' => 'Email exists'], 200);
+            return response()->json(['result' => true, 'invalid' => false,'message' => 'Email exists'], 200);
         }
-        return response()->json(['result' => false, 'message' => ''], 200);
+        return response()->json(['result' => false,'invalid' => false, 'message' => 'Email does not exist.'], 200);
     }
 }

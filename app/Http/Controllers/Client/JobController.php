@@ -29,14 +29,19 @@ class JobController extends Controller
     }
 
     public function jobDetails($id){
+        $jobs = Job::where('client_id', Auth::guard()->user()->id)->orderBy('job_id','DESC')->get();
         if($id != null){
             $job = Job::with('actions')->find($id);
+        }else if(sizeof($jobs)){
+            $job = $jobs[0];
+        }else{
+            return redirect()->route('client.job.new');
+            
         }
-        $jobs = Job::where('client_id', Auth::guard()->user()->id)->orderBy('job_id','DESC')->get();
         // dd($jobs);
-        $actions = Action::where('job_id', $jobs[0]->job_id)->with('message')->with('sender')->get();
+        $actions = Action::where('job_id', $job->job_id)->with('message')->with('sender')->get();
         // dd($actions);
-        return view('pages.client.pages.job-details')->with('job', $jobs[0])->with('jobs', $jobs)->with('actions', $actions);
+        return view('pages.client.pages.job-details')->with('job', $job)->with('jobs', $jobs)->with('actions', $actions);
     }
 
     public function jobDetail(){
@@ -75,8 +80,7 @@ class JobController extends Controller
         $message = Message::create([
             'action_id' => $action->id,
             'message' => 'Our AI expert will review your request and match you to a suitable AI talent. You will be notified via email when we find one for you. Thank for your request!',
-            'sender_id' => NULL,
-            'receiver_id' => Auth::guard()->user()->id, // receiver
+            'sender_id' => NULL
         ]);
 
         return redirect()->route('client.job.details',['id' => $job->job_id]);

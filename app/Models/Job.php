@@ -40,7 +40,8 @@ class Job extends Model
         'duration_in_weeks',
         'hours_per_week',
         'job_type',
-        'budget'
+        'budget',
+        'client_id'
 
     ];
 }

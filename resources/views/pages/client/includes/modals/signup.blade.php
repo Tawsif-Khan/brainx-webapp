@@ -66,13 +66,38 @@
                data:  $('#signup-form').serialize(),
                success:function(data) {
 
-                if(data.result){
+                if(data.result || data.invalid){
                     $('#email-error').html(data.message)
+                    $('#email-error').css('display','block')
                     $('#create-btn').prop('disabled', true)
                 }else{
 
                     $('#email-error').css('display','none')
                     $('#create-btn').prop('disabled', false)
+                }
+               }
+            });
+
+        }
+
+        function isEmailExists(){
+    $.ajax({
+               type:'POST',
+               url:'/email/isexist',
+			   headers: {
+        'X-CSRF-TOKEN': ' @php echo csrf_token() @endphp'
+    			},
+               data:  $('#login-form').serialize(),
+               success:function(data) {
+
+                if(!data.result || data.invalid){
+                    $('#login-email-error').css('display','block')
+                    $('#login-email-error').html(data.message)
+                    $('#login-btn').prop('disabled', true)
+                }else{
+
+                    $('#login-email-error').css('display','none')
+                    $('#login-btn').prop('disabled', false)
                 }
                }
             });

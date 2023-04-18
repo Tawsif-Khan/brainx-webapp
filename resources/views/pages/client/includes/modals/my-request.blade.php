@@ -32,6 +32,7 @@ padding: 0.5rem;
                                             <div class="col-md-12 pb-3">
                                                 <strong>Type: </strong> <span>{{ $job->job_type }}</span>
                                             </div>
+                                            @if($job->job_type != "Outsource AI projects")
                                             <div class="col-md-6 pb-3">
                                                 <strong>Duration: </strong> <span>{{ $job->duration_in_weeks }} weeks</span>
                                             </div>
@@ -41,6 +42,11 @@ padding: 0.5rem;
                                             <div class="col-md-12 pb-3">
                                                 <strong>Client's budget: </strong><span>${{ $job->hourly_rate_from.'/h - $'.$job->hourly_rate_to.'/h' }}</span>
                                             </div>
+                                            @else
+                                            <div class="col-md-12 pb-3">
+                                                <strong>Client's budget: </strong><span>${{ $job->budget }}</span>
+                                            </div>
+                                            @endif
                                        </div>
                                     </div>
                                 <div class="card-footer pb-2 border-0">
