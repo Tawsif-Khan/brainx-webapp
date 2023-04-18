@@ -40,12 +40,14 @@ ul li{
             
             <div class="col-md-12">
                 
-                <div class="chat-window">
+                <div class="chat-window"> 
                  
                     @include('pages.talent.includes.motivation-section')
                     <!-- Chat Right -->
                     <div class="chat-cont-right chat-scrol" style="z-index: 99; ">
-                        
+                        <div class="border-bottom pb-4 text-end">
+                            <button class="btn btn-primary" data-bs-target="#create-contract" data-bs-toggle="modal"> Create contract</button>
+                        </div>
                         <div class="section-5 ">
                             <div class="chat-header border-0">
                                 <a id="back_user_list" href="javascript:void(0)" class="back-user-list">
@@ -93,7 +95,8 @@ ul li{
 
 {{-- @include('pages.talent.profile-modal-view') --}}
 @include('includes.modals.invitation-modal')
-		
+
+
 
 
 @endsection

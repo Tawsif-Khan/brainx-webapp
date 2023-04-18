@@ -8,12 +8,22 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable  implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    // protected $append = ['talent'];
+
+    // function getTalentAttribute(){
+    //     return $this->talent();
+    // }
+
     function talent(){
         return $this->hasOne(Talent::class);
+    }
+
+    function client(){
+        return $this->hasOne(Client::class);
     }
     /**
      * The attributes that are mass assignable.

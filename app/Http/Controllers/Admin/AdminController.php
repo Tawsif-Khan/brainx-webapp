@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Talent;
+use App\Models\Job;
 use App\Models\Feedback;
+use Auth;
 
 class AdminController extends Controller
 {
@@ -21,6 +23,13 @@ class AdminController extends Controller
 
         return view('pages.admin.users')->with('users', $users);
     }
+    public function clients(){
+        $users = User::with('client')->where('role','Client')->get();
+
+        return view('pages.admin.clients')->with('users', $users);
+    }
+
+   
 
     public function userDetails($id)
     {   

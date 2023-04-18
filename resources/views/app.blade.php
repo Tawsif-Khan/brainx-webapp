@@ -55,7 +55,7 @@
 		<!-- Loader -->
          <!-- Main Wrapper -->
 		<div class="main-wrapper">
-			@if (Request::is('talent') || Request::is('/') || Request::is('terms-of-service') || Request::is('privacy-policy') )
+			@if (Request::is('business') || Request::is('/') || Request::is('terms-of-service') || Request::is('privacy-policy') )
 			@include('includes.header')
 			@else
 			@include('pages.talent.includes.header')
@@ -92,5 +92,7 @@
 		@yield('custom-js')
 		@yield('feedback-js')
 		@yield('invitation-js')
+		@yield('add-milestone-js')
+		@yield('is-email-exist-js')
     </body>
 </html>

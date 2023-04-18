@@ -57,7 +57,7 @@
                                         </td>
                                         <td>{{ $user->talent->standout_job_title }}</td>
                                         <td class="verify-mail"><i data-feather="linkedin" class="me-1 text-success"></i>
-                                            <a href="{{ $user->talent->linkedin }}" class="link-info">Linkedin</a>
+                                            <a href="{{ $user->talent->linkedin }}" target="_blank" class="link-info">Linkedin</a>
                                         </td>
                                         <td>
                                             {{ $user->talent->country }}

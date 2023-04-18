@@ -15,13 +15,13 @@
 <header class="header">
     <nav class="navbar navbar-expand-lg header-nav">
         <div class="navbar-header">
-            {{-- <a id="mobile_btn" href="javascript:void(0);">
+            <a id="mobile_btn" href="javascript:void(0);">
                 <span class="bar-icon">
                     <span></span>
                     <span></span>
                     <span></span>
                 </span>
-            </a> --}}
+            </a>
             <a href="/" class="navbar-brand logo">
                 <img src="assets/img/BrainX_logo.png" class="img-fluid" alt="Logo">
             </a>
@@ -36,12 +36,12 @@
                 </a>
             </div>
             <ul class="main-nav">
-                {{-- <li class="submenu">
-                    <a href="/">For Business </a>
-                </li> --}}
-                {{-- <li class="submenu">
+                <li class="submenu">
+                    <a href="/business  ">For Business </a>
+                </li>
+                <li class="submenu">
                     <a href="/">For AI Talent</a>
-                </li> --}}
+                </li> 
                 <li class="has-submenu fade" style="width: 200px">
                 </li>
                 <li class="has-submenu fade" style="width: 100px">                                        
@@ -52,6 +52,10 @@
             {{-- <li><a href="register.html" class="reg-btn"><img src="assets/img/icon/reg-icon.svg" class="me-1" alt="icon"> Register</a></li> --}}
             @if (Auth::guard()->user() == null && Request::is('/'))
             <li><a href="{{ url('auth/linkedin') }}" data-bs-toggle="modal" data-bs-target="#login-modal" class="log-btn"><img src="assets/img/icon/lock-icon.svg" class="me-2" alt="icon"> Login</a></li>
+                
+            @endif
+            @if (Auth::guard()->user() == null && Request::is('business'))
+            <li><a href="#" data-bs-toggle="modal" data-bs-target="#client-signin" class="log-btn"><img src="assets/img/icon/lock-icon.svg" class="me-2" alt="icon"> Login</a></li>
                 
             @endif
             {{-- <li><a href="post-project.html" class="login-btn">Post a Project </a></li> --}}

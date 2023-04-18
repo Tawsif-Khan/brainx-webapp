@@ -1,4 +1,7 @@
 
+<style>
+	
+</style>
 			<!-- Footer -->	
 			<footer class="footer footer-two bg-primary" id="bottom-scroll">
 				

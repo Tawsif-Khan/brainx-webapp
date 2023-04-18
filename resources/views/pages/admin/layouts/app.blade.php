@@ -6,7 +6,7 @@
 		<title>Admin - BrainX</title>
 		
 		<!-- Favicon -->
-		<link rel="shortcut icon" href="/assets/img/favicon.png">
+		<link rel="shortcut icon" href="/assets/img/BrainX_logo.png" type="image/x-icon">
 		
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="/admin/assets/css/bootstrap.min.css">
@@ -197,6 +197,12 @@
 							</li>
 							<li>
 								<a href="{{ route('admin.users') }}"><i data-feather="users"></i> <span>Talents</span></a>
+							</li>
+							<li>
+								<a href="{{ route('admin.clients') }}"><i data-feather="users"></i> <span>Clients</span></a>
+							</li>
+							<li>
+								<a href="{{ route('admin.projects') }}"><i data-feather="clipboard"></i> <span>Projects</span></a>
 							</li>
 							<li>
 								<a href="{{ route('admin.feedbacks') }}"><i data-feather="clipboard"></i> <span>Feedbacks</span></a>

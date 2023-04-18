@@ -16,6 +16,7 @@ class TalentProfileController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->checkRole('Talent');
     }
     /**
      * Display a listing of the resource.
@@ -24,7 +25,7 @@ class TalentProfileController extends Controller
      */
     public function index()
     {
-        // dd(Auth::guard()->user()->id);
+        // dd(Auth::guard());
         if(Auth::guard()->user() != null){
             $user = User::find(Auth::guard()->user()->id);
             $categories = Category::with('skills')->get();
@@ -32,6 +33,8 @@ class TalentProfileController extends Controller
             if(!isset($user->talent) || $user->talent->status == "INCOMPLETE"){
             
                 return view('pages.talent.build-profile')->with('user', $user)->with('categories', $categories);
+            }else if($user->talent->status == "PUBLISHED"){
+                return redirect()->route('talent.job.detail');
             }else{
                 return view('pages.talent.pending-profile')->with('user', $user)->with('categories', $categories);
             }

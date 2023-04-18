@@ -47,6 +47,8 @@ class LinkedinController extends Controller
                     'password' => encrypt('admin12345'),
                     'role' => 'Talent'
                 ]);
+                $newUser->markEmailAsVerified();
+
                 $talent = Talent::create([
                     'photo' => $user->user['profilePicture']['displayImage~']['elements'][2]['identifiers'][0]['identifier'],
                     'user_id' => $newUser->id
