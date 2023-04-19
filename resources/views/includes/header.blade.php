@@ -50,7 +50,7 @@
         </div>		 
         <ul class="nav header-navbar-rht reg-head pe-5">												
             {{-- <li><a href="register.html" class="reg-btn"><img src="assets/img/icon/reg-icon.svg" class="me-1" alt="icon"> Register</a></li> --}}
-            @if (Auth::guard()->user() == null && Request::is('/talent'))
+            @if (Auth::guard()->user() == null && Request::is('talent'))
             <li><a href="{{ url('auth/linkedin') }}" data-bs-toggle="modal" data-bs-target="#login-modal" class="log-btn"><img src="assets/img/icon/lock-icon.svg" class="me-2" alt="icon"> Login</a></li>
                 
             @endif
