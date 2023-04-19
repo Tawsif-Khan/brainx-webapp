@@ -16,10 +16,10 @@ use App\Http\Controllers\LinkedinController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/talent', function () {
     return view('pages.index');
 });
-Route::get('/business', function () {
+Route::get('/', function () {
     return view('pages.business');
 });
 Route::get('/privacy-policy', function () {
