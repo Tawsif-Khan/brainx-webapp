@@ -82,7 +82,7 @@ ul li{
                                     <div class="card-body text-start ms-2 pt-0">
                                         <div class="row">
 
-                                            <div class="col-md-8">
+                                            <div class="col-md-10">
                                                 <div class="form-group">
                                                     <label for="">
                                                         Write a short headline for your request
@@ -120,7 +120,7 @@ ul li{
                                 
                                 
                             </div>
-                            <div class="  card m-2 border-0  col-md-8 ms-5 ">
+                            <div class="  card m-2 border-0  col-md-10 ms-5 ">
                                 
                                     <div class="card-body text-start ms-1 pt-0">
 
@@ -135,7 +135,7 @@ ul li{
                                         <p class="text-muted ai-contractor" id="hire-contractor-message">Hire within a particular period of time and pay them in hourly rate</p>
                                         <p class="text-muted outsource d-none" id="outsource-message">Outsource AI projects to freelancers and pay them in a fixed price</p>
                                         <div class="form-group">
-                                            <textarea name="job_description"  cols="80" rows="5" class="form-control "    placeholder="Good details to include:
+                                            <textarea name="job_description"   rows="5" class="form-control "    placeholder="Good details to include:
 Job description
 Job responsibility
 Job requirement
@@ -290,11 +290,11 @@ function checkIsset(names){
         document.getElementById('desc_next_btn').disabled = false
         $('.outsource').addClass('d-none');
         $('.ai-contractor').removeClass('d-none');
-        $('.section-4').addClass('d-none');
-        $("input[name=job_description]").attr('placeholder',`Good details to include:
+        $("textarea[name=job_description]").attr('placeholder',`Good details to include:
 Job description
 Job responsibility
 Job requirement`)
+        $('.section-4').addClass('d-none');
     }
     
     function hide_duration_box(){

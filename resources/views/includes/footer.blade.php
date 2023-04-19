@@ -13,7 +13,7 @@
 						<div class="copyright">
 							<div class="row">
 								<div class="col-md-6 col-lg-6 ">
-									<div class="copyright-text">
+									<div class="copyright-text pt-3">
 										<p class="mb-0">© 2023 BrainX. All rights reserved</p>
 									</div>
 								</div>

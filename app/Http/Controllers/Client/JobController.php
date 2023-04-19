@@ -79,7 +79,7 @@ class JobController extends Controller
 
         $message = Message::create([
             'action_id' => $action->id,
-            'message' => 'Our AI expert will review your request and match you to a suitable AI talent. You will be notified via email when we find one for you. Thank for your request!',
+            'message' => 'Thanks for your request! You will be notified via email when our service will be officially operated in May 2023.',
             'sender_id' => NULL
         ]);
 
