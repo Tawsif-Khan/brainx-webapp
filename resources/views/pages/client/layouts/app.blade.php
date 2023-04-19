@@ -48,6 +48,16 @@
     width: 100%;
     bottom: 0px;
 	}
+
+	.alert{
+		position: relative;
+		top: 0px;
+		left: 0px;
+	}
+
+	.chat-cont-left{
+		max-width: 30%;
+	}
 </style>
     </head>
     <body class="home-page bg-one">
@@ -62,12 +72,12 @@
 		<!-- Loader -->
          <!-- Main Wrapper -->
 		<div class="main-wrapper">
-			@if(Auth::user()->email_verified_at == null)
+			{{-- @if(Auth::user()->email_verified_at == null)
 			<div class="alert alert-info alert-dismissible fade show text-center" role="alert">
 				A verfication mail has been sent to your email address. Please check your email!
 				
 			  </div>
-			  @endif
+			  @endif --}}
 			@include('pages.client.includes.header')
 			
             @yield('content')
