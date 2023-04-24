@@ -20,6 +20,7 @@
 
 ul li{
     padding: 10px 0px;
+    margin-left: 30px;
 }
 
 .chat-header.border-bottom{
@@ -35,6 +36,14 @@ ul li{
 -webkit-box-align: center;
 -ms-flex-align: center;
 /* align-items: center; */
+}
+
+.ck-content{
+    height: 150px;
+}
+
+.ck-content ul li{
+    padding: 2px 0px;
 }
 
 .chat-cont-left {
@@ -135,7 +144,7 @@ ul li{
                                         <p class="text-muted ai-contractor" id="hire-contractor-message">Hire within a particular period of time and pay them in hourly rate</p>
                                         <p class="text-muted outsource d-none" id="outsource-message">Outsource AI projects to freelancers and pay them in a fixed price</p>
                                         <div class="form-group">
-                                            <textarea name="job_description"   rows="5" class="form-control "    placeholder="Good details to include:
+                                            <textarea name="job_description"   rows="5" class="form-control " id="editor"    placeholder="Good details to include:
 Job description
 Job responsibility
 Job requirement
@@ -239,6 +248,17 @@ Required skills and experience"></textarea> --}}
 @endsection
 
 @section('post-new-js')
+<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+<script>
+  
+  
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+        
+</script>
 <script>
     function showSection(el, btn, names){
 
