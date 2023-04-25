@@ -12,6 +12,7 @@ class AuthController extends Controller
 {
 
     public function index(){
+        // dd('sdf');
         return view('pages.admin.auth.login');
     }
     
@@ -19,12 +20,14 @@ class AuthController extends Controller
 
         // dd($request->email);
         $user = User::where('email', $request->email)->where('role', 'Admin')->first();
-        // dd($request);
+        if($user){
+        
         if (Hash::check($request->password, $user->password)) {
             // dd($user);
             Auth::login($user);
             return redirect()->route('admin.dashboard');
         }
+    }
         return redirect()->route("admin.login.form");
 
     }

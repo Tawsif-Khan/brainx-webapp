@@ -18,7 +18,7 @@ class AuthController extends Controller
 
         
         $user = User::where('email', $request->email)->where('role', 'Client')->first();
-        // dd($user);
+        
         if ($user && Hash::check($request->password, $user->password)) {
             // dd($user);
             Auth::login($user);
@@ -46,7 +46,7 @@ class AuthController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-        // event(new Registered($user));
+        event(new Registered($user));
 
         Auth::login($user);
 

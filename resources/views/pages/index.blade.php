@@ -49,7 +49,7 @@
                                     Join the global network of freelance<br/> AI talents to develop AI applications <br/>for businesses
                                 </h1>
                                 
-								<p>BrainX is a freelance platform connecting the global network of remote AI talents to businesses.  </p>
+								<p>BrainX is a freelance platform connecting the global network of quality AI talents to businesses.  </p>
                                 <span class="open-desktop">
 
 								<a class="btn" href="#" data-bs-toggle="modal" data-bs-target="#desktop-modal" >	

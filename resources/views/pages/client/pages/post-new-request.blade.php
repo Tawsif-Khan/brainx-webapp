@@ -49,6 +49,9 @@ ul li{
 .chat-cont-left {
     margin-right: 0%;
 }
+.ck-sticky-panel__content{
+    display: none;
+}
 </style>
 <form action="{{ route('client.job.create') }}" method="POST" enctype="multipart/form-data">
     @csrf
@@ -145,9 +148,9 @@ ul li{
                                         <p class="text-muted outsource d-none" id="outsource-message">Outsource AI projects to freelancers and pay them in a fixed price</p>
                                         <div class="form-group">
                                             <textarea name="job_description"   rows="5" class="form-control " id="editor"    placeholder="Good details to include:
-Job description
-Job responsibility
-Job requirement
+-Job description
+-Job responsibility
+-Job requirement
                                             "></textarea>
                                             {{-- <textarea name="job_description_outsource"  cols="80" rows="5" class="form-control outsource d-none"    placeholder="Good details to include: 
 Project description
@@ -168,7 +171,7 @@ Required skills and experience"></textarea> --}}
                                     </div>
                                 
                                 <div class="card-footer border-0 ms-1 pt-0">
-                                    <button class="btn btn-primary" id="desc_next_btn" type="button" onclick="showSection(document.getElementsByClassName('section-4')[0], this,['job_type','job_description','duration_in_weeks']);"> Next</button>
+                                    <button class="btn btn-primary" id="desc_next_btn" type="button" onclick="showSection(document.getElementsByClassName('section-4')[0], this,['job_type','job_description','duration_in_weeks','hours_per_week']);"> Next</button>
 
                                 </div>
                             </div>
@@ -248,20 +251,10 @@ Required skills and experience"></textarea> --}}
 @endsection
 
 @section('post-new-js')
-<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
-<script>
-  
-  
-    ClassicEditor
-        .create( document.querySelector( '#editor' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-        
-</script>
+
 <script>
     function showSection(el, btn, names){
-
+        
 if(names.length > 0 && checkIsset(names)){
 el.classList.remove('d-none')
 btn.disabled= true
@@ -281,6 +274,7 @@ function checkIsset(names){
                 el = document.querySelector('select[name="'+name+'"]');
                 if(el == null){
                     el = document.querySelector('textarea[name="'+name+'"]');
+                    // alert(el);
                 }else{
                     console.log(el)
 
@@ -290,6 +284,7 @@ function checkIsset(names){
                 isFilled = false;
                 el.classList.add('is-invalid')
             }else{
+                isFilled = true;
                 el.classList.remove('is-invalid')
             }
 
@@ -311,9 +306,9 @@ function checkIsset(names){
         $('.outsource').addClass('d-none');
         $('.ai-contractor').removeClass('d-none');
         $("textarea[name=job_description]").attr('placeholder',`Good details to include:
-Job description
-Job responsibility
-Job requirement`)
+-Job description
+-Job responsibility
+-Job requirement`)
         $('.section-4').addClass('d-none');
     }
     
@@ -327,9 +322,24 @@ Job requirement`)
         $('.section-4').addClass('d-none');
         
         $("textarea[name=job_description]").attr('placeholder',`Good details to include: 
-Project description
-Scope of work
-Required skills and experience`)
+-Project description
+-Scope of work
+-Required skills and experience`)
     }
+</script>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+<script>
+  
+  $(document).ready(function() {
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+})
+    
+    
+    // $('').hide();//('display', 'none');
 </script>
 @endsection

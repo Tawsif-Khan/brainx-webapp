@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Email;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Illuminate\Foundation\Auth\RedirectsUsers;
+use Illuminate\Foundation\Auth\VerifiesEmails;
+
+
 class VerificationController extends Controller
 {
     /*
@@ -18,7 +22,7 @@ class VerificationController extends Controller
     |
     */
 
-    use VerifiesEmails, RedirectsUsers;
+    // use RedirectsUsers;
 
     /**
      * Where to redirect users after verification.

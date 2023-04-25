@@ -70,7 +70,7 @@ Route::domain('admin.' . env('APP_URL'))->middleware('auth')->group(function () 
     Route::get('/feedbacks','App\http\controllers\Admin\AdminController@feedbacks')->name('admin.feedbacks');
 });
 
-Route::prefix('/admin')->as('admin.')->middleware('auth')->group(function () {
+Route::prefix('/admin')->middleware('auth')->group(function () {
     
     Route::get('/talent-profile/{id}', 'App\http\controllers\Admin\AdminController@userDetails')->name('admin.show.profile');
     Route::get('/dashboard','App\http\controllers\Admin\DashboardController@index')->name('admin.dashboard');
@@ -91,15 +91,20 @@ Route::domain('admin.' . env('APP_URL'))->group(function () {
     Route::post('/auth/login','App\http\controllers\Admin\AuthController@login')->name('admin.login');
 });
 
+Route::prefix('/admin')->group(function () {
+  
+    Route::get('/login','App\http\controllers\Admin\AuthController@index')->name('admin.login.form');
+    Route::post('/auth/login','App\http\controllers\Admin\AuthController@login')->name('admin.login');
+});
 
 Route::group(['middleware' => ['auth']], function() {
     
     /**
     * Verification Routes
     */
-    Route::get('/email/verify', 'Email\VerificationController@show')->name('verification.notice');
-    Route::get('/email/verify/{id}/{hash}', 'Email\VerificationController@verify')->name('verification.verify')->middleware(['signed']);
-    Route::post('/email/resend', 'Email\VerificationController@resend')->name('verification.resend');
+    Route::get('/email/verify', 'App\http\controllers\Email\VerificationController@show')->name('verification.notice');
+    Route::get('/email/verify/{id}/{hash}', 'App\http\controllers\Email\VerificationController@verify')->name('verification.verify')->middleware(['signed']);
+    Route::post('/email/resend', 'App\http\controllers\Email\VerificationController@resend')->name('verification.resend');
   
 });
 //Feedback
