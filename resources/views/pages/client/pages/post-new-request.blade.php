@@ -52,6 +52,18 @@ ul li{
 .ck-sticky-panel__content{
     display: none;
 }
+#cke_1_top{
+    display: none;
+}
+#cke_1_bottom{
+    display: none;
+}
+#cke_2_top{
+    display: none;
+}
+#cke_2_bottom{
+    display: none;
+}
 </style>
 <form action="{{ route('client.job.create') }}" method="POST" enctype="multipart/form-data">
     @csrf
@@ -107,7 +119,8 @@ ul li{
                                     </div>
                                 
                                 <div class="card-footer border-0 ms-2 pt-0">
-                                    <button type="button" class="btn btn-primary" onclick="showSection(document.getElementsByClassName('section-3')[0], this,['job_title']);"> Next</button>
+                                    <button type="button" class="btn btn-primary" onclick="showSection(document.getElementsByClassName('section-3')[0], this,['job_title']);
+                                    $('#cke_editor-outsource').addClass('d-none');"> Next</button>
 
                                 </div>
                             </div>
@@ -138,7 +151,7 @@ ul li{
 
                                         <div class="row">
                                             <label class="col-md-6">
-                                                <input type="radio" name="job_type" checked  value="Hire remote AI contractor" onclick="show_duration_box()" /> Hire remote AI contractor
+                                                <input type="radio" name="job_type" checked  value="    " onclick="show_duration_box()" /> Hire remote AI contractor
                                             </label>
                                             <label class="col-md-6">
                                                 <input type="radio" name="job_type" id="outsource" value="Outsource AI projects" onclick="hide_duration_box()" /> Outsource AI projects
@@ -152,10 +165,10 @@ ul li{
 -Job responsibility
 -Job requirement
                                             "></textarea>
-                                            {{-- <textarea name="job_description_outsource"  cols="80" rows="5" class="form-control outsource d-none"    placeholder="Good details to include: 
+                                            <textarea name="job_description_outsource"   rows="5" class="form-control outsource d-none"  id="editor-outsource"  placeholder="Good details to include: 
 Project description
 Scope of work
-Required skills and experience"></textarea> --}}
+Required skills and experience"></textarea>
                                         </div>
                                         <div class="row" id="hire-AI-contrator">
                                             <div class="form-group col-md-6">
@@ -305,10 +318,13 @@ function checkIsset(names){
         document.getElementById('desc_next_btn').disabled = false
         $('.outsource').addClass('d-none');
         $('.ai-contractor').removeClass('d-none');
-        $("textarea[name=job_description]").attr('placeholder',`Good details to include:
--Job description
--Job responsibility
--Job requirement`)
+        $('#cke_editor-outsource').addClass('d-none');
+        $('#cke_editor').removeClass('d-none');
+    // CKEDITOR.replace('editor', {
+    //   extraPlugins: 'editorplaceholder',
+    //   editorplaceholder: `Good details to include: Job description, Job responsibility, Job requirement`,
+    //   removeButtons: 'PasteFromWord'
+    // });
         $('.section-4').addClass('d-none');
     }
     
@@ -319,25 +335,37 @@ function checkIsset(names){
         document.getElementById('desc_next_btn').disabled = false
         $('.outsource').removeClass('d-none');
         $('.ai-contractor').addClass('d-none');
+        
+        $('#cke_editor-outsource').removeClass('d-none');
+        $('#cke_editor').addClass('d-none');
         $('.section-4').addClass('d-none');
         
-        $("textarea[name=job_description]").attr('placeholder',`Good details to include: 
--Project description
--Scope of work
--Required skills and experience`)
+       
+        
+    
     }
 </script>
+<script src="https://cdn.ckeditor.com/4.21.0/standard-all/ckeditor.js"></script>
 
-<script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script>
+{{-- <script src="https://cdn.ckeditor.com/ckeditor5/11.0.1/classic/ckeditor.js"></script> --}}
 <script>
-  
+  var editor = {};
+  CKEDITOR.replace('editor', {
+      extraPlugins: 'editorplaceholder',
+      editorplaceholder: `Good details to include: Job description, Job responsibility, Job requirement`,
+      removeButtons: 'PasteFromWord'
+    });
+
+    CKEDITOR.replace('editor-outsource', {
+      extraPlugins: 'editorplaceholder',
+      editorplaceholder: `Good details to include: Project description, Scope of work, Required skills and experience`,
+      removeButtons: 'PasteFromWord'
+    });
   $(document).ready(function() {
-    ClassicEditor
-        .create( document.querySelector( '#editor' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-})
+    
+    $('#cke_editor-outsource').addClass('d-none');
+    
+    });
     
     
     // $('').hide();//('display', 'none');

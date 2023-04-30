@@ -45,7 +45,7 @@ Route::prefix('/client')->as('client.')->group(function () {
     Route::post('/auth/login','App\http\controllers\Client\AuthController@login')->name('login');
 });
 
-Route::prefix('/client')->as('client.')->middleware('auth')->group(function () {
+Route::prefix('/client')->as('client.')->middleware(['auth','verified'])->group(function () {
     
     Route::get('/dashboard','App\http\controllers\Client\JobController@jobsPage')->name('dashboard');   
     Route::get('/job-request/new','App\http\controllers\Client\JobController@create')->name('job.new'); 
@@ -102,11 +102,15 @@ Route::group(['middleware' => ['auth']], function() {
     /**
     * Verification Routes
     */
-    Route::get('/email/verify', 'App\http\controllers\Email\VerificationController@show')->name('verification.notice');
+    // Route::get('/email/verify', 'App\http\controllers\Email\VerificationController@show')->name('verification.notice');
     Route::get('/email/verify/{id}/{hash}', 'App\http\controllers\Email\VerificationController@verify')->name('verification.verify')->middleware(['signed']);
     Route::post('/email/resend', 'App\http\controllers\Email\VerificationController@resend')->name('verification.resend');
   
 });
+
+Route::get('/email/verify', function () {
+    return view('pages.client.pages.notice');
+})->middleware('auth')->name('verification.notice');
 //Feedback
 
 Route::post('feedback','App\http\Controllers\FeedbackController@store')->name('feedback.store');

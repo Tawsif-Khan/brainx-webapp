@@ -57,4 +57,9 @@ class VerificationController extends Controller
                             'pageTitle' => __('Account Verification')
                         ]);
     }
+
+    public function verify(EmailVerificationRequest $request) {
+        $request->fulfill();
+        dd('email verification done');
+    }
 }
