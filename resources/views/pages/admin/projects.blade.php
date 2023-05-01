@@ -2,6 +2,13 @@
 
 @section('content')
 
+<style>
+    
+.table td, .table th {
+    white-space: normal;
+}
+</style>
+
 <!-- Page Header -->
 <div class="page-header">
     <div class="row">
@@ -48,7 +55,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="table-avatar user-profile">
+                                            <div >
                                                 {{-- <a href="profile.html"><img class="avatar-img rounded-circle " src="{{ $user->talent->photo }}" alt="User Image"></a> --}}
                                                 <div>
                                                     <h5><a href="#">{{ $job->job_title  }}</a></h5>
@@ -56,15 +63,17 @@
                                                 </div>	
                                             </div>
                                         </td>
-                                        <td>{{ $job->job_description }}</td>
+                                        <td class="description">{!! $job->job_description !!}</td>
                                         
                                         <td>
                                             {{ $job->job_type }}
                                         </td>
                                         <td>{{ $job->created_at }}</td>
                                         <td><div>
+                                            @if(isset($job->client))
                                             <h5><a href="#">{{ $job->client->name  }}</a></h5>
                                             <p>	{{ $job->client->email }}</p>
+                                            @endif
                                         </div>	</td>
                                         <td>
                                             <div>
@@ -78,8 +87,8 @@
                                         </td>
                                         <td class="text-end three-dots">
 
-                                            {{-- <a href="{{ route('admin.show.profile', encrypt($user->id)) }}" class="btn btn-primary">View</a> --}}
-
+                                            <a data-bs-toggle="modal" data-bs-target="#project-{{ $job->job_id }}" class="btn btn-primary">View</a>
+                                            @include('pages.admin.includes.modals.my-request');
                                            
                                         </td>
                                     </tr>

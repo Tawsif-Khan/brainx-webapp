@@ -4,17 +4,9 @@
 padding: 0.5rem;
 }
 
-.description ul li{
-    padding: 5px 0px;
-}
-
-.description ul {
-    margin-left: 10px;
-}
-
 </style>
 		<!-- The Modal -->
-		<div class="modal fade custom-modal" id="my-request">
+		<div class="modal fade custom-modal text-start" id="project-{{ $job->job_id }}">
 			<div class="modal-dialog modal-lg modal-dialog-centered">
 				<div class="modal-content">
 
@@ -31,7 +23,7 @@ padding: 0.5rem;
                                        </p>
                                        <h4 class="mt-4">Request description</h4>
                                        <p>
-                                        <div class="border p-3 h6 description" >
+                                        <div class="border p-3 h6">
                                         {!! $job->job_description !!}
                                         </div>
                                        </p>

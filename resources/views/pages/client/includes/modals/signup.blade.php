@@ -26,13 +26,13 @@
                                             </div>
 											
                                             <div class="form-group">
-                                                <input type="text" name="job_title" class="form-control" placeholder="Job title" required/>
+                                                <input type="text" name="job_title" class="form-control" placeholder="Job title" onfocusout="isExist()" required/>
                                             </div>
                                             <div class="form-group">
                                             @include('includes.countries')
                                             </div>
                                             <div class="form-group">
-                                                <input type="password" name="password" class="form-control" placeholder="Create a password" required/>
+                                                <input type="password" name="password" class="form-control" placeholder="Create a password" onfocusout="isExist()" required/>
                                             </div>
                                             <p>I understand and agree <a style="text-decoration: underline" href="/terms-of-service">Terms of Service</a>, <a style="text-decoration: underline" href="/privacy-policy">Privacy Policy</a></p>
                                             
@@ -55,6 +55,8 @@
 @section('is-email-exist-js')
 
 <script>
+
+    
 
     function isExist(){
     $.ajax({

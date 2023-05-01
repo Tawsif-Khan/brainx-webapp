@@ -17,14 +17,18 @@ class AuthController extends Controller
     public function login(Request $request){
 
         
-        $user = User::where('email', $request->email)->where('role', 'Client')->first();
-        // dd($user);
+        $user = User::where('email', $request->email)->first();
+        
         if ($user && Hash::check($request->password, $user->password)) {
             // dd($user);
             Auth::login($user);
+            if($user->role == 'Admin') {
+                // dd($user);
+                return redirect()->route('admin.dashboard');
+            }
             return redirect()->route('client.job.detail');
         }
-        return redirect("/business");
+        return redirect("/");
 
     }
 
@@ -46,7 +50,7 @@ class AuthController extends Controller
             'password' => Hash::make($request->password)
         ]);
 
-        // event(new Registered($user));
+        event(new Registered($user));
 
         Auth::login($user);
 

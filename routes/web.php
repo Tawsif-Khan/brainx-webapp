@@ -45,7 +45,7 @@ Route::prefix('/client')->as('client.')->group(function () {
     Route::post('/auth/login','App\http\controllers\Client\AuthController@login')->name('login');
 });
 
-Route::prefix('/client')->as('client.')->middleware('auth')->group(function () {
+Route::prefix('/client')->as('client.')->middleware(['auth','verified'])->group(function () {
     
     Route::get('/dashboard','App\http\controllers\Client\JobController@jobsPage')->name('dashboard');   
     Route::get('/job-request/new','App\http\controllers\Client\JobController@create')->name('job.new'); 
@@ -61,7 +61,7 @@ Route::domain('admin.' . env('APP_URL'))->middleware('auth')->group(function () 
     Route::get('/dashboard','App\http\controllers\Admin\DashboardController@index')->name('admin.dashboard');
     Route::get('/users','App\http\controllers\Admin\AdminController@users')->name('admin.users');
     Route::get('/clients','App\http\controllers\Admin\AdminController@clients')->name('admin.clients');
-    Route::get('/projects','App\http\controllers\Admin\AdminController@projects')->name('admin.projects');
+    Route::get('/projects','App\http\controllers\Admin\JobController@index')->name('admin.projects');
     Route::post('/users/status/update','App\http\controllers\Admin\AdminController@updateStatus')->name('admin.update.users.status');
     Route::get('/categories','App\http\controllers\Admin\SkillController@index')->name('admin.categories');
     Route::post('/category/insert','App\http\controllers\Admin\SkillController@storeCategory')->name('admin.category.insert');
@@ -70,13 +70,13 @@ Route::domain('admin.' . env('APP_URL'))->middleware('auth')->group(function () 
     Route::get('/feedbacks','App\http\controllers\Admin\AdminController@feedbacks')->name('admin.feedbacks');
 });
 
-Route::prefix('/admin')->as('admin.')->middleware('auth')->group(function () {
+Route::prefix('/admin')->middleware('auth')->group(function () {
     
     Route::get('/talent-profile/{id}', 'App\http\controllers\Admin\AdminController@userDetails')->name('admin.show.profile');
     Route::get('/dashboard','App\http\controllers\Admin\DashboardController@index')->name('admin.dashboard');
     Route::get('/users','App\http\controllers\Admin\AdminController@users')->name('admin.users');
     Route::get('/clients','App\http\controllers\Admin\AdminController@clients')->name('admin.clients');
-    Route::get('/projects','App\http\controllers\Admin\AdminController@projects')->name('admin.projects');
+    Route::get('/projects','App\http\controllers\Admin\JobController@index')->name('admin.projects');
     Route::post('/users/status/update','App\http\controllers\Admin\AdminController@updateStatus')->name('admin.update.users.status');
     Route::get('/categories','App\http\controllers\Admin\SkillController@index')->name('admin.categories');
     Route::post('/category/insert','App\http\controllers\Admin\SkillController@storeCategory')->name('admin.category.insert');
@@ -91,17 +91,26 @@ Route::domain('admin.' . env('APP_URL'))->group(function () {
     Route::post('/auth/login','App\http\controllers\Admin\AuthController@login')->name('admin.login');
 });
 
+Route::prefix('/admin')->group(function () {
+  
+    Route::get('/login','App\http\controllers\Admin\AuthController@index')->name('admin.login.form');
+    Route::post('/auth/login','App\http\controllers\Admin\AuthController@login')->name('admin.login');
+});
 
 Route::group(['middleware' => ['auth']], function() {
     
     /**
     * Verification Routes
     */
-    Route::get('/email/verify', 'Email\VerificationController@show')->name('verification.notice');
-    Route::get('/email/verify/{id}/{hash}', 'Email\VerificationController@verify')->name('verification.verify')->middleware(['signed']);
-    Route::post('/email/resend', 'Email\VerificationController@resend')->name('verification.resend');
+    // Route::get('/email/verify', 'App\http\controllers\Email\VerificationController@show')->name('verification.notice');
+    Route::get('/email/verify/{id}/{hash}', 'App\http\controllers\Email\VerificationController@verify')->name('verification.verify')->middleware(['signed']);
+    Route::post('/email/resend', 'App\http\controllers\Email\VerificationController@resend')->name('verification.resend');
   
 });
+
+Route::get('/email/verify', function () {
+    return view('pages.client.pages.notice');
+})->middleware('auth')->name('verification.notice');
 //Feedback
 
 Route::post('feedback','App\http\Controllers\FeedbackController@store')->name('feedback.store');

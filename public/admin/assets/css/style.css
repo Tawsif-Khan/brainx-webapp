@@ -206,7 +206,7 @@ label {
 	font-feature-settings: 'liga';
 }
 ul li{
-	list-style: none;
+	/* list-style: none; */
 }
 p:last-child{
 	margin-bottom: 0;
