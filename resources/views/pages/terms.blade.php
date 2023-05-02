@@ -27,7 +27,7 @@
         <div class="row align-items-center p-5">
 
             <p>
-                Welcome to BrainX, a freelance platform connecting the global network of talented AI professionals with businesses in need of their skills. Before using our platform, please carefully read and agree to the following Terms of Service:
+                Welcome to BrainX, a freelance platform connecting the global network of talented AI professionals with businesses in need of their skills. Before using our platform, please carefully read and agree to the following Terms of Service: 
             </p>
             <ol  style="list-style: none;">
                 <li>
@@ -38,11 +38,14 @@
                     You are responsible for all activities that occurs on your account and agree not to use our platform to:
                 </p>
                 <ul>
-                    <li>violate any laws or regulations</li>
+                    <li>violate any laws or regulations
+                    </li>
                     <li>harass, threaten or intimidate others
                     </li>
-                    <li>post false or misleading information</li>
-                    <li>engage in any fraudulent activity</li>
+                    <li>post false or misleading information
+                    </li>
+                    <li>engage in any fraudulent activity
+                    </li>
                     <li>infringe on any intellectual property rights</li>
                     <li>solicit or offer any service outside of the website</li>
                 </ul>
@@ -61,16 +64,22 @@
                     <li>
                         When a freelancer accepts a contract, he/she has to stay responsible to complete the assignment and deliver high-quality work with required deadlines for clients.
                     </li>
-                    <li>You acknowledge that any communication or work performed through the platform belongs to the client and may not be used for any other purposes without their consent.</li>
-                    <li>You agree to communicate promptly and professionally with clients before, during and after a project. You agree not to communicate with clients outside of the platform. </li>
-                    <li>Freelancer’s performance is reviewed regularly while working on the platform. </li>
+                    <li>
+                        You acknowledge that any IP assets shared by clients or work performed by you through the platform belongs to the client and can not be used for any other purposes without clients’ consent. 
+                    </li>
+                    <li>
+                        You agree to communicate promptly and professionally with clients before, during and after a project. You agree not to communicate with clients outside of the platform. 
+                    </li>
+                    <li>
+                        Freelancer’s performance is reviewed regularly while working on the platform. 
+                    </li>
                 </ul>
                 <h4>
                     As a Business Client:
                 </h4>
                 <ul>
-                    <li>You agree to provide accurate information regarding the work you need completed, including timelines and budgets</li>
-                    <li>You acknowledge that payments must be made through BrainX</li>
+                    <li>You agree to provide accurate information regarding the work you need completed, including timelines and budgets.</li>
+                    <li>You acknowledge that payments must be made through BrainX.</li>
                     <li>You agree to pay Freelancers for completed work in a timely manner.</li>
                 </ul>
             </li>
@@ -79,6 +88,7 @@
                 3. Fees
             </h3>
                 <p>
+                    
                     BrainX will charge a service fee on all projects completed through the platform. The fee will be a percentage of the total project cost or freelancer’s hourly rate and will be deducted from the payment made to the Freelancer.
 
                 </p>
@@ -89,11 +99,13 @@
             </h3>
                 <ul>
                     <li>
-                        <p>BrainX reserves the right to terminate any account for any reason, including violations of these Terms of Service. You may also terminate your account at any time by giving a feedback to us</p>
+                        <p>
+                            BrainX reserves the right to terminate any account for any reason, including violations of these Terms of Service. You may also terminate your account at any time by giving a feedback to us
+                        </p>
                     </li>
                     <li>
                         <p>
-                            If freelancers abandon his/her assigned contract before that contract ends or stays unresponsive, their accounts will be reviewed to remove them from the platform. BrainX will not pay any of their remaining payment as a punishment for irresponsibility.  
+                            If freelancers abandon his/her assigned contract before that contract ends or stays unresponsive, their accounts will be reviewed to remove them from the platform. BrainX will not pay any of their remaining payment as a punishment for irresponsibility.                        
                         </p>
                     </li>
                 </ul>
