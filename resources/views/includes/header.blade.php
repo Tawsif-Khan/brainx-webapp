@@ -48,8 +48,17 @@
                 </li>
             </ul>
         </div>		 
-        <ul class="nav header-navbar-rht reg-head pe-5">												
-            {{-- <li><a href="register.html" class="reg-btn"><img src="assets/img/icon/reg-icon.svg" class="me-1" alt="icon"> Register</a></li> --}}
+        <ul class="nav header-navbar-rht reg-head pe-5">
+            @if (Auth::user() != null)
+                @if(Auth::user()->role == 'Client')											
+                <li><a href="{{ route('client.job.detail') }}" class="reg-btn"> Dashboard</a></li>
+                @elseif(Auth::user()->role == 'Talent')		
+                <li><a href="{{ route('build.profile') }}" class="reg-btn"> Dashboard</a></li>
+                @else
+                <li><a href="{{ route('admin.dashboard') }}" class="reg-btn"> Dashboard</a></li>
+                @endif
+            @endif
+
             @if (Auth::guard()->user() == null && Request::is('talent'))
             <li><a href="{{ url('auth/linkedin') }}" data-bs-toggle="modal" data-bs-target="#login-modal" class="log-btn"><img src="assets/img/icon/lock-icon.svg" class="me-2" alt="icon"> Login</a></li>
                 
