@@ -138,6 +138,6 @@ class AdminController extends Controller
             $user = User::where('id', $id)->delete();
         }
 
-        return $this->clients();
+        return redirect()->route('admin.clients');
     }
 }
