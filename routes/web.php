@@ -61,6 +61,7 @@ Route::domain('admin.' . env('APP_URL'))->middleware('auth')->group(function () 
     Route::get('/dashboard','App\http\controllers\Admin\DashboardController@index')->name('admin.dashboard');
     Route::get('/users','App\http\controllers\Admin\AdminController@users')->name('admin.users');
     Route::get('/clients','App\http\controllers\Admin\AdminController@clients')->name('admin.clients');
+    Route::get('/clients/delete/{id}','App\http\controllers\Admin\AdminController@destroy')->name('admin.clients.delete');
     Route::get('/projects','App\http\controllers\Admin\JobController@index')->name('admin.projects');
     Route::post('/users/status/update','App\http\controllers\Admin\AdminController@updateStatus')->name('admin.update.users.status');
     Route::get('/categories','App\http\controllers\Admin\SkillController@index')->name('admin.categories');
@@ -76,6 +77,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::get('/dashboard','App\http\controllers\Admin\DashboardController@index')->name('admin.dashboard');
     Route::get('/users','App\http\controllers\Admin\AdminController@users')->name('admin.users');
     Route::get('/clients','App\http\controllers\Admin\AdminController@clients')->name('admin.clients');
+    Route::get('/clients/delete/{id}','App\http\controllers\Admin\AdminController@destroy')->name('admin.clients.delete');
     Route::get('/projects','App\http\controllers\Admin\JobController@index')->name('admin.projects');
     Route::post('/users/status/update','App\http\controllers\Admin\AdminController@updateStatus')->name('admin.update.users.status');
     Route::get('/categories','App\http\controllers\Admin\SkillController@index')->name('admin.categories');

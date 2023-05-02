@@ -63,7 +63,7 @@
                                         
                                         <td class="text-end three-dots">
 
-                                            <a href="{{ route('admin.show.profile', encrypt($user->id)) }}" class="btn btn-primary">View</a>
+                                            <a href="{{ route('admin.clients.delete', encrypt($user->id)) }}" class="btn btn-danger">delete</a>
 
                                            
                                         </td>

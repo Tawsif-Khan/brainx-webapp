@@ -16,7 +16,7 @@
 .chat-cont-right{
     /* height: 100%; */
     /* overflow-y: hidden; */
-    /* height: calc(100vh - 90px); */
+    height: calc(100vh - 90px);
 }
 
 ul li{
