@@ -36,11 +36,10 @@
                                             </div>
                                         </th>
                                         <th>Job title</th>
-                                        <th>Job description</th>	
+                                        <th>Client</th>	
                                         <th>Job type </th>	
                                         <th>Created Date</th>	
                                         
-                                        <th>Client</th>	
                                         <th>Talent</th>
                                         <th></th>
                                     </tr>
@@ -63,18 +62,19 @@
                                                 </div>	
                                             </div>
                                         </td>
-                                        <td class="description">{!! $job->job_description !!}</td>
-                                        
+                                        <td>
+                                            <div>
+                                                @if(isset($job->client))
+                                                <h5><a href="#">{{ $job->client->name  }}</a></h5>
+                                                <p>	{{ $job->client->email }}</p>
+                                                @endif
+                                            </div>	
+                                        </td>
                                         <td>
                                             {{ $job->job_type }}
                                         </td>
                                         <td>{{ $job->created_at }}</td>
-                                        <td><div>
-                                            @if(isset($job->client))
-                                            <h5><a href="#">{{ $job->client->name  }}</a></h5>
-                                            <p>	{{ $job->client->email }}</p>
-                                            @endif
-                                        </div>	</td>
+                                        
                                         <td>
                                             <div>
                                                 @if($job->talent)
