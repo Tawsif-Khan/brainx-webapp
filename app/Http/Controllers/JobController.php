@@ -28,15 +28,16 @@ class JobController extends Controller
     }
 
     public function jobDetail(){
-        $jobs = Job::where('talent_id', Auth::guard()->user()->id)->orderBy('job_id','DESC')->get();
+        $jobs = Job::where('talent_id', Auth::guard()->user()->id)->with('contract')->orderBy('job_id','DESC')->get();
         
         if(sizeof($jobs)){
-        $job =  $jobs[0];
-        $actions = Action::where('job_id', $job->job_id)->with('message')->with('sender')->get();
-        // dd($actions);
-        return view('pages.talent.job-details')->with('job', $job)->with('jobs', $jobs)->with('actions', $actions);
+            $job =  $jobs[0];
+            $actions = Action::where('job_id', $job->job_id)->with('message')->with('sender')->get();
+            // dd($actions);
+            // dd($job);
+            return view('pages.talent.job-details')->with('job', $job)->with('jobs', $jobs)->with('actions', $actions);
         }
-        // dd($actions);
+        
         return redirect()->route('talent.pending');
     }
 
@@ -48,7 +49,6 @@ class JobController extends Controller
         }else{
             $job = $jobs[0];
         }
-
         
         $milestones = Milestone::where('contract_id', $job->contract->id)->get();
         $actions = Action::where('job_id', $job->job_id)->with('message')->with('sender')->get();

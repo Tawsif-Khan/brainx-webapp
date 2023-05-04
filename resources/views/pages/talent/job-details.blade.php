@@ -55,14 +55,16 @@ ul li{
                             <button class="btn btn-primary" type="button" data-bs-target="#create-contract" data-bs-toggle="modal"> Create contract</button>
                         </div>
                         @foreach ($actions as $action)
+                            <div class="mb-3">
 
-                            @if((Auth::user()->id == $action->sender_id || Auth::user()->id == $action->receiver_id) && $action->action_type == 'MESSAGE_WITH_MY_REQUEST')
-                                @include('pages.client.includes.message-views.message-from-system')
-                            @endif
-                            @if((Auth::user()->id == $action->sender_id || Auth::user()->id == $action->receiver_id) && $action->action_type == 'CONTRACT')
-                                @include('pages.client.includes.message-views.contract-message')
-                            @endif
-                           
+                                @if((Auth::user()->id == $action->sender_id || Auth::user()->id == $action->receiver_id) && $action->action_type == 'MESSAGE_WITH_MY_REQUEST')
+                                    @include('pages.client.includes.message-views.message-from-system')
+                                @endif
+                                @if((Auth::user()->id == $action->sender_id || Auth::user()->id == $action->receiver_id) && $action->action_type == 'CONTRACT')
+                                    @include('pages.client.includes.message-views.contract-message')
+                                @endif
+                            </div>
+
                         @endforeach
                         
                     <!-- /Chat Right -->

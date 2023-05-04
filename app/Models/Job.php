@@ -24,7 +24,7 @@ class Job extends Model
     }
 
     public function contract(){
-        return $this->belongsTo(Contract::class,'job_id','job_id');
+        return $this->hasOne(Contract::class,'job_id','job_id')->with('milestones')->latest();
     }
 
     /**

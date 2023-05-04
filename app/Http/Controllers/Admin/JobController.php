@@ -24,6 +24,10 @@ class JobController extends Controller
         $job = Job::where('job_id', $request->job_id)->update([
             'talent_user_id' => $request->talent_id
         ]);
+        // $jobRequest = ProjectRequest::create([
+        //     'job_id' => $request->job_id,
+        //     'user_id' => $request->talent_id
+        // ]);
 
         return redirect()->route("admin.projects");
         
