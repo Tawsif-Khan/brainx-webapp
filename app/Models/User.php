@@ -25,6 +25,14 @@ class User extends Authenticatable  implements MustVerifyEmail
     function client(){
         return $this->hasOne(Client::class);
     }
+
+    function experiences(){
+        return $this->hasMany(Experience::class);
+    }
+
+    function educations(){
+        return $this->hasMany(Education::class);
+    }
     /**
      * The attributes that are mass assignable.
      *

@@ -37,6 +37,8 @@ Route::get('/view-profile/{id}', 'App\http\controllers\TalentProfileController@s
 Route::get('/build-profile', 'App\http\controllers\TalentProfileController@index')->name('build.profile');
 Route::post('/submit-profile','App\http\controllers\TalentProfileController@store')->name('submit.profile');
 Route::post('/submit-contract','App\http\controllers\ContractController@store')->name('submit.contract');
+Route::post('/add-experience','App\http\controllers\TalentProfileController@addExperience')->name('add.experience');
+Route::post('/add-education','App\http\controllers\TalentProfileController@addEducation')->name('add.education');
 
 
 Route::prefix('/client')->as('client.')->group(function () {
@@ -84,6 +86,7 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::post('/category/insert','App\http\controllers\Admin\SkillController@storeCategory')->name('admin.category.insert');
     Route::get('/skills','App\http\controllers\Admin\SkillController@skills')->name('admin.skills');
     Route::post('/skill/insert','App\http\controllers\Admin\SkillController@store')->name('admin.skill.insert');
+    Route::post('/assign-talent','App\http\controllers\Admin\JobController@assignTalent')->name('admin.assign.talent');
     Route::get('/feedbacks','App\http\controllers\Admin\AdminController@feedbacks')->name('admin.feedbacks');
 });
 

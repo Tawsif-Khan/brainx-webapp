@@ -38,8 +38,11 @@
         <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-
+            @if ($user->talent->status == 'IN_REVIEW')
+                
             <h4 class="mb-5 text-center text-primary">This profile is pending for review</h4>
+            @endif
+
             <div class="row m-5">
                 <div class="col-md-3 ">
                     <div class="img-profile">
