@@ -70,6 +70,7 @@ Route::domain('admin.' . env('APP_URL'))->middleware('auth')->group(function () 
     Route::post('/category/insert','App\http\controllers\Admin\SkillController@storeCategory')->name('admin.category.insert');
     Route::get('/skills','App\http\controllers\Admin\SkillController@skills')->name('admin.skills');
     Route::post('/skill/insert','App\http\controllers\Admin\SkillController@store')->name('admin.skill.insert');
+    Route::post('/assign-talent','App\http\controllers\Admin\JobController@assignTalent')->name('admin.assign.talent');
     Route::get('/feedbacks','App\http\controllers\Admin\AdminController@feedbacks')->name('admin.feedbacks');
 });
 

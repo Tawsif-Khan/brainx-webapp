@@ -91,6 +91,7 @@
                         <h4 class="text-primary">Strength points</h4>
                         <div class="col-md-12 p-2">
                                 @php
+                                $skills = [[]];
                                     foreach ($user->talent->skill as  $skill) {
                                         $skills[$skill->skill->category->category_name][] = $skill->skill->skill_name;
                                     }
