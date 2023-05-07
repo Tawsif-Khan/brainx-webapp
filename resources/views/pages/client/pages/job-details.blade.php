@@ -66,6 +66,9 @@ center; */
                             @if((Auth::user()->id == $action->sender_id || Auth::user()->id == $action->receiver_id) && $action->action_type == 'CONTRACT')
                                 @include('pages.client.includes.message-views.contract-message')
                             @endif
+                            @if((Auth::user()->id == $action->sender_id || Auth::user()->id == $action->receiver_id) && $action->action_type == 'ACCEPTENCE_MESSAGE')
+                                @include('pages.client.includes.message-views.acceptence-message')
+                            @endif
                            
                         @endforeach
                         

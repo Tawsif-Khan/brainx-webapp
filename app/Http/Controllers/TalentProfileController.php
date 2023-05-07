@@ -10,6 +10,8 @@ use App\Models\Talent;
 use App\Models\TalentSkill;
 use App\Models\Experience;
 use App\Models\Education;
+use App\Models\Action;
+use App\Models\Message;
 use CV;
 
 class TalentProfileController extends Controller
@@ -33,13 +35,15 @@ class TalentProfileController extends Controller
             $categories = Category::with('skills')->get();
             
             if(!isset($user->talent) || $user->talent->status == "INCOMPLETE"){
-            
+           
+                
                 return view('pages.talent.build-profile')->with('user', $user)->with('categories', $categories);
-            }else if($user->talent->status == "PUBLISHED"){
-                return redirect()->route('talent.job.detail');
-            }else{
-                return view('pages.talent.pending-profile')->with('user', $user)->with('categories', $categories);
+            }else {//if($user->talent->status == "PUBLISHED"){
+                return redirect()->route('talent.care');
             }
+            // else{
+            //     return view('pages.talent.pending-profile')->with('user', $user)->with('categories', $categories);
+            // }
         }
         return redirect('/');
     }
@@ -101,8 +105,19 @@ class TalentProfileController extends Controller
         
         $skills = TalentSkill::insert($data);
         }
+        $action = Action::create([
+            'job_id' => null,
+            'sender_id' => null,
+            'receiver_id' => Auth::user()->id,
+            'action_type' => 'MESSAGE_WITH_MY_PROFILE'
+        ]);
+        $message = Message::create([
+            'sender_id' => null,
+            'action_id' => $action->id,
+            'message' => 'We’re excited to receive your profile. Please kindly give us time to review your profile. You will be notified via email when you’re accepted. Thank you for joining us!'
+        ]);
 
-        return redirect()->route('talent.pending');
+        return redirect()->route('talent.care');
     }
 
     public function uploadResume($file)
@@ -153,8 +168,8 @@ class TalentProfileController extends Controller
             'title' => $request->title,
             'company' => $request->company,
             'from' => $request->from,
-            'to' => $request->to,
-            'skills' => json_encode($request->skills),
+            'to' => $request->present? 'Present':$request->to,
+            'skills' => $request->skills,
             'description' => $request->description,
             'user_id' => Auth::user()->id            
         ]);

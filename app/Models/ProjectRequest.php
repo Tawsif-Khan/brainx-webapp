@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class ProjectRequest extends Model
 {
     use HasFactory;
+
+      /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'job_id',
+        'user_id',
+        'action_id'
+    ];
 }

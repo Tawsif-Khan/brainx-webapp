@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('company')->nullable();
             $table->string('description')->nullable();
             $table->string('skills')->nullable();
-            $table->date('from')->nullable();
-            $table->date('to')->nullable();
+            $table->string('from')->nullable();
+            $table->string('to')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');

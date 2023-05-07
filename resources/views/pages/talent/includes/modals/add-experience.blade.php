@@ -37,11 +37,11 @@
                                         
                                         <div class="form-group">
                                             <label for="" class="h4">Title</label>
-                                            <input type="text" name="title" class="form-control" >
+                                            <input type="text" name="title" class="form-control" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="" class="h4">Company</label>
-                                            <input type="text" name="company" class="form-control" >
+                                            <input type="text" name="company" class="form-control" required>
                                         </div>
 
                                         <div class="form-group">
@@ -49,10 +49,11 @@
                                             <div class="d-flex row">
                                                 <label for="hourly" class="col-md-6">
                                                     
-                                                    <input type="date" name="from" class="me-2 " id="from" placeholder="From"/> 
+                                                    <input type="number" name="from" class="me-2 form-control" id="from" placeholder="From" /> 
                                                 </label>
                                                 <label for="fixed" class="col-md-6">
-                                                    <input type="date" name="to" class="me-2 " id="to" placeholder="To"/> 
+                                                    <input type="number" name="to" class="me-2 form-control" id="toYear" placeholder="To" /> 
+                                                    <label for="present"><input type="checkbox" name="present" class="" id="present" onchange="disableToDate(this)"> Currently working here.</label>
                                                 </label>
                                             </div>
                                         </div>
@@ -64,7 +65,7 @@
                                         
                                         <div class="form-group">
                                             <label for="" class="h4">Skills</label>
-                                            @include('pages.talent.includes.ai-skill')
+                                            <input type="text" name="skills" class="form-control" placeholder="List top 3 to 5 skills. Ex: Swift, PHP,..." />
                                         </div>
                                     </div>
                                 <div class="card-footer pb-2 border-0 float-right">
@@ -203,6 +204,19 @@ function deleteWord(element, value){
   var skill = document.querySelector("input[value='"+value+"']");
   skill.checked = false;
 }
+</script>
+
+<script>
+  function disableToDate(el){
+    
+    
+    if(el.checked){
+      document.getElementById('toYear').disabled = true
+    }else{
+
+      document.getElementById('toYear').disabled = false
+    }
+  }
 </script>
 @endsection
         
