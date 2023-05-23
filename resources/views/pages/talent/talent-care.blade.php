@@ -51,23 +51,22 @@ ul li{
                     @include('pages.talent.includes.job-request-list-sidebar')
                     <!-- Chat Right -->
                     <div class="chat-cont-right chat-scrol" style="z-index: 99; ">
-                        <div class="border-bottom pb-4 text-end">
-                            <button class="btn btn-primary" type="button" data-bs-target="#create-contract" data-bs-toggle="modal"> Create contract</button>
-                        </div>
+                        
+                        
                         @foreach ($actions as $action)
-                            <div class="mb-4">
-                                @if((Auth::user()->id == $action->sender_id || Auth::user()->id == $action->receiver_id) )
-                                    @if($action->action_type == 'MESSAGE_WITH_MY_REQUEST')
-                                        @include('pages.talent.includes.message-views.message-from-system')
-                                    @endif
-                                    @if($action->action_type == 'CONTRACT')
-                                        @include('pages.talent.includes.message-views.contract-message')
-                                    @endif
-                                    @if($action->action_type == 'ACCEPTENCE_MESSAGE')
-                                        @include('pages.talent.includes.message-views.acceptence-message')
-                                    @endif
+                            <div class="mb-3">
+
+                                @if((Auth::user()->id == $action->sender_id || Auth::user()->id == $action->receiver_id) && $action->action_type == 'MESSAGE_WITH_CLIENT_REQUEST')
+                                    @include('pages.talent.includes.message-views.message-from-system')
+
                                     
                                 @endif
+                                @if((Auth::user()->id == $action->sender_id || Auth::user()->id == $action->receiver_id) && $action->action_type == 'MESSAGE_WITH_MY_PROFILE')
+                                    @include('pages.talent.includes.message-views.message-from-system')
+
+                                    
+                                @endif
+                                
                             </div>
 
                         @endforeach
@@ -81,12 +80,11 @@ ul li{
 </div>	
 </div>
 <!-- /Page Content -->
-
-
-@include('pages.talent.includes.modals.preview-contract')
-<form action="{{ route('submit.contract') }}" method="POST">
-    @csrf
-    @include('pages.talent.includes.modals.create-contract')
-    @include('pages.talent.includes.modals.review-contract')    
-</form>
+@foreach ($actions as $action)
+    @if($action->job != null)
+        @include('pages.talent.includes.modals.client-request')
+        @include('pages.talent.includes.modals.accept-message')
+        @include('pages.talent.includes.modals.rejection-message')
+    @endif
+@endforeach
 @endsection

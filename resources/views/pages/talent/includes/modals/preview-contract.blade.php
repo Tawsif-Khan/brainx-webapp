@@ -147,7 +147,7 @@ background-color: var(--line-border-fill);
                                         <div class="mt-4 mb-5">
                                             <h5>Fixed price  ${{ $job->contract->fixed_price }}</h5>
                                         </div>
-                                        @foreach ($milestones as $index=> $milestone)
+                                        @foreach ($job->contract->milestones as $index=> $milestone)
                                         <div class="mt-4 mb-5">
                                             <h6>Milestone {{ $index+1 }}: ${{ $milestone->amount }}</h6>
                                             <p>{{ $milestone->caption }}</p>

@@ -18,6 +18,14 @@ class Action extends Model
         return $this->hasOne(Message::class, 'action_id');
     }
 
+    public function job(){
+        return $this->belongsTo(Job::class, 'job_id','job_id');
+    }
+
+    public function projectRequest(){
+        return $this->hasOne(ProjectRequest::class,'action_id','id');
+    }
+
     protected $fillable = [
         'job_id',
         'sender_id',

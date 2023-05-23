@@ -35,8 +35,13 @@ Route::get('/job-details/{id}', 'App\http\controllers\JobController@jobDetails')
 Route::get('/job-details', 'App\http\controllers\JobController@jobDetail')->name('talent.job.detail');
 Route::get('/view-profile/{id}', 'App\http\controllers\TalentProfileController@show')->name('show.profile');
 Route::get('/build-profile', 'App\http\controllers\TalentProfileController@index')->name('build.profile');
+Route::get('/talent-care', 'App\http\controllers\JobController@talentCare')->name('talent.care');
 Route::post('/submit-profile','App\http\controllers\TalentProfileController@store')->name('submit.profile');
 Route::post('/submit-contract','App\http\controllers\ContractController@store')->name('submit.contract');
+Route::post('/add-experience','App\http\controllers\TalentProfileController@addExperience')->name('add.experience');
+Route::post('/add-education','App\http\controllers\TalentProfileController@addEducation')->name('add.education');
+Route::post('/accept-request','App\http\controllers\JobController@acceptRequest')->name('accept.request');
+Route::post('/reject-request','App\http\controllers\JobController@rejectRequest')->name('reject.request');
 
 
 Route::prefix('/client')->as('client.')->group(function () {
@@ -52,6 +57,7 @@ Route::prefix('/client')->as('client.')->middleware(['auth','verified'])->group(
     Route::post('/job-request/create','App\http\controllers\Client\JobController@store')->name('job.create'); 
     Route::get('/job-details/{id}','App\http\controllers\Client\JobController@jobDetails')->name('job.details'); 
     Route::get('/job-detail','App\http\controllers\Client\JobController@jobDetail')->name('job.detail');    
+    Route::get('/view-talent-profile/{id}', 'App\http\controllers\Client\JobController@showTalentProfile')->name('show.profile');
 });
 
 
@@ -61,12 +67,14 @@ Route::domain('admin.' . env('APP_URL'))->middleware('auth')->group(function () 
     Route::get('/dashboard','App\http\controllers\Admin\DashboardController@index')->name('admin.dashboard');
     Route::get('/users','App\http\controllers\Admin\AdminController@users')->name('admin.users');
     Route::get('/clients','App\http\controllers\Admin\AdminController@clients')->name('admin.clients');
+    Route::get('/clients/delete/{id}','App\http\controllers\Admin\AdminController@destroy')->name('admin.clients.delete');
     Route::get('/projects','App\http\controllers\Admin\JobController@index')->name('admin.projects');
     Route::post('/users/status/update','App\http\controllers\Admin\AdminController@updateStatus')->name('admin.update.users.status');
     Route::get('/categories','App\http\controllers\Admin\SkillController@index')->name('admin.categories');
     Route::post('/category/insert','App\http\controllers\Admin\SkillController@storeCategory')->name('admin.category.insert');
     Route::get('/skills','App\http\controllers\Admin\SkillController@skills')->name('admin.skills');
     Route::post('/skill/insert','App\http\controllers\Admin\SkillController@store')->name('admin.skill.insert');
+    Route::post('/assign-talent','App\http\controllers\Admin\JobController@assignTalent')->name('admin.assign.talent');
     Route::get('/feedbacks','App\http\controllers\Admin\AdminController@feedbacks')->name('admin.feedbacks');
 });
 
@@ -76,12 +84,14 @@ Route::prefix('/admin')->middleware('auth')->group(function () {
     Route::get('/dashboard','App\http\controllers\Admin\DashboardController@index')->name('admin.dashboard');
     Route::get('/users','App\http\controllers\Admin\AdminController@users')->name('admin.users');
     Route::get('/clients','App\http\controllers\Admin\AdminController@clients')->name('admin.clients');
+    Route::get('/clients/delete/{id}','App\http\controllers\Admin\AdminController@destroy')->name('admin.clients.delete');
     Route::get('/projects','App\http\controllers\Admin\JobController@index')->name('admin.projects');
     Route::post('/users/status/update','App\http\controllers\Admin\AdminController@updateStatus')->name('admin.update.users.status');
     Route::get('/categories','App\http\controllers\Admin\SkillController@index')->name('admin.categories');
     Route::post('/category/insert','App\http\controllers\Admin\SkillController@storeCategory')->name('admin.category.insert');
     Route::get('/skills','App\http\controllers\Admin\SkillController@skills')->name('admin.skills');
     Route::post('/skill/insert','App\http\controllers\Admin\SkillController@store')->name('admin.skill.insert');
+    Route::post('/assign-talent','App\http\controllers\Admin\JobController@assignTalent')->name('admin.assign.talent');
     Route::get('/feedbacks','App\http\controllers\Admin\AdminController@feedbacks')->name('admin.feedbacks');
 });
 

@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Talent;
 use App\Models\Job;
 use App\Models\Feedback;
+use App\Models\Client;
 use Auth;
 
 class AdminController extends Controller
@@ -130,6 +131,13 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $id = decrypt($id);
+        $jobs = Job::where('client_id', $id)->delete();
+        $client = Client::where('user_id', $id)->delete();
+        if($client){
+            $user = User::where('id', $id)->delete();
+        }
+
+        return redirect()->route('admin.clients');
     }
 }

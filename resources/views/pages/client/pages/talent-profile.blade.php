@@ -1,4 +1,4 @@
-@extends('pages.admin.layouts.app')
+@extends('pages.client.layouts.app')
 
 @section('content')
 
@@ -42,7 +42,6 @@
                 
             <h4 class="mb-5 text-center text-primary">This profile is pending for review</h4>
             @endif
-
             <div class="row m-5">
                 <div class="col-md-3 ">
                     <div class="img-profile">
@@ -91,7 +90,6 @@
                         <h4 class="text-primary">Strength points</h4>
                         <div class="col-md-12 p-2">
                                 @php
-                                $skills = [[]];
                                     foreach ($user->talent->skill as  $skill) {
                                         $skills[$skill->skill->category->category_name][] = $skill->skill->skill_name;
                                     }
@@ -101,7 +99,7 @@
                                 @foreach ($skills as $key => $items)
                                 <li class="col-md-6 mt-3">
                                     <h5>{{ $key }}</h5>
-                                    <ul id="skill-lists" class="list-inline">
+                                    <ul class="list-inline">
                                         @foreach ($items as $item)
                                         <li class="btn btn-rounded btn-outline-primary list-inline-item">
                                             {{ ($item) }}
@@ -122,32 +120,31 @@
                 <div class="row border m-5">
                     <div class="col-md-12 p-5">
                         <div class="d-flex">
-                            <h4 class="text-muted">
+                            <h4 class="text-primary">
                                 Experience
                             </h4>
-                            
                         </div>
                         <div class="ms-3">
-                            @foreach ($user->experiences as $experience)
-                            <div class="review-content no-padding">		
-                                <h4 class="text-primary">{{ $experience->title }}</h4>
-                                <div class="rating">							
-                                    <strong>{{ $experience->company }}</strong><span class="ms-2 average-rating">{{ $experience->from }} - {{ $experience->to }}</span>                                
-                                </div>
-                                <p class="mb-0"> {{ $experience->description }}</p>
-                                <div>
-                                    <strong>Skills: </strong>
-                                     @php
-                                     if($experience->skills != null)
-                                         echo implode(', ', json_decode($experience->skills));
-                                     @endphp
-    
-                                </div>
-                            </div>	
-                            
-    
-                                @endforeach
+                        @foreach ($user->experiences as $experience)
+                        <div class="review-content no-padding">		
+                            <h4 class="text-primary">{{ $experience->title }}</h4>
+                            <div class="rating">							
+                                <strong>{{ $experience->company }}</strong><span class="ms-2 average-rating">{{ $experience->from }} - {{ $experience->to }}</span>                                
                             </div>
+                            <p class="mb-0"> {{ $experience->description }}</p>
+                            <div>
+                                <strong>Skills: </strong>
+                                 @php
+                                 if($experience->skills != null)
+                                     echo implode(', ', json_decode($experience->skills));
+                                 @endphp
+
+                            </div>
+                        </div>	
+                        
+
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </section>
@@ -156,26 +153,28 @@
                 <div class="row border m-5">
                     <div class="col-md-12 p-5">
                         <div class="d-flex">
-                <h4 class="text-muted">
+                <h4 class="text-primary">
                     Education
                 </h4>
-                
                         </div>
                 <div class="ms-3">
-                    @foreach ($user->educations as $education)
-                        <div class="review-content no-padding">		
-                            <h4 class="text-primary">{{ $education->degree }}, {{ $education->field_of_study }}</h4>
-                            <div class="rating">							
-                                <strong>{{ $education->school }}</strong><span class="ms-2 average-rating">({{ $education->from }} - {{ $education->to }})</span>                                
-                            </div>
-                            
-                        </div>	
-                    @endforeach
-            </div>
 
-        </div>
+                    @foreach ($user->educations as $education)
+                    <div class="review-content no-padding">		
+                        <h4 class="text-primary">{{ $education->degree }}, {{ $education->field_of_study }}</h4>
+                        <div class="rating">							
+                            <strong>{{ $education->school }}</strong><span class="ms-2 average-rating">({{ $education->from }} - {{ $education->to }})</span>                                
+                        </div>
+                        
+                    </div>	
                     
-    </div>
+
+                        @endforeach
+                    </div>
+
+                    </div>
+                            
+                </div>
             </section>
     
         </div>
@@ -186,7 +185,6 @@
     
 </div>
 
-    
     
     
 

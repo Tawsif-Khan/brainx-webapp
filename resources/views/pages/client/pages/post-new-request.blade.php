@@ -151,7 +151,7 @@ ul li{
 
                                         <div class="row">
                                             <label class="col-md-6">
-                                                <input type="radio" name="job_type" checked  value="    " onclick="show_duration_box()" /> Hire remote AI contractor
+                                                <input type="radio" name="job_type" checked  value="Hire remote AI contractor" onclick="show_duration_box()" /> Hire remote AI contractor
                                             </label>
                                             <label class="col-md-6">
                                                 <input type="radio" name="job_type" id="outsource" value="Outsource AI projects" onclick="hide_duration_box()" /> Outsource AI projects

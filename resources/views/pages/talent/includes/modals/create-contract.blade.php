@@ -47,18 +47,27 @@
                                             <label for="" class="h4">Contract type</label>
                                             <div class="d-flex row">
                                                 <label for="hourly" class="col-md-6">
-                                                    <input type="checkbox" name="contract_type" class="me-2 " id="hourly"/> Hourly rate
+                                                    <input type="radio" name="contract_type" class="me-2 " id="hourly"/> Hourly rate
                                                 </label>
                                                 <label for="fixed" class="col-md-6">
-                                                    <input type="checkbox" name="contract_type" class="me-2 " id="fixed"/> Fixed price
+                                                    <input type="radio" name="contract_type" class="me-2 " id="fixed"/> Fixed price
                                                 </label>
                                             </div>
                                         </div>
                                         <input type="hidden" name="job_id" value="{{ $job->job_id }}">
                                         <table class="table">
-                                            <tr>
+                                            <tr class="fixed_box">
                                                 <td>
                                                     <strong>Fixed price</strong>
+                                                    <p>Set your hourly rate for this contract</p>
+                                                </td>
+                                                <td>
+                                                    <input type="number" name="fixed_price" class="form-control" onkeyup="update(this)"/>
+                                                </td>
+                                            </tr>
+                                            <tr class="hourly_box">
+                                                <td>
+                                                    <strong>Your hourly rate</strong>
                                                     <p>Total budget for this contract</p>
                                                 </td>
                                                 <td>
@@ -78,6 +87,33 @@
                                                 <td>
                                                     <strong>You’ll receive</strong>
                                                     <p>The amount you receive after service fee</p>
+                                                </td>
+                                                <td>
+                                                    <input type="number" name="talent_receive" readonly id="talent_receive" class="form-control"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>Hours per week</strong>
+                                                    <p>Number of hours you work weekly for this contract</p>
+                                                </td>
+                                                <td>
+                                                    <input type="number" name="talent_receive" readonly id="talent_receive" class="form-control"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>Client deposit</strong>
+                                                    <p>The amount client deposits in escrow. Hourly rate x Hours per week</p>
+                                                </td>
+                                                <td>
+                                                    <input type="number" name="talent_receive" readonly id="talent_receive" class="form-control"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>Duration</strong>
+                                                    <p>Number of weeks</p>
                                                 </td>
                                                 <td>
                                                     <input type="number" name="talent_receive" readonly id="talent_receive" class="form-control"/>

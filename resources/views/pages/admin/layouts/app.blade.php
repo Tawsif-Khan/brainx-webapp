@@ -170,6 +170,6 @@
 		
 		<!-- Custom JS -->
 		<script src="/admin/assets/js/script.js"></script>
-
+		@yield('custom-js')
 	</body>
 </html>

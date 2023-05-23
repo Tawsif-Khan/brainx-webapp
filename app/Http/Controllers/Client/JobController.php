@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Job;
 use App\Models\Message;
 use App\Models\Action;
+use App\Models\User;
 use Auth;
 
 class JobController extends Controller
@@ -86,4 +87,14 @@ class JobController extends Controller
         return redirect()->route('client.job.details',['id' => $job->job_id]);
 
     }
+
+    public function showTalentProfile($id)
+    {   
+        $id = decrypt($id);
+        
+        $user = User::with('talent')->with('experiences')->with('educations')->find($id);
+
+        return view('pages.client.pages.talent-profile')->with('user', $user);
+    }
+
 }

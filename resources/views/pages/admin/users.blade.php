@@ -74,6 +74,9 @@
                                                 <option value="IN_REVIEW" @if ($user->talent->status == 'IN_REVIEW')
                                                     {{ 'selected' }}
                                                 @endif>IN_REVIEW</option>
+                                                <option value="PUBLISHED" @if ($user->talent->status == 'PUBLISHED')
+                                                    {{ 'selected' }}
+                                                @endif>PUBLISHED</option>
                                             </select>
                                         </form>
                                             </td>

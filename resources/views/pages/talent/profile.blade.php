@@ -38,8 +38,10 @@
         <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-
-            <h4 class="mb-5 text-center text-primary">Your profile is pending for review</h4>
+            @if ($user->talent->status == 'IN_REVIEW')
+                
+            <h4 class="mb-5 text-center text-primary">This profile is pending for review</h4>
+            @endif
             <div class="row m-5">
                 <div class="col-md-3 ">
                     <div class="img-profile">
@@ -97,7 +99,7 @@
                                 @foreach ($skills as $key => $items)
                                 <li class="col-md-6 mt-3">
                                     <h5>{{ $key }}</h5>
-                                    <ul id="skill-lists" class="list-inline">
+                                    <ul class="list-inline">
                                         @foreach ($items as $item)
                                         <li class="btn btn-rounded btn-outline-primary list-inline-item">
                                             {{ ($item) }}
@@ -118,16 +120,31 @@
                 <div class="row border m-5">
                     <div class="col-md-12 p-5">
                         <div class="d-flex">
-                            <h4 class="text-muted">
+                            <h4 class="text-primary">
                                 Experience
                             </h4>
-                            <button class="btn btn-outline-dark btn-rounded" disabled>+</button>
+                            <button class="btn btn-outline-dark btn-rounded" data-bs-target="#add-experience" data-bs-toggle="modal">+</button>
                         </div>
                         <div class="ms-3">
-                        {{-- @foreach ($data['Experience'] as $item)
-                                
-                            {{ $item }} <br/>
-                        @endforeach --}}
+                        @foreach ($user->experiences as $experience)
+                        <div class="review-content no-padding">		
+                            <h4 class="text-primary">{{ $experience->title }}</h4>
+                            <div class="rating">							
+                                <strong>{{ $experience->company }}</strong><span class="ms-2 average-rating">{{ $experience->from }} - {{ $experience->to }}</span>                                
+                            </div>
+                            <p class="mb-0"> {{ $experience->description }}</p>
+                            <div>
+                                <strong>Skills: </strong>
+                                 @php
+                                 if($experience->skills != null)
+                                     echo $experience->skills;
+                                 @endphp
+
+                            </div>
+                        </div>	
+                        
+
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -137,22 +154,29 @@
                 <div class="row border m-5">
                     <div class="col-md-12 p-5">
                         <div class="d-flex">
-                <h4 class="text-muted">
+                <h4 class="text-primary">
                     Education
                 </h4>
-                <button class="btn btn-outline-dark btn-rounded" disabled>+</button>
+                <button class="btn btn-outline-dark btn-rounded" data-bs-target="#add-education" data-bs-toggle="modal">+</button>
                         </div>
                 <div class="ms-3">
 
-                {{-- @foreach ($data['Education'] as $item)
+                    @foreach ($user->educations as $education)
+                    <div class="review-content no-padding">		
+                        <h4 class="text-primary">{{ $education->degree }}, {{ $education->field_of_study }}</h4>
+                        <div class="rating">							
+                            <strong>{{ $education->school }}</strong><span class="ms-2 average-rating">({{ $education->from }} - {{ $education->to }})</span>                                
+                        </div>
+                        
+                    </div>	
                     
-                    {{ $item }} <br/>
-                @endforeach --}}
-            </div>
 
-        </div>
-                    
-    </div>
+                        @endforeach
+                    </div>
+
+                    </div>
+                            
+                </div>
             </section>
     
         </div>
@@ -162,7 +186,8 @@
     </div>
     
 </div>
-
+@include('pages.talent.includes.modals.add-education')
+@include('pages.talent.includes.modals.add-experience')
     
     
     

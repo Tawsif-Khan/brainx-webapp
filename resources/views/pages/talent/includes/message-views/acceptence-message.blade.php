@@ -9,11 +9,22 @@
             </div>
         </div>
         <div class="media-body flex-grow-1">
-            <div class="user-name"> {{ ($action->sender_id == Auth::user()->id)? Auth::user()->name: $action->talent->name }} </div>
-            <div class="user-status"> {{ $action->message->message }} </div>
-            <a href="" data-bs-toggle="modal" data-bs-target="#preview-contract">View the contract</a>
+            
+            
+                <div class="user-name">{{ $action->sender->name }} </div>               
+         
+
+            <div class="user-status">{{ $action->message->message }}</div>
         </div>
     </div>
     
     
 </div>
+
+@if($action->action_type == 'ACCEPTENCE_MESSAGE')
+    <div class="ms-5 ps-1 mt-3">
+        <a href="{{ route('show.profile', encrypt($action->sender_id)) }}">
+        <button class="btn btn-primary ms-4" type="button" target="_blank">My profile</button>
+    </a>
+    </div>
+@endif

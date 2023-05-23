@@ -8,6 +8,10 @@ use App\Models\User;
 use App\Models\Category;
 use App\Models\Talent;
 use App\Models\TalentSkill;
+use App\Models\Experience;
+use App\Models\Education;
+use App\Models\Action;
+use App\Models\Message;
 use CV;
 
 class TalentProfileController extends Controller
@@ -31,13 +35,15 @@ class TalentProfileController extends Controller
             $categories = Category::with('skills')->get();
             
             if(!isset($user->talent) || $user->talent->status == "INCOMPLETE"){
-            
+           
+                
                 return view('pages.talent.build-profile')->with('user', $user)->with('categories', $categories);
-            }else if($user->talent->status == "PUBLISHED"){
-                return redirect()->route('talent.job.detail');
-            }else{
-                return view('pages.talent.pending-profile')->with('user', $user)->with('categories', $categories);
+            }else {//if($user->talent->status == "PUBLISHED"){
+                return redirect()->route('talent.care');
             }
+            // else{
+            //     return view('pages.talent.pending-profile')->with('user', $user)->with('categories', $categories);
+            // }
         }
         return redirect('/');
     }
@@ -99,8 +105,19 @@ class TalentProfileController extends Controller
         
         $skills = TalentSkill::insert($data);
         }
+        $action = Action::create([
+            'job_id' => null,
+            'sender_id' => null,
+            'receiver_id' => Auth::user()->id,
+            'action_type' => 'MESSAGE_WITH_MY_PROFILE'
+        ]);
+        $message = Message::create([
+            'sender_id' => null,
+            'action_id' => $action->id,
+            'message' => 'We’re excited to receive your profile. Please kindly give us time to review your profile. You will be notified via email when you’re accepted. Thank you for joining us!'
+        ]);
 
-        return redirect()->route('talent.pending');
+        return redirect()->route('talent.care');
     }
 
     public function uploadResume($file)
@@ -145,6 +162,35 @@ class TalentProfileController extends Controller
         return false;
     }
 
+    function addExperience(Request $request){
+
+        $experience = Experience::create([
+            'title' => $request->title,
+            'company' => $request->company,
+            'from' => $request->from,
+            'to' => $request->present? 'Present':$request->to,
+            'skills' => $request->skills,
+            'description' => $request->description,
+            'user_id' => Auth::user()->id            
+        ]);
+        
+        return redirect()->route('show.profile', encrypt(Auth::user()->id));
+    }
+
+    function addEducation(Request $request){
+
+        $experience = Education::create([
+            'degree' => $request->degree,
+            'school' => $request->school,
+            'from' => $request->from,
+            'to' => $request->to,
+            'field_of_study' => $request->field_of_study  ,
+            'user_id' => Auth::user()->id                 
+        ]);
+        
+        return redirect()->route('show.profile', encrypt(Auth::user()->id));
+    }
+
     /**
      * Display the specified resource.
      *
@@ -153,48 +199,17 @@ class TalentProfileController extends Controller
      */
     public function show($id)
     {   
-        
         $id = decrypt($id);
         $title = ['Experience','Education'];
 
-        $user = User::with('talent')->find($id);
+        $categories = Category::with('skills')->get();
+        $user = User::with('talent')->with('experiences')->with('educations')->find($id);
 
-        return view('pages.talent.profile')->with('user', $user);
+        return view('pages.talent.profile')->with('user', $user)->with('categories', $categories);
     }
 
-    public function extractResume(){
-        // Init
-$resumeParser = new \LinkedInResumeParser\Parser();
-$parsedResume = $resumeParser->parse(__DIR__.'/../../../public/resumes/21680031331.pdf');
- 
-// Get Name
-echo $parsedResume->getName();
- 
-// Get Email
-echo $parsedResume->getEmail();
- 
-// Get LinkedIn Profile URL
-echo $parsedResume->getUrl();
- 
-// Get Summary
-echo $parsedResume->getSummary();
- 
-// Get Work Experiences
-$experiences = $parsedResume->getExperiences();
-if (count($experiences) > 0) {
-    foreach ($experiences as $experience) {
-        echo $experience->getTitle() . ' at ' . $experience->getOrganisation() . ' (' . date_format($experience->getStart(), 'F Y') . ' - ' . date_format($experience->getEnd(), 'F Y') . ')';
-    }
-}
- 
-// Get Education
-$education = $parsedResume->getEducation();
-if (count($education) > 0) {
-    foreach ($education as $edu) {
-        echo $edu->getLevel() . ', ' . $edu->getCourseTitle() . ' at ' . $edu->getInstitution() . ' (' . date_format($edu->getStart(), 'Y') . ' - ' . date_format($edu->getEnd(), 'Y') . ')';
-    }
-}
-    }
+    
+    
 
     /**
      * Show the form for editing the specified resource.

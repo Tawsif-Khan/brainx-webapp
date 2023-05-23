@@ -85,8 +85,8 @@
     
             </div>
             <h4>Verify your email to proceed</h4>
-            <p>We just sent an email to the address ... </p>
-            <p>Please check your email and click on the link provided to verify your address</p>
+            <p>We just sent you an email. <br/>Please click on the link provided to verify your email </p>
+
             @if (session('resent'))
                 <div class="alert alert-success" role="alert">
                     A fresh verification link has been sent to your email address.

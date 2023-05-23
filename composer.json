@@ -19,7 +19,8 @@
         "laravel/tinker": "^2.7",
         "pelago/emogrifier": "5.0.0",
         "phpoffice/phpword": "^1.0",
-        "tightenco/ziggy": "^1.0"
+        "tightenco/ziggy": "^1.0",
+        "torann/geoip": "^3.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

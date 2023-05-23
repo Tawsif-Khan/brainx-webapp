@@ -15,6 +15,7 @@ class VerifyCsrfToken extends Middleware
         'admin.login.form',
         'admin.login',
         'client.login',
-        'client.register'
+        'client.register',
+        'logout'
     ];
 }
